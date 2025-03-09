@@ -7,7 +7,7 @@ To set the plugin up on Linux, run
 
 ```bash
 cd ~/.config/xournalpp/plugins
-git clone https://github.com/raw-bacon/vi-xournalpp
+git clone https://github.com/lryffel/vi-xournalpp
 ```
 
 In Xournal++, activate the plugin using the _Plugin Manager_
