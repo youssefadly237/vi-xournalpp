@@ -5,10 +5,19 @@ version 1.1.x and 1.2.x.
 
 ## Installation
 
-To set the plugin up on Linux, run
+To set the plugin up
+
+- on Linux
 
 ```bash
 cd ~/.config/xournalpp/plugins
+git clone https://github.com/lryffel/vi-xournalpp
+```
+
+- on Windows (PowerShell)
+
+```bash
+cd $env:LOCALAPPDATA\xournalpp\plugins
 git clone https://github.com/lryffel/vi-xournalpp
 ```
 
