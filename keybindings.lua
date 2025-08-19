@@ -21,7 +21,7 @@ keybindings = {
     description = "Pen",
     buttons     = {"w"},
     modes       = {"tool"},
-    call        = function() clickPen() ; cleanShape() end
+    call        = function() clickPen() ; cleanShape() ; clickPlain() end
   },
   eraser = {
     description = "Eraser",
@@ -33,7 +33,7 @@ keybindings = {
     description = "Highlighter",
     buttons     = {"f"},
     modes       = {"tool"},
-    call        = function() clickHighlighter() ; cleanShape() end
+    call        = function() clickHighlighter() ; cleanShape() ; clickPlain() end
   },
   hand = {
     description = "Hand",
