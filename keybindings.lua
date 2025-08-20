@@ -577,17 +577,47 @@ function cleanShape()
 	clickFill(false)
 end
 
--- 't' is skipped to allow exiting sticky color mode; 'g' and 'b' are skipped for better finger grid ergonomics (4.4.4 layout is easier to reach than 4.5.5)
-local color_buttons = { "q", "w", "e", "r", "a", "s", "d", "f", "z", "x", "c", "v" }
+-- Color button layouts
+local LAYOUTS = {
+	mnemonic = {
+		"x", -- black
+		"h", -- green
+		"c", -- light blue (cyan)
+		"f", -- light green
+		"b", -- blue
+		"d", -- gray
+		"r", -- red
+		"q", -- magenta (pinQ)
+		"e", -- orange
+		"y", -- yellow
+		"w", -- white
+	},
+	grid = {
+		"q", "w", "e", "r",
+		"a", "s", "d", "f",
+		"z", "x", "c", "v"
+	}
+}
+
+-- Choose layout manually here before starting Xournal++
+local use_vi_layout = true
+local color_buttons = use_vi_layout and LAYOUTS.mnemonic or LAYOUTS.grid
+
 local shift_color_buttons = {}
-for _, btn in ipairs(color_buttons) do
-	table.insert(shift_color_buttons, "<Shift>" .. btn)
-end
 
 -- Generate color keybindings
 local function setupColorKeybindings()
+	-- Generate shift keys for current layout
+	shift_color_buttons = {}
+	for _, btn in ipairs(color_buttons) do
+		table.insert(shift_color_buttons, "<Shift>" .. btn)
+	end
+
 	local palette = nil
-	local ok = pcall(function() palette = getColorPallate() end)
+	local ok = pcall(function()
+		palette = getColorPallate()
+	end)
+
 	if ok and type(palette) == "table" and #palette > 0 then
 		for i = 1, math.min(#palette, #color_buttons + #shift_color_buttons) do
 			local btn = i <= #color_buttons and color_buttons[i] or shift_color_buttons[i - #color_buttons]
@@ -595,15 +625,20 @@ local function setupColorKeybindings()
 				description = "Color " .. tostring(i) .. " (" .. palette[i].name .. ")",
 				buttons = { btn },
 				modes = { "color" },
-				call = function() changeToolColor(palette[i].color) end,
+				call = function()
+					changeToolColor(palette[i].color)
+				end,
 			}
 		end
+
 		-- Map <Ctrl>r to refresh color keybindings
 		keybindings.refreshColors = {
 			description = "Refresh color keybindings",
 			buttons = { "<Ctrl>r" },
 			modes = { "color" },
-			call = function() refreshColorKeybindings() end,
+			call = function()
+				refreshColorKeybindings()
+			end,
 		}
 	else
 		for i, entry in ipairs(static_colors) do
@@ -611,7 +646,9 @@ local function setupColorKeybindings()
 				description = entry.name,
 				buttons = entry.buttons,
 				modes = { "color" },
-				call = function() changeToolColor(entry.color) end,
+				call = function()
+					changeToolColor(entry.color)
+				end,
 			}
 		end
 	end
