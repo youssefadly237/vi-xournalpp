@@ -1,5 +1,7 @@
 -- require "modes"
 require("api")
+local colors = require("colors")
+local static_colors = colors.static_colors
 
 ALL_MODES = {
 	"tool",
@@ -575,34 +577,38 @@ function cleanShape()
 	clickFill(false)
 end
 
--- Dynamic color keybindings
-local color_buttons = { "q", "w", "e", "r", "t", "a", "s", "d", "f", "g", "z", "x", "c", "v", "b" }
+
+-- 't' is skipped to allow exiting sticky color mode; 'g' and 'b' are skipped for better finger grid ergonomics (4.4.4 layout is easier to reach than 4.5.5)
+local color_buttons = { "q", "w", "e", "r", "a", "s", "d", "f", "z", "x", "c", "v" } 
 local shift_color_buttons = {}
 for _, btn in ipairs(color_buttons) do
-	table.insert(shift_color_buttons, "<Shift>" .. btn)
+    table.insert(shift_color_buttons, "<Shift>" .. btn)
 end
 
 -- Generate color keybindings
 local function setupColorKeybindings()
-	local palette = getColorPallate()
-	for i = 1, #palette do
-		local btn
-		if i <= #color_buttons then
-			btn = color_buttons[i]
-		elseif i <= #color_buttons + #shift_color_buttons then
-			btn = shift_color_buttons[i - #color_buttons]
-		else
-			break -- Don't map more colors than buttons available
-		end
-		keybindings["color_" .. tostring(i)] = {
-			description = "Color " .. tostring(i) .. " (" .. palette[i].name .. ")",
-			buttons = { btn },
-			modes = { "color" },
-			call = function()
-				changeToolColor(palette[i].color)
-			end,
-		}
-	end
+    local palette = nil
+    pcall(function() palette = getColorPallate() end)
+    if type(palette) == "table" and #palette > 0 then
+        for i = 1, math.min(#palette, #color_buttons + #shift_color_buttons) do
+            local btn = i <= #color_buttons and color_buttons[i] or shift_color_buttons[i - #color_buttons]
+            keybindings["color_" .. tostring(i)] = {
+                description = "Color " .. tostring(i) .. " (" .. palette[i].name .. ")",
+                buttons = { btn },
+                modes = { "color" },
+                call = function() changeToolColor(palette[i].color) end,
+            }
+        end
+    else
+        for i, entry in ipairs(static_colors) do
+            keybindings[entry.name:lower()] = {
+                description = entry.name,
+                buttons = entry.buttons,
+                modes = { "color" },
+                call = function() changeToolColor(entry.color) end,
+            }
+        end
+    end
 end
 
 setupColorKeybindings()
