@@ -600,8 +600,8 @@ local LAYOUTS = {
 }
 
 -- Choose layout manually here before starting Xournal++
-local use_vi_layout = true
-local color_buttons = use_vi_layout and LAYOUTS.mnemonic or LAYOUTS.grid
+local use_mnemonic_layout = true
+local color_buttons = use_mnemonic_layout and LAYOUTS.mnemonic or LAYOUTS.grid
 
 local shift_color_buttons = {}
 
