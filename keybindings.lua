@@ -577,38 +577,55 @@ function cleanShape()
 	clickFill(false)
 end
 
-
 -- 't' is skipped to allow exiting sticky color mode; 'g' and 'b' are skipped for better finger grid ergonomics (4.4.4 layout is easier to reach than 4.5.5)
-local color_buttons = { "q", "w", "e", "r", "a", "s", "d", "f", "z", "x", "c", "v" } 
+local color_buttons = { "q", "w", "e", "r", "a", "s", "d", "f", "z", "x", "c", "v" }
 local shift_color_buttons = {}
 for _, btn in ipairs(color_buttons) do
-    table.insert(shift_color_buttons, "<Shift>" .. btn)
+	table.insert(shift_color_buttons, "<Shift>" .. btn)
 end
 
 -- Generate color keybindings
 local function setupColorKeybindings()
-    local palette = nil
-    pcall(function() palette = getColorPallate() end)
-    if type(palette) == "table" and #palette > 0 then
-        for i = 1, math.min(#palette, #color_buttons + #shift_color_buttons) do
-            local btn = i <= #color_buttons and color_buttons[i] or shift_color_buttons[i - #color_buttons]
-            keybindings["color_" .. tostring(i)] = {
-                description = "Color " .. tostring(i) .. " (" .. palette[i].name .. ")",
-                buttons = { btn },
-                modes = { "color" },
-                call = function() changeToolColor(palette[i].color) end,
-            }
-        end
-    else
-        for i, entry in ipairs(static_colors) do
-            keybindings[entry.name:lower()] = {
-                description = entry.name,
-                buttons = entry.buttons,
-                modes = { "color" },
-                call = function() changeToolColor(entry.color) end,
-            }
-        end
-    end
+	local palette = nil
+	local ok = pcall(function() palette = getColorPallate() end)
+	if ok and type(palette) == "table" and #palette > 0 then
+		for i = 1, math.min(#palette, #color_buttons + #shift_color_buttons) do
+			local btn = i <= #color_buttons and color_buttons[i] or shift_color_buttons[i - #color_buttons]
+			keybindings["color_" .. tostring(i)] = {
+				description = "Color " .. tostring(i) .. " (" .. palette[i].name .. ")",
+				buttons = { btn },
+				modes = { "color" },
+				call = function() changeToolColor(palette[i].color) end,
+			}
+		end
+		-- Map <Ctrl>r to refresh color keybindings
+		keybindings.refreshColors = {
+			description = "Refresh color keybindings",
+			buttons = { "<Ctrl>r" },
+			modes = { "color" },
+			call = function() refreshColorKeybindings() end,
+		}
+	else
+		for i, entry in ipairs(static_colors) do
+			keybindings[entry.name:lower()] = {
+				description = entry.name,
+				buttons = entry.buttons,
+				modes = { "color" },
+				call = function() changeToolColor(entry.color) end,
+			}
+		end
+	end
 end
 
 setupColorKeybindings()
+
+-- Refresh color keybindings (removes old color mappings and regenerates)
+function refreshColorKeybindings()
+	-- Remove dynamic color keybindings
+	for k in pairs(keybindings) do
+		if k:match("^color_") or (keybindings[k].modes and keybindings[k].modes[1] == "color") then
+			keybindings[k] = nil
+		end
+	end
+	setupColorKeybindings()
+end
