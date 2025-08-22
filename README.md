@@ -3,6 +3,8 @@
 This is a tiny plugin for [Xournal++](https://github.com/xournalpp/xournalpp),
 version 1.1.x and 1.2.x.
 
+## THIS BRANCH IS NOT MEANT FOR PRODUCTION, IT IS FOR PERSONAL USE, IT USES LOCAL BUILT VERSION OF XOURNAL++, DO NOT ATTEMPT TO USE IT BECAUSE IT WONT BE SMOOTH IF YOU DON'T KNOW WHAT ARE YOU DOING
+
 ## Installation
 
 To set the plugin up
