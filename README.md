@@ -1,9 +1,28 @@
 # vi-xournalpp
 
-This is a tiny plugin for [Xournal++](https://github.com/xournalpp/xournalpp),
-version 1.1.x and 1.2.x.
+A Vi-like modal editing plugin for [Xournal++](https://github.com/xournalpp/xournalpp), version 1.1.x and 1.2.x.
 
-## THIS BRANCH IS NOT MEANT FOR PRODUCTION, IT IS FOR PERSONAL USE, IT USES LOCAL BUILT VERSION OF XOURNAL++, DO NOT ATTEMPT TO USE IT BECAUSE IT WONT BE SMOOTH IF YOU DON'T KNOW WHAT ARE YOU DOING
+## Branch Status
+
+This branch is actively maintained for personal use and is not an official release, but it is very stable in my experience.
+
+- Contains personal enhancements and a restructured codebase.
+- Planning to discuss these changes with the original author to see if they are interested in merging some or all improvements upstream.
+
+**Notable differences from upstream:**
+
+- Reorganized module structure for maintainability (see `core/`, `api/`, `keybindings/`).
+- Personal default keybindings and configuration tweaks.
+- Dynamic color support and other enhancements documented in the repository.
+
+---
+
+**Note:** Parts of this README may be outdated and will be updated in upcoming commits.
+
+### Planned updates
+
+- Complete the rest of the [API](api/TODO.md).
+- Refine keybindings to a grid-like layout for improved ergonomics and memorization, especially for users holding a stylus in the right hand and using the keyboard with the left.
 
 ## Installation
 
