@@ -7,7 +7,7 @@ return {
     buttons = { "g" },
     modes = { "navigation" },
     call = function()
-      api.clickGoToTop()
+      api.ClickGoToTop()
     end,
   },
   goToBottom = {
@@ -15,7 +15,7 @@ return {
     buttons = { "<Shift>g" },
     modes = { "navigation" },
     call = function()
-      api.clickGoToBottom()
+      api.ClickGoToBottom()
     end,
   },
   scrollPageDown = {
@@ -23,7 +23,7 @@ return {
     buttons = { "<Ctrl>d" },
     modes = { "navigation" },
     call = function()
-      api.clickScrollPageDown()
+      api.ClickScrollPageDown()
     end,
   },
   scrollPageUp = {
@@ -31,7 +31,7 @@ return {
     buttons = { "<Ctrl>u" },
     modes = { "navigation" },
     call = function()
-      api.clickScrollPageUp()
+      api.ClickScrollPageUp()
     end,
   },
   layerUp = {
@@ -39,7 +39,7 @@ return {
     buttons = { "k" },
     modes = { "navigation" },
     call = function()
-      api.clickLayerUp()
+      api.ClickLayerUp()
     end,
   },
   layerDown = {
@@ -47,7 +47,7 @@ return {
     buttons = { "j" },
     modes = { "navigation" },
     call = function()
-      api.clickLayerDown()
+      api.ClickLayerDown()
     end,
   },
 
@@ -57,7 +57,7 @@ return {
     buttons = { "<Ctrl>plus" },
     modes = { "navigation" },
     call = function()
-      api.clickZoomIn()
+      api.ClickZoomIn()
     end,
   },
   zoomOut = {
@@ -65,7 +65,7 @@ return {
     buttons = { "<Ctrl>minus" },
     modes = { "navigation" },
     call = function()
-      api.clickZoomOut()
+      api.ClickZoomOut()
     end,
   },
 }

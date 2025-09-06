@@ -8,16 +8,17 @@
 
 *Note: This shows the static color palette. In newer versions, colors are loaded dynamically from Xournal++'s current palette.*
 
-* Black: `x`
-* Blue: `b`
-* Cyan: `c`
-* Green: `g`
-* Orange: `o`
-* Pink: `q`
-* Purple: `p`, `a`
-* Red: `r`
-* White: `w`
-* Yellow: `y`
+* color_1: `q`
+* color_10: `x`
+* color_2: `w`
+* color_3: `e`
+* color_4: `r`
+* color_5: `a`
+* color_6: `s`
+* color_7: `d`
+* color_8: `f`
+* color_9: `z`
+* Refresh color keybindings: `<Ctrl>r`
 
 ## file mode
 
@@ -91,19 +92,27 @@
 
 ## tool mode
 
-* Delete: `d`
+* Copy: `c`
+* Cut: `x`
+* Cycle Linestyle: `a`
+* Delete: `<Shift>x`
 * Eraser: `e`
 * Fine: `t`
-* Hand (Scroll): `s`
+* Hand (Scroll): `<Shift>d`
 * Highlighter: `f`
-* Lasso Selection: `v`
-* LaTeX: `n`
+* Laser Highlighter: `<Shift>f`
+* Laser Pen: `<Shift>w`
+* Lasso Selection: `<Shift>s`
 * Medium: `g`
 * New Page After (Quick Access): `o`
+* Next Color: `r`
+* Paste: `v`
 * Pen: `w`
-* Rectangle Selection: `i`
-* Redo: `<Ctrl>r`
-* Text: `x`
+* Previous Color: `q`
+* Rectangle Selection: `s`
+* Redo: `<shift>z`
+* Select Linear Text: `d`
+* Set Plain Linestyle: `<Shift>a`
 * Thick: `b`
 * Undo: `z`
 * Very Fine: `<Shift>t`

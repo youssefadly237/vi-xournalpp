@@ -7,7 +7,7 @@ return {
     buttons = { "a" },
     modes = { "file" },
     call = function()
-      api.clickAnnotatePDF()
+      api.ClickAnnotatePDF()
     end,
   },
   exportAsPDF = {
@@ -15,7 +15,7 @@ return {
     buttons = { "e" },
     modes = { "file" },
     call = function()
-      api.clickExportAsPDF()
+      api.ClickExportAsPDF()
     end,
   },
   save = {
@@ -23,7 +23,7 @@ return {
     buttons = { "s" },
     modes = { "file" },
     call = function()
-      api.clickSave()
+      api.ClickSave()
     end,
   },
   saveAs = {
@@ -31,7 +31,7 @@ return {
     buttons = { "<Shift>s" },
     modes = { "file" },
     call = function()
-      api.clickSave()
+      api.ClickSave()
     end,
   },
   open = {
@@ -39,7 +39,7 @@ return {
     buttons = { "o" },
     modes = { "file" },
     call = function()
-      api.clickOpen()
+      api.ClickOpen()
     end,
   },
 }

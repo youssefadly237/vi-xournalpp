@@ -2,14 +2,14 @@ local api = require("api.api")
 local utils = require("core.utils")
 
 return {
+  -- Primary tools
   pen = {
     description = "Pen",
     buttons = { "w" },
     modes = { "tool" },
     call = function()
-      api.clickPen()
+      api.ClickPen()
       utils.cleanShape()
-      api.clickPlain()
     end,
   },
   eraser = {
@@ -17,34 +17,8 @@ return {
     buttons = { "e" },
     modes = { "tool" },
     call = function()
-      api.clickEraser()
+      api.ClickEraser()
       utils.cleanShape()
-    end,
-  },
-  tex = {
-    description = "LaTeX",
-    buttons = { "n" },
-    modes = { "tool" },
-    call = function()
-      api.clickTex()
-      utils.cleanShape()
-    end,
-  },
-  hand = {
-    description = "Hand (Scroll)",
-    buttons = { "s" },
-    modes = { "tool" },
-    call = function()
-      api.clickHand()
-      utils.cleanShape()
-    end,
-  },
-  delete = {
-    description = "Delete",
-    buttons = { "d" },
-    modes = { "tool" },
-    call = function()
-      api.clickDelete()
     end,
   },
   highlighter = {
@@ -52,60 +26,150 @@ return {
     buttons = { "f" },
     modes = { "tool" },
     call = function()
-      api.clickHighlighter()
+      api.ClickHighlighter()
       utils.cleanShape()
-      api.clickPlain()
+    end,
+  },
+  laserPen = {
+    description = "Laser Pen",
+    buttons = { "<Shift>w" },
+    modes = { "tool" },
+    call = function()
+      ClickLaserPen()
+      utils.cleanShape()
+    end,
+  },
+  laserHighlighter = {
+    description = "Laser Highlighter",
+    buttons = { "<Shift>f" },
+    modes = { "tool" },
+    call = function()
+      api.ClickLaserHighlighter()
+      utils.cleanShape()
+    end,
+  },
+  hand = {
+    description = "Hand (Scroll)",
+    buttons = { "<Shift>d" },
+    modes = { "tool" },
+    call = function()
+      api.ClickHand()
+      utils.cleanShape()
     end,
   },
 
-  -- Bottom Row (Z X C V)
-  -- Z reserved for thickness
-  text = {
-    description = "Text",
-    buttons = { "x" },
+  -- Color cycling (Next, Previous) - Known Issues: can not detect current color, may fix it with toolInfo later
+  nextColor = {
+    description = "Next Color",
+    buttons = { "r" },
     modes = { "tool" },
     call = function()
-      api.clickText()
-      utils.cleanShape()
+      utils.nextColor()
     end,
   },
-  -- C reserved for color mode access via m->c
-  selection = {
-    description = "Lasso Selection",
-    buttons = { "v" },
+  previousColor = {
+    description = "Previous Color",
+    buttons = { "q" },
     modes = { "tool" },
     call = function()
-      api.clickSelectRegion()
-      utils.cleanShape()
+      utils.previousColor()
     end,
   },
 
-  -- Additional tool
+  -- Basic Selection
   selectRect = {
     description = "Rectangle Selection",
-    buttons = { "i" },
+    buttons = { "s" },
     modes = { "tool" },
     call = function()
-      api.clickSelectRectangle()
+      api.ClickSelectRectangle()
+      utils.cleanShape()
+    end,
+  },
+  selection = {
+    description = "Lasso Selection",
+    buttons = { "<Shift>s" },
+    modes = { "tool" },
+    call = function()
+      api.ClickSelectRegion()
+      utils.cleanShape()
+    end,
+  },
+  selectTextLinear = {
+    description = "Select Linear Text",
+    buttons = { "d" },
+    modes = { "tool" },
+    call = function()
+      api.ClickSelectTextLinear()
       utils.cleanShape()
     end,
   },
 
-  -- History
+  -- Edit (Bottom Row)
   undo = {
     description = "Undo",
     buttons = { "z" },
     modes = { "tool" },
     call = function()
-      api.clickUndo()
+      api.ClickUndo()
     end,
   },
   redo = {
     description = "Redo",
-    buttons = { "<Ctrl>r" },
+    buttons = { "<shift>z" },
     modes = { "tool" },
     call = function()
-      api.clickRedo()
+      api.ClickRedo()
+    end,
+  },
+  cut = {
+    description = "Cut",
+    buttons = { "x" },
+    modes = { "tool" },
+    call = function()
+      api.ClickCut()
+    end,
+  },
+  delete = {
+    description = "Delete",
+    buttons = { "<Shift>x" },
+    modes = { "tool" },
+    call = function()
+      api.ClickDelete()
+    end,
+  },
+  copy = {
+    description = "Copy",
+    buttons = { "c" },
+    modes = { "tool" },
+    call = function()
+      api.ClickCopy()
+    end,
+  },
+  paste = {
+    description = "Paste",
+    buttons = { "v" },
+    modes = { "tool" },
+    call = function()
+      api.ClickPaste()
+    end,
+  },
+
+  -- Linestyle cycling - Known Issues: can not detect current style, will fix later
+  cycleLinestyle = {
+    description = "Cycle Linestyle",
+    buttons = { "a" },
+    modes = { "tool" },
+    call = function()
+      utils.cycleLinestyle()
+    end,
+  },
+  setPlainLinestyle = {
+    description = "Set Plain Linestyle",
+    buttons = { "<Shift>a" },
+    modes = { "tool" },
+    call = function()
+      utils.setPlainLinestyle()
     end,
   },
 
@@ -115,7 +179,7 @@ return {
     buttons = { "<Shift>t" },
     modes = { "tool" },
     call = function()
-      api.clickVeryFine()
+      api.ClickVeryFine()
     end,
   },
   fine = {
@@ -123,7 +187,7 @@ return {
     buttons = { "t" },
     modes = { "tool" },
     call = function()
-      api.clickFine()
+      api.ClickFine()
     end,
   },
   medium = {
@@ -131,7 +195,7 @@ return {
     buttons = { "g" },
     modes = { "tool" },
     call = function()
-      api.clickMedium()
+      api.ClickMedium()
     end,
   },
   thick = {
@@ -139,7 +203,7 @@ return {
     buttons = { "b" },
     modes = { "tool" },
     call = function()
-      api.clickThick()
+      api.ClickThick()
     end,
   },
   veryThick = {
@@ -147,7 +211,7 @@ return {
     buttons = { "<Shift>b" },
     modes = { "tool" },
     call = function()
-      api.clickVeryThick()
+      api.ClickVeryThick()
     end,
   },
 }
