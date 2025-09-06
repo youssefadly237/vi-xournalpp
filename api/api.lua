@@ -1,299 +1,292 @@
 -- src/core/plugin/ActionBackwardCompatibilityLayer.cpp --> xournalpp/xournalpp
 
--- Line width functions - kept as PascalCase for backward compatibility
--- The lowercase API functions are exported at the bottom of this file
+-- line width
 function ClickVeryFine()
-	app.uiAction({ ["action"] = "ACTION_SIZE_VERY_FINE" })
+  app.uiAction({ ["action"] = "ACTION_SIZE_VERY_FINE" })
 end
 
 function ClickFine()
-	app.uiAction({ ["action"] = "ACTION_SIZE_FINE" })
+  app.uiAction({ ["action"] = "ACTION_SIZE_FINE" })
 end
 
 function ClickMedium()
-	app.uiAction({ ["action"] = "ACTION_SIZE_MEDIUM" })
+  app.uiAction({ ["action"] = "ACTION_SIZE_MEDIUM" })
 end
 
 function ClickThick()
-	app.uiAction({ ["action"] = "ACTION_SIZE_THICK" })
+  app.uiAction({ ["action"] = "ACTION_SIZE_THICK" })
 end
 
 function ClickVeryThick()
-	app.uiAction({ ["action"] = "ACTION_SIZE_VERY_THICK" })
+  app.uiAction({ ["action"] = "ACTION_SIZE_VERY_THICK" })
 end
 
 -- tools
 function ClickPen()
-	app.uiAction({ ["action"] = "ACTION_TOOL_PEN" })
+  app.uiAction({ ["action"] = "ACTION_TOOL_PEN" })
 end
 
 -- tools
 function ClickLaserPen()
-	app.uiAction({ ["action"] = "ACTION_TOOL_PEN" })
+  app.uiAction({ ["action"] = "ACTION_TOOL_PEN" })
 end
 
 function ClickEraser()
-	app.uiAction({ ["action"] = "ACTION_TOOL_ERASER" })
+  app.uiAction({ ["action"] = "ACTION_TOOL_ERASER" })
 end
 
 function ClickHighlighter()
-	app.uiAction({ ["action"] = "ACTION_TOOL_HIGHLIGHTER" })
+  app.uiAction({ ["action"] = "ACTION_TOOL_HIGHLIGHTER" })
 end
 
 function ClickSelectRegion()
-	app.uiAction({ ["action"] = "ACTION_TOOL_SELECT_REGION" })
+  app.uiAction({ ["action"] = "ACTION_TOOL_SELECT_REGION" })
 end
 
 function ClickSelectRectangle()
-	app.uiAction({ ["action"] = "ACTION_TOOL_SELECT_RECT" })
+  app.uiAction({ ["action"] = "ACTION_TOOL_SELECT_RECT" })
 end
 
 function ClickSelectObject()
-	app.uiAction({ ["action"] = "ACTION_TOOL_SELECT_OBJECT" })
+  app.uiAction({ ["action"] = "ACTION_TOOL_SELECT_OBJECT" })
 end
 
 function ClickTex()
-	app.uiAction({ ["action"] = "ACTION_TEX" })
+  app.uiAction({ ["action"] = "ACTION_TEX" })
 end
 
 function ClickText()
-	app.uiAction({ ["action"] = "ACTION_TOOL_TEXT" })
+  app.uiAction({ ["action"] = "ACTION_TOOL_TEXT" })
 end
 
 function ClickHand()
-	app.uiAction({ ["action"] = "ACTION_TOOL_HAND" })
+  app.uiAction({ ["action"] = "ACTION_TOOL_HAND" })
 end
 
 function ClickDelete()
-	app.uiAction({ ["action"] = "ACTION_DELETE" })
+  app.uiAction({ ["action"] = "ACTION_DELETE" })
 end
 
 function GetToolInfo(tool)
-	return app.getToolInfo(tool)
+  return app.getToolInfo(tool)
 end
 
 -- shapes
 function ClickRuler(enabled)
-	app.uiAction({ ["action"] = "ACTION_RULER", ["enabled"] = enabled })
+  app.uiAction({ ["action"] = "ACTION_RULER", ["enabled"] = enabled })
 end
 
 function ClickArrow(enabled)
-	app.uiAction({ ["action"] = "ACTION_TOOL_DRAW_ARROW", ["enabled"] = enabled })
+  app.uiAction({ ["action"] = "ACTION_TOOL_DRAW_ARROW", ["enabled"] = enabled })
 end
 
 function ClickEllipse(enabled)
-	app.uiAction({ ["action"] = "ACTION_TOOL_DRAW_ELLIPSE", ["enabled"] = enabled })
+  app.uiAction({ ["action"] = "ACTION_TOOL_DRAW_ELLIPSE", ["enabled"] = enabled })
 end
 
 function ClickRectangle(enabled)
-	app.uiAction({ ["action"] = "ACTION_TOOL_DRAW_RECT", ["enabled"] = enabled })
+  app.uiAction({ ["action"] = "ACTION_TOOL_DRAW_RECT", ["enabled"] = enabled })
 end
 
 function ClickSpline(enabled)
-	app.uiAction({ ["action"] = "ACTION_TOOL_DRAW_SPLINE", ["enabled"] = enabled })
+  app.uiAction({ ["action"] = "ACTION_TOOL_DRAW_SPLINE", ["enabled"] = enabled })
 end
 
 function ClickPlain()
-	app.uiAction({ ["action"] = "ACTION_TOOL_LINE_STYLE_PLAIN" })
+  app.uiAction({ ["action"] = "ACTION_TOOL_LINE_STYLE_PLAIN" })
 end
 
 function ClickFill(enabled)
-	app.uiAction({ ["action"] = "ACTION_TOOL_FILL", ["selection"] = true, ["enabled"] = enabled })
+  app.uiAction({ ["action"] = "ACTION_TOOL_FILL", ["selection"] = true, ["enabled"] = enabled })
 end
 
 -- linestyle
 function ClickDotted()
-	app.uiAction({ ["action"] = "ACTION_TOOL_LINE_STYLE_DOT" })
+  app.uiAction({ ["action"] = "ACTION_TOOL_LINE_STYLE_DOT" })
 end
 
 function ClickDashed()
-	app.uiAction({ ["action"] = "ACTION_TOOL_LINE_STYLE_DASH" })
+  app.uiAction({ ["action"] = "ACTION_TOOL_LINE_STYLE_DASH" })
 end
 
 function ClickDashDotted()
-	app.uiAction({ ["action"] = "ACTION_TOOL_LINE_STYLE_DASH_DOT" })
+  app.uiAction({ ["action"] = "ACTION_TOOL_LINE_STYLE_DASH_DOT" })
 end
 
 -- color
 function GetColorPalette()
-	local palette = app.getColorPalette()
-	return palette
+  local palette = app.getColorPalette()
+  return palette
 end
 
-function ChangeToolColor(color)
-	-- get active tool
-	local activeToolInfo = GetToolInfo("active")
-	if not activeToolInfo then return end
-	local toolType = activeToolInfo["type"] or "unknown"
-	-- get the info for that specific tool
-	local toolInfo = GetToolInfo(toolType)
-	if not toolInfo then return end
-	-- Check if this tool really has a color property
-	if toolInfo["color"] ~= nil then
-		local ok = pcall(function()
-			app.changeToolColor({ ["color"] = color, ["selection"] = true })
-		end)
-		if ok and toolType ~= "text" then
-			pcall(function()
-				app.changeToolColor({ ["color"] = color, ["tool"] = "TEXT" })
-			end)
-		end
-	else
-		print(toolType .. " does not support color")
-	end
+function ChangeToolColor(color, colorName)
+  local activeToolInfo = GetToolInfo("active")
+  local toolName = (activeToolInfo and activeToolInfo["type"]) or "unknown tool"
+
+  local ok = pcall(function()
+    app.changeToolColor({ color = color, selection = true })
+  end)
+
+  if ok then
+    if colorName then
+      print("Color: " .. colorName)
+    end
+  else
+    print(toolName .. " does not support color")
+  end
 end
 
 -- zooming
 function ClickZoomIn()
-	app.uiAction({ ["action"] = "ACTION_ZOOM_IN" })
+  app.uiAction({ ["action"] = "ACTION_ZOOM_IN" })
 end
 
 function ClickZoomOut()
-	app.uiAction({ ["action"] = "ACTION_ZOOM_OUT" })
+  app.uiAction({ ["action"] = "ACTION_ZOOM_OUT" })
 end
 
 -- page
 function ClickCopyPage()
-	app.sidebarAction("COPY")
+  app.sidebarAction("COPY")
 end
 
 function ClickDeletePage()
-	app.uiAction({ ["action"] = "ACTION_DELETE_PAGE" })
+  app.uiAction({ ["action"] = "ACTION_DELETE_PAGE" })
 end
 
 function ClickMoveUp()
-	app.sidebarAction("MOVE_UP")
+  app.sidebarAction("MOVE_UP")
 end
 
 function ClickMoveDown()
-	app.sidebarAction("MOVE_DOWN")
+  app.sidebarAction("MOVE_DOWN")
 end
 
 function ClickNewBefore()
-	app.sidebarAction("NEW_BEFORE")
+  app.sidebarAction("NEW_BEFORE")
 end
 
 function ClickNewAfter()
-	app.sidebarAction("NEW_AFTER")
+  app.sidebarAction("NEW_AFTER")
 end
 
 function ClickNewLayer()
-	app.uiAction({ ["action"] = "ACTION_NEW_LAYER" })
+  app.uiAction({ ["action"] = "ACTION_NEW_LAYER" })
 end
 
 function ClickDeleteLayer()
-	app.uiAction({ ["action"] = "ACTION_DELETE_LAYER" })
+  app.uiAction({ ["action"] = "ACTION_DELETE_LAYER" })
 end
 
 -- navigation
 function ClickGoToFirstPage()
-	app.scrollToPage(1)
+  app.scrollToPage(1)
 end
 
 function ClickGoToTop()
-	app.scrollToPos(0, 0, false)
+  app.scrollToPos(0, 0, false)
 end
 
 function GoToPage(page)
-	app.scrollToPage(page)
+  app.scrollToPage(page)
 end
 
 function GoToPos(x, y)
-	app.scrollToPos(x, y)
+  app.scrollToPos(x, y)
 end
 
 function ClickScrollPageDown()
-	app.scrollToPage(1, true)
+  app.scrollToPage(1, true)
 end
 
 function ClickScrollPageUp()
-	app.scrollToPage(-1, true)
+  app.scrollToPage(-1, true)
 end
 
 function ClickGoToBottom()
-	local docStructure = app.getDocumentStructure()
-	local currentPage = docStructure["currentPage"]
-	local pageHeight = app.getDocumentStructure()["pages"][currentPage]["pageHeight"]
-	app.scrollToPos(0, pageHeight, false)
+  local docStructure = app.getDocumentStructure()
+  local currentPage = docStructure["currentPage"]
+  local pageHeight = app.getDocumentStructure()["pages"][currentPage]["pageHeight"]
+  app.scrollToPos(0, pageHeight, false)
 end
 
 function ClickGoToLastPage()
-	-- it gets clamped in applib_scrollToPage anyway.
-	app.scrollToPage(1000000000)
+  -- it gets clamped in applib_scrollToPage anyway.
+  app.scrollToPage(1000000000)
 end
 
 function CurrentPage()
-	return app.getDocumentStructure()["currentPage"]
+  return app.getDocumentStructure()["currentPage"]
 end
 
 function ClickLayerDown()
-	app.uiAction({ ["action"] = "ACTION_GOTO_PREVIOUS_LAYER" })
+  app.uiAction({ ["action"] = "ACTION_GOTO_PREVIOUS_LAYER" })
 end
 
 function ClickLayerUp()
-	app.uiAction({ ["action"] = "ACTION_GOTO_NEXT_LAYER" })
+  app.uiAction({ ["action"] = "ACTION_GOTO_NEXT_LAYER" })
 end
 
 -- history
 function ClickUndo()
-	app.uiAction({ ["action"] = "ACTION_UNDO" })
+  app.uiAction({ ["action"] = "ACTION_UNDO" })
 end
 
 function ClickRedo()
-	app.uiAction({ ["action"] = "ACTION_REDO" })
+  app.uiAction({ ["action"] = "ACTION_REDO" })
 end
 
 -- files
 function ClickAnnotatePDF()
-	app.uiAction({ ["action"] = "ACTION_ANNOTATE_PDF" })
+  app.uiAction({ ["action"] = "ACTION_ANNOTATE_PDF" })
 end
 
 function ClickExportAsPDF()
-	app.uiAction({ ["action"] = "ACTION_EXPORT_AS_PDF" })
+  app.uiAction({ ["action"] = "ACTION_EXPORT_AS_PDF" })
 end
 
 function ClickSave()
-	app.uiAction({ ["action"] = "ACTION_SAVE" })
+  app.uiAction({ ["action"] = "ACTION_SAVE" })
 end
 
 function ClickSaveAs()
-	app.uiAction({ ["action"] = "ACTION_SAVE_AS" })
+  app.uiAction({ ["action"] = "ACTION_SAVE_AS" })
 end
 
 function ClickOpen()
-	app.uiAction({ ["action"] = "ACTION_OPEN" })
+  app.uiAction({ ["action"] = "ACTION_OPEN" })
 end
 
 -- background
 function ClickRuledBG()
-	app.changeCurrentPageBackground("ruled")
+  app.changeCurrentPageBackground("ruled")
 end
 
 function ClickGraphBG()
-	app.changeCurrentPageBackground("graph")
+  app.changeCurrentPageBackground("graph")
 end
 
 function ClickIsometricGraphBG()
-	app.changeCurrentPageBackground("isograph")
+  app.changeCurrentPageBackground("isograph")
 end
 
 function ClickDottedGraphBG()
-	app.changeCurrentPageBackground("dotted")
+  app.changeCurrentPageBackground("dotted")
 end
 
 function ClickIsometricDottedGraphBG()
-	app.changeCurrentPageBackground("isodotted")
+  app.changeCurrentPageBackground("isodotted")
 end
 
 function ClickPlainBG()
-	app.changeCurrentPageBackground("plain")
+  app.changeCurrentPageBackground("plain")
 end
 
 function SetPlaceholderValue(placeholder, val)
-	-- Only if setPlaceholderValue is available (Xournal++ >= 1.2.8 (or 1.2.7+dev))
-	if app.setPlaceholderValue then
-		app.setPlaceholderValue(placeholder, val)
-	end
+  -- Only if setPlaceholderValue is available (Xournal++ >= 1.2.8 (or 1.2.7+dev))
+  if app.setPlaceholderValue then
+    app.setPlaceholderValue(placeholder, val)
+  end
 end
 
 -- API module with lowercase function names for consistency

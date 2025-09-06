@@ -1,11 +1,21 @@
 local modes = require("core.modes")
 
 return {
-  -- Mode Selection Menu - Ctrl+Space for left hand accessibility
+  -- Mode Selection Menu - Ctrl+Space
   modeMenu = {
     description = "Mode Menu",
     buttons = { "<Ctrl>space" },
-    modes = { "tool", "color", "shape", "linestyle", "page", "file", "navigation", "visual", "resize" },
+    modes = {
+      "tool",
+      "color",
+      "shape",
+      "linestyle",
+      "page",
+      "file",
+      "navigation",
+      "visual",
+      "resize",
+    },
     call = function()
       modes.changeMode("mode", false)
     end,
@@ -13,11 +23,11 @@ return {
 
   -- From mode menu, select actual modes
   tool = {
-    description = "Tool Mode (Always Sticky)",
+    description = "Tool Mode",
     buttons = { "t" },
     modes = { "mode" },
     call = function()
-      modes.changeMode("tool", true) -- Always sticky
+      modes.changeMode("tool", true)
     end,
   },
   color = {

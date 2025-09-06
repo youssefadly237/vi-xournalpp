@@ -11,15 +11,7 @@ local mode_switching = require("keybindings.mode_switching")
 local colors = require("keybindings.colors")
 
 -- Merge all keybinding tables
-local keybindings = utils.mergeTables(
-  tools,
-  shapes,
-  navigation,
-  pages,
-  files,
-  visual,
-  mode_switching,
-  colors
-)
+local keybindings =
+  utils.mergeTables(tools, shapes, navigation, pages, files, visual, mode_switching, colors)
 
 return keybindings

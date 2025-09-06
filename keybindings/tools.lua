@@ -2,13 +2,6 @@ local api = require("api.api")
 local utils = require("core.utils")
 
 return {
-  -- QWERTY Grid Layout for Tools
-  -- Top row: Q W E R
-  -- Mid row: A S D F
-  -- Bot row: Z X C V
-
-  -- Top Row (Q W E R)
-  -- Q reserved for thickness
   pen = {
     description = "Pen",
     buttons = { "w" },
@@ -30,16 +23,13 @@ return {
   },
   tex = {
     description = "LaTeX",
-    buttons = { "r" },
+    buttons = { "n" },
     modes = { "tool" },
     call = function()
       api.clickTex()
       utils.cleanShape()
     end,
   },
-
-  -- Middle Row (A S D F)
-  -- A reserved for thickness
   hand = {
     description = "Hand (Scroll)",
     buttons = { "s" },
@@ -93,7 +83,7 @@ return {
   -- Additional tool
   selectRect = {
     description = "Rectangle Selection",
-    buttons = { "b" },
+    buttons = { "i" },
     modes = { "tool" },
     call = function()
       api.clickSelectRectangle()
@@ -104,7 +94,7 @@ return {
   -- History
   undo = {
     description = "Undo",
-    buttons = { "u" },
+    buttons = { "z" },
     modes = { "tool" },
     call = function()
       api.clickUndo()
@@ -119,11 +109,10 @@ return {
     end,
   },
 
-
-  -- Thickness - using left hand keys instead of numbers
+  -- Thickness (T t g b B)
   veryFine = {
     description = "Very Fine",
-    buttons = { "q" },
+    buttons = { "<Shift>t" },
     modes = { "tool" },
     call = function()
       api.clickVeryFine()
@@ -131,7 +120,7 @@ return {
   },
   fine = {
     description = "Fine",
-    buttons = { "a" },
+    buttons = { "t" },
     modes = { "tool" },
     call = function()
       api.clickFine()
@@ -139,7 +128,7 @@ return {
   },
   medium = {
     description = "Medium",
-    buttons = { "z" },
+    buttons = { "g" },
     modes = { "tool" },
     call = function()
       api.clickMedium()
@@ -147,7 +136,7 @@ return {
   },
   thick = {
     description = "Thick",
-    buttons = { "<Shift>q" },
+    buttons = { "b" },
     modes = { "tool" },
     call = function()
       api.clickThick()
@@ -155,7 +144,7 @@ return {
   },
   veryThick = {
     description = "Very Thick",
-    buttons = { "<Shift>a" },
+    buttons = { "<Shift>b" },
     modes = { "tool" },
     call = function()
       api.clickVeryThick()

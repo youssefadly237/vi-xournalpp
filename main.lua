@@ -8,6 +8,7 @@ end
 local keybindings = require("keybindings.init")
 local modes = require("core.modes")
 local handler = require("core.handler")
+local validator = require("validate_keybindings")
 
 -- Make modes globally accessible for backward compatibility
 CurrentMode = modes.currentMode
@@ -20,6 +21,23 @@ HandlerModule = handler -- Also make the handler module globally accessible
 
 ---@diagnostic disable-next-line: lowercase-global
 function initUi()
+  -- Validate keybindings on startup
+  local conflicts = validator.validateKeybindings()
+  if #conflicts > 0 then
+    print("⚠️  KEYBINDING CONFLICTS DETECTED:")
+    for _, conflict in ipairs(conflicts) do
+      print(
+        "🔴 Mode '"
+          .. conflict.mode
+          .. "' key '"
+          .. conflict.button
+          .. "': "
+          .. table.concat(conflict.bindings, ", ")
+      )
+    end
+    print("Plugin may not work correctly!")
+  end
+
   -- Register placeholder only works in Xournal++ >= 1.2.8 (or 1.2.7+dev)
   if app.registerPlaceholder then
     app.registerPlaceholder("vi-mode", "Vi Mode Indicator")
