@@ -8,7 +8,7 @@ return {
     buttons = { "r" },
     modes = { "shape" },
     call = function()
-      api.clickRuler(true)
+      api.ClickRuler(true)
     end,
   },
   arrow = {
@@ -16,7 +16,7 @@ return {
     buttons = { "a" },
     modes = { "shape" },
     call = function()
-      api.clickArrow(true)
+      api.ClickArrow(true)
     end,
   },
   rectangle = {
@@ -24,7 +24,7 @@ return {
     buttons = { "s" },
     modes = { "shape" },
     call = function()
-      api.clickRectangle(true)
+      api.ClickRectangle(true)
     end,
   },
   ellipse = {
@@ -32,7 +32,7 @@ return {
     buttons = { "e" },
     modes = { "shape" },
     call = function()
-      api.clickEllipse(true)
+      api.ClickEllipse(true)
     end,
   },
   spline = {
@@ -40,7 +40,7 @@ return {
     buttons = { "v" },
     modes = { "shape" },
     call = function()
-      api.clickSpline(true)
+      api.ClickSpline(true)
     end,
   },
   fill = {
@@ -48,7 +48,7 @@ return {
     buttons = { "f" },
     modes = { "shape" },
     call = function()
-      api.clickFill(true)
+      api.ClickFill(true)
     end,
   },
 
@@ -58,7 +58,7 @@ return {
     buttons = { "p" },
     modes = { "linestyle" },
     call = function()
-      api.clickPlain()
+      api.ClickPlain()
     end,
   },
   dashed = {
@@ -66,7 +66,7 @@ return {
     buttons = { "d" },
     modes = { "linestyle" },
     call = function()
-      api.clickDashed()
+      api.ClickDashed()
     end,
   },
   dotted = {
@@ -74,7 +74,7 @@ return {
     buttons = { "o" },
     modes = { "linestyle" },
     call = function()
-      api.clickDotted()
+      api.ClickDotted()
     end,
   },
   dashDotted = {
@@ -82,7 +82,7 @@ return {
     buttons = { "a" },
     modes = { "linestyle" },
     call = function()
-      api.clickDashDotted()
+      api.ClickDashDotted()
     end,
   },
 }

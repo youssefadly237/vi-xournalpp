@@ -1,5 +1,31 @@
 -- src/core/plugin/ActionBackwardCompatibilityLayer.cpp --> xournalpp/xournalpp
 
+-- primary tools
+
+function ClickPen()
+  app.uiAction({ ["action"] = "ACTION_TOOL_PEN" })
+end
+
+function ClickEraser()
+  app.uiAction({ ["action"] = "ACTION_TOOL_ERASER" })
+end
+
+function ClickHighlighter()
+  app.uiAction({ ["action"] = "ACTION_TOOL_HIGHLIGHTER" })
+end
+
+function ClickLaserPen()
+  app.uiAction({ ["action"] = "ACTION_TOOL_LASER_POINTER_PEN" })
+end
+
+function ClickLaserHighlighter()
+  app.uiAction({ ["action"] = "ACTION_TOOL_LASER_POINTER_HIGHLIGHTER" })
+end
+
+function ClickHand()
+  app.uiAction({ ["action"] = "ACTION_TOOL_HAND" })
+end
+
 -- line width
 function ClickVeryFine()
   app.uiAction({ ["action"] = "ACTION_SIZE_VERY_FINE" })
@@ -21,31 +47,65 @@ function ClickVeryThick()
   app.uiAction({ ["action"] = "ACTION_SIZE_VERY_THICK" })
 end
 
--- tools
-function ClickPen()
-  app.uiAction({ ["action"] = "ACTION_TOOL_PEN" })
+-- linestyle
+function ClickPlain()
+  app.uiAction({ ["action"] = "ACTION_TOOL_LINE_STYLE_PLAIN" })
 end
 
--- tools
-function ClickLaserPen()
-  app.uiAction({ ["action"] = "ACTION_TOOL_PEN" })
+function ClickDotted()
+  app.uiAction({ ["action"] = "ACTION_TOOL_LINE_STYLE_DOT" })
 end
 
-function ClickEraser()
-  app.uiAction({ ["action"] = "ACTION_TOOL_ERASER" })
+function ClickDashed()
+  app.uiAction({ ["action"] = "ACTION_TOOL_LINE_STYLE_DASH" })
 end
 
-function ClickHighlighter()
-  app.uiAction({ ["action"] = "ACTION_TOOL_HIGHLIGHTER" })
+function ClickDashDotted()
+  app.uiAction({ ["action"] = "ACTION_TOOL_LINE_STYLE_DASH_DOT" })
+end
+
+-- Edit
+function ClickUndo()
+  app.uiAction({ ["action"] = "ACTION_UNDO" })
+end
+
+function ClickRedo()
+  app.uiAction({ ["action"] = "ACTION_REDO" })
+end
+
+function ClickDelete()
+  app.uiAction({ ["action"] = "ACTION_DELETE" })
+end
+
+function ClickCopy()
+  app.uiAction({ ["action"] = "ACTION_COPY" })
+end
+
+function ClickCut()
+  app.uiAction({ ["action"] = "ACTION_CUT" })
+end
+
+function ClickPaste()
+  app.uiAction({ ["action"] = "ACTION_PASTE" })
+end
+
+-- Selection
+
+function ClickSelectRectangle()
+  app.uiAction({ ["action"] = "ACTION_TOOL_SELECT_RECT" })
 end
 
 function ClickSelectRegion()
   app.uiAction({ ["action"] = "ACTION_TOOL_SELECT_REGION" })
 end
 
-function ClickSelectRectangle()
-  app.uiAction({ ["action"] = "ACTION_TOOL_SELECT_RECT" })
+function ClickSelectTextLinear()
+  app.uiAction({ ["action"] = "ACTION_TOOL_SELECT_PDF_TEXT_LINEAR" })
 end
+
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+---------------------------------------------------------------------
 
 function ClickSelectObject()
   app.uiAction({ ["action"] = "ACTION_TOOL_SELECT_OBJECT" })
@@ -57,14 +117,6 @@ end
 
 function ClickText()
   app.uiAction({ ["action"] = "ACTION_TOOL_TEXT" })
-end
-
-function ClickHand()
-  app.uiAction({ ["action"] = "ACTION_TOOL_HAND" })
-end
-
-function ClickDelete()
-  app.uiAction({ ["action"] = "ACTION_DELETE" })
 end
 
 function GetToolInfo(tool)
@@ -92,25 +144,8 @@ function ClickSpline(enabled)
   app.uiAction({ ["action"] = "ACTION_TOOL_DRAW_SPLINE", ["enabled"] = enabled })
 end
 
-function ClickPlain()
-  app.uiAction({ ["action"] = "ACTION_TOOL_LINE_STYLE_PLAIN" })
-end
-
 function ClickFill(enabled)
   app.uiAction({ ["action"] = "ACTION_TOOL_FILL", ["selection"] = true, ["enabled"] = enabled })
-end
-
--- linestyle
-function ClickDotted()
-  app.uiAction({ ["action"] = "ACTION_TOOL_LINE_STYLE_DOT" })
-end
-
-function ClickDashed()
-  app.uiAction({ ["action"] = "ACTION_TOOL_LINE_STYLE_DASH" })
-end
-
-function ClickDashDotted()
-  app.uiAction({ ["action"] = "ACTION_TOOL_LINE_STYLE_DASH_DOT" })
 end
 
 -- color
@@ -227,15 +262,6 @@ function ClickLayerUp()
   app.uiAction({ ["action"] = "ACTION_GOTO_NEXT_LAYER" })
 end
 
--- history
-function ClickUndo()
-  app.uiAction({ ["action"] = "ACTION_UNDO" })
-end
-
-function ClickRedo()
-  app.uiAction({ ["action"] = "ACTION_REDO" })
-end
-
 -- files
 function ClickAnnotatePDF()
   app.uiAction({ ["action"] = "ACTION_ANNOTATE_PDF" })
@@ -289,84 +315,5 @@ function SetPlaceholderValue(placeholder, val)
   end
 end
 
--- API module with lowercase function names for consistency
-local api = {}
-
--- Line width functions
-api.clickVeryFine = ClickVeryFine
-api.clickFine = ClickFine
-api.clickMedium = ClickMedium
-api.clickThick = ClickThick
-api.clickVeryThick = ClickVeryThick
-
--- Tool functions
-api.clickPen = ClickPen
-api.clickEraser = ClickEraser
-api.clickHighlighter = ClickHighlighter
-api.clickSelectRegion = ClickSelectRegion
-api.clickSelectRectangle = ClickSelectRectangle
-api.clickSelectObject = ClickSelectObject
-api.clickTex = ClickTex
-api.clickText = ClickText
-api.clickHand = ClickHand
-api.clickDelete = ClickDelete
-api.getToolInfo = GetToolInfo
-
--- Shape functions
-api.clickRuler = ClickRuler
-api.clickArrow = ClickArrow
-api.clickEllipse = ClickEllipse
-api.clickRectangle = ClickRectangle
-api.clickSpline = ClickSpline
-api.clickPlain = ClickPlain
-api.clickFill = ClickFill
-
--- Line style functions
-api.clickDotted = ClickDotted
-api.clickDashed = ClickDashed
-api.clickDashDotted = ClickDashDotted
-
--- Color functions
-api.changeToolColor = ChangeToolColor
-api.getColorPalette = GetColorPalette
-
--- Page functions
-api.clickCopyPage = ClickCopyPage
-api.clickMoveUp = ClickMoveUp
-api.clickMoveDown = ClickMoveDown
-api.clickNewBefore = ClickNewBefore
-api.clickNewAfter = ClickNewAfter
-api.clickNewLayer = ClickNewLayer
-api.clickRuledBG = ClickRuledBG
-api.clickGraphBG = ClickGraphBG
-api.clickIsometricGraphBG = ClickIsometricGraphBG
-api.clickDottedGraphBG = ClickDottedGraphBG
-api.clickIsometricDottedGraphBG = ClickIsometricDottedGraphBG
-api.clickPlainBG = ClickPlainBG
-
--- Navigation functions
-api.clickGoToTop = ClickGoToTop
-api.clickGoToBottom = ClickGoToBottom
-api.clickScrollPageDown = ClickScrollPageDown
-api.clickScrollPageUp = ClickScrollPageUp
-api.clickLayerUp = ClickLayerUp
-api.clickLayerDown = ClickLayerDown
-
--- File functions
-api.clickAnnotatePDF = ClickAnnotatePDF
-api.clickExportAsPDF = ClickExportAsPDF
-api.clickSave = ClickSave
-api.clickOpen = ClickOpen
-
--- History functions
-api.clickUndo = ClickUndo
-api.clickRedo = ClickRedo
-
--- Zoom functions
-api.clickZoomIn = ClickZoomIn
-api.clickZoomOut = ClickZoomOut
-
--- Utility functions
-api.setPlaceholderValue = SetPlaceholderValue
-
-return api
+-- Export all
+return _G

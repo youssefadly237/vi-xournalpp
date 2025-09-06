@@ -1,4 +1,5 @@
 local api = require("api.api")
+local utils = require("core.utils")
 local colors = require("config.colors")
 local static_colors = colors.static_colors
 
@@ -24,17 +25,11 @@ local function setupColorKeybindings()
   color_keybindings = {}
 
   -- Generate shift keys
-  local shift_color_buttons = {}
-  for _, btn in ipairs(color_buttons) do
-    table.insert(shift_color_buttons, "<Shift>" .. btn)
-  end
+  local shift_color_buttons = utils.generateShiftKeys(color_buttons)
 
-  local palette = nil
-  local ok = pcall(function()
-    palette = api.getColorPalette()
-  end)
+  local palette = utils.getColorPalette()
 
-  if ok and type(palette) == "table" and #palette > 0 then
+  if palette and #palette > 0 then
     -- Dynamic color palette
     for i = 1, math.min(#palette, #color_buttons + #shift_color_buttons) do
       local btn = i <= #color_buttons and color_buttons[i]
@@ -43,7 +38,7 @@ local function setupColorKeybindings()
         buttons = { btn },
         modes = { "color" },
         call = function()
-          api.changeToolColor(palette[i].color, "[" .. i .. "] " .. palette[i].name)
+          utils.setColorByIndex(i)
         end,
       }
     end
@@ -54,6 +49,7 @@ local function setupColorKeybindings()
       buttons = { "<Ctrl>r" },
       modes = { "color" },
       call = function()
+        utils.refreshColorPalette()
         setupColorKeybindings()
         if rawget(_G, "HandlerModule") and HandlerModule.requestColorsRefresh then
           HandlerModule.requestColorsRefresh()
@@ -74,7 +70,7 @@ local function setupColorKeybindings()
         buttons = entry.buttons,
         modes = { "color" },
         call = function()
-          api.changeToolColor(entry.color)
+          utils.setColorByIndex(i)
         end,
       }
     end

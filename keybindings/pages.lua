@@ -7,7 +7,7 @@ return {
     buttons = { "c" },
     modes = { "page" },
     call = function()
-      api.clickCopyPage()
+      api.ClickCopyPage()
     end,
   },
   moveUp = {
@@ -15,7 +15,7 @@ return {
     buttons = { "k" },
     modes = { "page" },
     call = function()
-      api.clickMoveUp()
+      api.ClickMoveUp()
     end,
   },
   moveDown = {
@@ -23,7 +23,7 @@ return {
     buttons = { "j" },
     modes = { "page" },
     call = function()
-      api.clickMoveDown()
+      api.ClickMoveDown()
     end,
   },
   newBefore = {
@@ -31,7 +31,7 @@ return {
     buttons = { "<Shift>o" },
     modes = { "page" },
     call = function()
-      api.clickNewBefore()
+      api.ClickNewBefore()
     end,
   },
   newAfter = {
@@ -39,7 +39,7 @@ return {
     buttons = { "o" },
     modes = { "page" },
     call = function()
-      api.clickNewAfter()
+      api.ClickNewAfter()
     end,
   },
   newLayer = {
@@ -47,7 +47,7 @@ return {
     buttons = { "l" },
     modes = { "page" },
     call = function()
-      api.clickNewLayer()
+      api.ClickNewLayer()
     end,
   },
 
@@ -57,7 +57,7 @@ return {
     buttons = { "r" },
     modes = { "page" },
     call = function()
-      api.clickRuledBG()
+      api.ClickRuledBG()
     end,
   },
   graphBG = {
@@ -65,7 +65,7 @@ return {
     buttons = { "g" },
     modes = { "page" },
     call = function()
-      api.clickGraphBG()
+      api.ClickGraphBG()
     end,
   },
   isoGraphBG = {
@@ -73,7 +73,7 @@ return {
     buttons = { "i" },
     modes = { "page" },
     call = function()
-      api.clickIsometricGraphBG()
+      api.ClickIsometricGraphBG()
     end,
   },
   dottedGraphBG = {
@@ -81,7 +81,7 @@ return {
     buttons = { "d" },
     modes = { "page" },
     call = function()
-      api.clickDottedGraphBG()
+      api.ClickDottedGraphBG()
     end,
   },
   isodottedGraphBG = {
@@ -89,7 +89,7 @@ return {
     buttons = { "<Shift>i" },
     modes = { "page" },
     call = function()
-      api.clickIsometricDottedGraphBG()
+      api.ClickIsometricDottedGraphBG()
     end,
   },
   plainBG = {
@@ -97,7 +97,7 @@ return {
     buttons = { "p" },
     modes = { "page" },
     call = function()
-      api.clickPlainBG()
+      api.ClickPlainBG()
     end,
   },
 
@@ -107,7 +107,7 @@ return {
     buttons = { "o" },
     modes = { "tool" },
     call = function()
-      api.clickNewAfter()
+      api.ClickNewAfter()
     end,
   },
 }
