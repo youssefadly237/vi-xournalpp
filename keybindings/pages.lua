@@ -104,8 +104,8 @@ return {
   -- Quick access from tool mode
   newPageAfterTool = {
     description = "New Page After (Quick Access)",
-    buttons = { "o" },
-    modes = { "tool" },
+    buttons = { "m" },
+    modes = { "page" },
     call = function()
       api.ClickNewAfter()
     end,

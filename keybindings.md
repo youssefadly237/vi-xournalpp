@@ -8,111 +8,111 @@
 
 *Note: This shows the static color palette. In newer versions, colors are loaded dynamically from Xournal++'s current palette.*
 
-* color_1: `q`
-* color_10: `x`
-* color_2: `w`
-* color_3: `e`
-* color_4: `r`
-* color_5: `a`
-* color_6: `s`
-* color_7: `d`
-* color_8: `f`
-* color_9: `z`
+* Pink: `q`
+* White: `w`
+* Red: `r`
+* Black: `x`
+* Cyan: `c`
+* Green: `g`
+* Blue: `b`
 * Refresh color keybindings: `<Ctrl>r`
+* Orange: `o`
+* Purple: `p`, `a`
+* Yellow: `y`
 
 ## file mode
 
-* Annotate PDF: `a`
 * Export as PDF: `e`
-* Open: `o`
+* Annotate PDF: `a`
 * Save: `s`
 * Save As: `<Shift>s`
+* Open: `o`
 
 ## mode mode
 
-* Color Mode: `c`
-* File Mode: `i`
-* Line Style Mode: `h`
-* Navigation Mode: `n`
-* Page Mode: `p`
 * Resize Mode: `r`
 * Shape Mode: `s`
-* Sticky Color Mode: `<Shift>c`
-* Sticky File Mode: `<Shift>i`
-* Sticky Line Style Mode: `<Shift>h`
-* Sticky Navigation Mode: `<Shift>n`
-* Sticky Page Mode: `<Shift>p`
+* Color Mode: `c`
+* Visual Mode: `v`
+* Tool Mode: `t`
 * Sticky Resize Mode: `<Shift>r`
 * Sticky Shape Mode: `<Shift>s`
+* Sticky Color Mode: `<Shift>c`
 * Sticky Visual Mode: `<Shift>v`
-* Tool Mode: `t`
-* Visual Mode: `v`
+* Line Style Mode: `h`
+* Sticky Line Style Mode: `<Shift>h`
+* File Mode: `i`
+* Sticky File Mode: `<Shift>i`
+* Navigation Mode: `n`
+* Sticky Navigation Mode: `<Shift>n`
+* Page Mode: `p`
+* Sticky Page Mode: `<Shift>p`
 
 ## navigation mode
 
-* Go to Bottom: `<Shift>g`
 * Go to Top: `g`
+* Go to Bottom: `<Shift>g`
+* Scroll Page Down: `<Ctrl>d`
 * Layer Down: `j`
 * Layer Up: `k`
-* Scroll Page Down: `<Ctrl>d`
-* Scroll Page Up: `<Ctrl>u`
-* Zoom In: `<Ctrl>plus`
 * Zoom Out: `<Ctrl>minus`
+* Zoom In: `<Ctrl>plus`
+* Scroll Page Up: `<Ctrl>u`
 
 ## page mode
 
-* Copy Page: `c`
+* Ruled Background: `r`
 * Dotted Graph Background: `d`
+* Copy Page: `c`
 * Graph Background: `g`
 * Isometric Dotted Graph Background: `<Shift>i`
 * Isometric Graph Background: `i`
 * Move Page Down: `j`
 * Move Page Up: `k`
 * New Layer: `l`
+* New Page After (Quick Access): `m`
 * New Page After: `o`
 * New Page Before: `<Shift>o`
 * Plain Background: `p`
-* Ruled Background: `r`
 
 ## shape mode
 
-* Arrow: `a`
 * Ellipse: `e`
-* Fill: `f`
-* Rectangle: `s`
 * Ruler: `r`
+* Arrow: `a`
+* Rectangle: `s`
+* Fill: `f`
 * Spline: `v`
 
 ## tool mode
 
-* Copy: `c`
-* Cut: `x`
-* Cycle Linestyle: `a`
-* Delete: `<Shift>x`
-* Eraser: `e`
-* Fine: `t`
-* Hand (Scroll): `<Shift>d`
-* Highlighter: `f`
-* Laser Highlighter: `<Shift>f`
-* Laser Pen: `<Shift>w`
-* Lasso Selection: `<Shift>s`
-* Medium: `g`
-* New Page After (Quick Access): `o`
-* Next Color: `r`
-* Paste: `v`
-* Pen: `w`
 * Previous Color: `q`
+* Pen: `w`
+* Eraser: `e`
+* Next Color: `r`
+* Cycle Linestyle: `a`
 * Rectangle Selection: `s`
-* Redo: `<shift>z`
 * Select Linear Text: `d`
-* Set Plain Linestyle: `<Shift>a`
-* Thick: `b`
+* Highlighter: `f`
 * Undo: `z`
+* Cut: `x`
+* Copy: `c`
+* Paste: `v`
+* Fine: `t`
+* Medium: `g`
+* Thick: `b`
+* Laser Pen: `<Shift>w`
+* Set Plain Linestyle: `<Shift>a`
+* Lasso Selection: `<Shift>s`
+* Hand (Scroll): `<Shift>d`
+* Laser Highlighter: `<Shift>f`
+* Redo: `<shift>z`
+* Delete: `<Shift>x`
 * Very Fine: `<Shift>t`
 * Very Thick: `<Shift>b`
 
 ## visual mode
 
+* Rectangle Selection: `r`
 * Lasso Selection: `l`
 * Object Selection: `o`
-* Rectangle Selection: `r`

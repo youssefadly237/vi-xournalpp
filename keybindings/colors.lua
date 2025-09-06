@@ -30,6 +30,7 @@ local function setupColorKeybindings()
       local btn = i <= #color_buttons and color_buttons[i]
         or shift_color_buttons[i - #color_buttons]
       color_keybindings["color_" .. tostring(i)] = {
+        description = "Color " .. tostring(i),
         buttons = { btn },
         modes = { "color" },
         call = function()
