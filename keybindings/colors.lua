@@ -55,8 +55,8 @@ local function setupColorKeybindings()
       modes = { "color" },
       call = function()
         setupColorKeybindings()
-        if rawget(_G, "HandlerModule") and HandlerModule.requestKeybindingsRefresh then
-          HandlerModule.requestKeybindingsRefresh()
+        if rawget(_G, "HandlerModule") and HandlerModule.requestColorsRefresh then
+          HandlerModule.requestColorsRefresh()
           print("Color keybindings will be refreshed on next key press")
         else
           print("Color palette refreshed - restart Xournal++ for full effect")

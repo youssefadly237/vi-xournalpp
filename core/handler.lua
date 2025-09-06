@@ -1,26 +1,28 @@
 local handler = {}
 
--- Import the modes module
 local modes = require("core.modes")
 
--- Flag to track if keybindings need refreshing
-local keybindings_need_refresh = false
+local keybindings_cache = nil
+local colors_need_refresh = false
 
 function handler.handle(key)
-  if keybindings_need_refresh then
-    package.loaded["keybindings.init"] = nil
+  if colors_need_refresh then
     package.loaded["keybindings.colors"] = nil
-    keybindings_need_refresh = false
+    keybindings_cache = nil
+    colors_need_refresh = false
   end
 
-  local keybindings = require("keybindings.init")
+  if not keybindings_cache then
+    keybindings_cache = require("keybindings.init")
+  end
 
-  for _, binding in pairs(keybindings) do
+  local current_mode = modes.getCurrentMode()
+
+  for _, binding in pairs(keybindings_cache) do
     if
-      handler.contains(binding.buttons, key)
-      and handler.contains(binding.modes, modes.getCurrentMode())
+      handler.keyMatches(binding.buttons, key) and handler.modeMatches(binding.modes, current_mode)
     then
-      if modes.getCurrentMode() ~= "tool" and not modes.isSticky() then
+      if current_mode ~= "tool" and not modes.isSticky() then
         modes.changeMode("tool")
       end
 
@@ -33,18 +35,27 @@ function handler.handle(key)
       if binding.description then
         print(binding.description)
       end
-      break
+      return
     end
   end
 end
 
-function handler.requestKeybindingsRefresh()
-  keybindings_need_refresh = true
+function handler.requestColorsRefresh()
+  colors_need_refresh = true
 end
 
-function handler.contains(list, element)
-  for _, item in ipairs(list) do
-    if item == element then
+function handler.keyMatches(button_list, key)
+  for _, button in ipairs(button_list) do
+    if button == key then
+      return true
+    end
+  end
+  return false
+end
+
+function handler.modeMatches(mode_list, current_mode)
+  for _, mode in ipairs(mode_list) do
+    if mode == current_mode then
       return true
     end
   end
@@ -63,17 +74,11 @@ function handler.registerKeybindings(keybindings)
           Handle(button)
         end
 
-        local success, err = pcall(function()
-          app.registerUi({
-            menu = "Vi-key: " .. button,
-            callback = functionName,
-            accelerator = button,
-          })
-        end)
-
-        if not success then
-          error("Failed to register key '" .. button .. "': " .. tostring(err))
-        end
+        app.registerUi({
+          menu = "Vi-key: " .. button,
+          callback = functionName,
+          accelerator = button,
+        })
 
         registered_keys[button] = true
         index = index + 1
