@@ -52,37 +52,23 @@ return {
     end,
   },
 
-  -- Linestyles
-  plain = {
-    description = "Plain Line",
-    buttons = { "p" },
-    modes = { "linestyle" },
-    call = function()
-      api.ClickPlain()
-    end,
-  },
-  dashed = {
-    description = "Dashed Line",
-    buttons = { "d" },
-    modes = { "linestyle" },
-    call = function()
-      api.ClickDashed()
-    end,
-  },
-  dotted = {
-    description = "Dotted Line",
-    buttons = { "o" },
-    modes = { "linestyle" },
-    call = function()
-      api.ClickDotted()
-    end,
-  },
-  dashDotted = {
-    description = "Dash-Dotted Line",
-    buttons = { "a" },
-    modes = { "linestyle" },
-    call = function()
-      api.ClickDashDotted()
-    end,
-  },
+  --   tex = {
+  --   description = "LaTeX",
+  --   buttons = { "n" },
+  --   modes = { "tool" },
+  --   call = function()
+  --     api.ClickTex()
+  --     utils.cleanShape()
+  --   end,
+  -- },
+
+  -- text = {
+  --   description = "Text",
+  --   buttons = { "x" },
+  --   modes = { "tool" },
+  --   call = function()
+  --     api.ClickText()
+  --     utils.cleanShape()
+  --   end,
+  -- },
 }

@@ -103,6 +103,16 @@ function ClickSelectTextLinear()
   app.uiAction({ ["action"] = "ACTION_TOOL_SELECT_PDF_TEXT_LINEAR" })
 end
 
+-- Shapes
+
+function ClickCompass()
+  app.uiAction({ ["action"] = "ACTION_COMPASS" })
+end
+
+function ClickTriangle()
+  app.uiAction({ ["action"] = "ACTION_SETSQUARE" })
+end
+
 ---------------------------------------------------------------------
 ---------------------------------------------------------------------
 ---------------------------------------------------------------------

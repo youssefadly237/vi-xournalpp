@@ -58,7 +58,7 @@ return {
     end,
   },
 
-  -- Color cycling (Next, Previous) - Known Issues: can not detect current color, may fix it with toolInfo later
+  -- Color cycling
   nextColor = {
     description = "Next Color",
     buttons = { "r" },
@@ -155,7 +155,7 @@ return {
     end,
   },
 
-  -- Linestyle cycling - Known Issues: can not detect current style, will fix later
+  -- Linestyle cycling
   cycleLinestyle = {
     description = "Cycle Linestyle",
     buttons = { "a" },

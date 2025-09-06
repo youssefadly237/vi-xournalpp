@@ -28,13 +28,6 @@
 * Save: `s`
 * Save As: `<Shift>s`
 
-## linestyle mode
-
-* Dash-Dotted Line: `a`
-* Dashed Line: `d`
-* Dotted Line: `o`
-* Plain Line: `p`
-
 ## mode mode
 
 * Color Mode: `c`

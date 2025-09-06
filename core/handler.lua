@@ -33,7 +33,7 @@ function handler.handle(key)
       end
 
       if binding.description then
-        print(binding.description)
+        print("vi-xournalpp: " .. binding.description)
       end
       return
     end
