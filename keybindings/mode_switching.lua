@@ -72,7 +72,7 @@ return {
   },
   file = {
     description = "File Mode",
-    buttons = { "i" },
+    buttons = { "f" },
     modes = { "mode" },
     call = function()
       modes.changeMode("file", false)
@@ -139,7 +139,7 @@ return {
   },
   stickyFile = {
     description = "Sticky File Mode",
-    buttons = { "<Shift>i" },
+    buttons = { "<Shift>f" },
     modes = { "mode" },
     call = function()
       modes.changeMode("file", true)
