@@ -1,0 +1,25 @@
+repos:
+  - repo: https://github.com/JohnnyMorganz/StyLua
+    rev: v2.1.0
+    hooks:
+      - id: stylua
+        args: [--indent-type=Spaces, --indent-width=2, --column-width=100]
+        files: \.lua$
+
+  - repo: local
+    hooks:
+      - id: check-docs
+        name: Verify documentation is up to date
+        entry: lua documentation.lua
+        language: system
+        files: ^(keybindings/.*\.lua|api/.*\.lua|config/.*\.lua|core/.*\.lua|main\.lua)$
+        pass_filenames: false
+        always_run: false
+
+      - id: validate-keybindings
+        name: Check for keybinding conflicts
+        entry: lua validate_keybindings.lua
+        language: system
+        files: ^(keybindings/.*\.lua|main\.lua)$
+        pass_filenames: false
+        always_run: false

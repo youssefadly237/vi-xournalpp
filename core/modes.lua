@@ -25,7 +25,7 @@ function modes.changeMode(mode, stickyValue)
     print("Error: Invalid mode parameter:", tostring(mode))
     return false
   end
-  
+
   -- Check if mode is valid
   local isValidMode = false
   for _, validMode in ipairs(modes.ALL_MODES) do
@@ -34,12 +34,15 @@ function modes.changeMode(mode, stickyValue)
       break
     end
   end
-  
+
   if not isValidMode then
-    print("Warning: Unknown mode '" .. mode .. "'. Valid modes:", table.concat(modes.ALL_MODES, ", "))
+    print(
+      "Warning: Unknown mode '" .. mode .. "'. Valid modes:",
+      table.concat(modes.ALL_MODES, ", ")
+    )
     return false
   end
-  
+
   modes.currentMode = mode
   if stickyValue ~= nil then
     modes.sticky = stickyValue
@@ -53,7 +56,7 @@ function modes.changeMode(mode, stickyValue)
   if app and app.setPlaceholderValue then
     app.setPlaceholderValue("vi-mode", display)
   end
-  
+
   return true
 end
 

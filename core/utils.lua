@@ -14,23 +14,9 @@ end
 -- Helper function to merge tables
 function utils.mergeTables(...)
   local result = {}
-  local args = {...}
-  
-  -- Validate input
-  if #args == 0 then
-    return result
-  end
-  
-  for i, tbl in ipairs(args) do
-    if type(tbl) ~= "table" then
-      print("Warning: mergeTables received non-table argument at position " .. i .. ": " .. type(tbl))
-    else
-      for k, v in pairs(tbl) do
-        if result[k] ~= nil then
-          print("Warning: Key '" .. tostring(k) .. "' already exists and will be overwritten")
-        end
-        result[k] = v
-      end
+  for _, tbl in ipairs({ ... }) do
+    for k, v in pairs(tbl) do
+      result[k] = v
     end
   end
   return result

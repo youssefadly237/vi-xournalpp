@@ -1,0 +1,220 @@
+# Xournal++ Actions Categorization for Plugin Keyboard Modes
+
+This document groups the available `ACTION_*` commands from the Lua API into practical **keyboard modes** for plugin usage.  
+Each mode corresponds to a family of related actions.
+
+## File / Project Mode
+
+File-level commands for managing documents.
+
+- [ ] `ACTION_NEW`
+- [ ] `ACTION_OPEN`
+- [ ] `ACTION_ANNOTATE_PDF`
+- [ ] `ACTION_SAVE`
+- [ ] `ACTION_SAVE_AS`
+- [ ] `ACTION_EXPORT_AS_PDF`
+- [ ] `ACTION_EXPORT_AS`
+- [ ] `ACTION_PRINT`
+- [ ] `ACTION_QUIT`
+
+## Edit Mode
+
+Classic edit operations.
+
+- [ ] `ACTION_UNDO`
+- [ ] `ACTION_REDO`
+- [ ] `ACTION_CUT`
+- [ ] `ACTION_COPY`
+- [ ] `ACTION_PASTE`
+- [ ] `ACTION_SEARCH`
+- [ ] `ACTION_SELECT_ALL`
+- [ ] `ACTION_DELETE`
+
+## Navigation / Page Mode
+
+Page navigation and manipulation.
+
+- [ ] `ACTION_GOTO_FIRST`
+- [ ] `ACTION_GOTO_BACK` (previous)
+- [ ] `ACTION_GOTO_PAGE`
+- [ ] `ACTION_GOTO_NEXT`
+- [ ] `ACTION_GOTO_LAST`
+- [ ] `ACTION_GOTO_NEXT_ANNOTATED_PAGE`
+- [ ] `ACTION_GOTO_PREVIOUS_ANNOTATED_PAGE`
+- [ ] `ACTION_NEW_PAGE_BEFORE`
+- [ ] `ACTION_DUPLICATE_PAGE`
+- [ ] `ACTION_NEW_PAGE_AFTER`
+- [ ] `ACTION_APPEND_NEW_PDF_PAGES`
+- [ ] `ACTION_NEW_PAGE_AT_END`
+- [ ] `ACTION_DELETE_PAGE`
+
+## View Mode
+
+Controls how the document is displayed.
+
+- [ ] `ACTION_ZOOM_IN`
+- [ ] `ACTION_ZOOM_OUT`
+- [ ] `ACTION_ZOOM_100`
+- [ ] `ACTION_ZOOM_FIT`
+- [ ] `ACTION_VIEW_PAIRED_PAGES`
+- [ ] `ACTION_VIEW_PRESENTATION_MODE`
+- [ ] `ACTION_FULLSCREEN`
+- [ ] `ACTION_SHOW_SIDEBAR`
+
+## Tools / Tool Selection Mode
+
+Primary tool switching.
+
+- [ ] `ACTION_TOOL_DEFAULT`
+- [ ] `ACTION_TOOL_PEN`
+- [ ] `ACTION_TOOL_ERASER`
+- [ ] `ACTION_TOOL_HIGHLIGHTER`
+- [ ] `ACTION_TOOL_TEXT`
+- [ ] `ACTION_TOOL_IMAGE`
+- [ ] `ACTION_TOOL_SELECT_RECT`
+- [ ] `ACTION_TOOL_SELECT_REGION`
+- [ ] `ACTION_TOOL_SELECT_MULTILAYER_RECT`
+- [ ] `ACTION_TOOL_SELECT_MULTILAYER_REGION`
+- [ ] `ACTION_TOOL_SELECT_OBJECT`
+- [ ] `ACTION_TOOL_PLAY_OBJECT` <-- does this really belong here
+- [ ] `ACTION_TOOL_SELECT_PDF_TEXT_LINEAR`
+- [ ] `ACTION_TOOL_SELECT_PDF_TEXT_RECT`
+- [ ] `ACTION_TOOL_HAND`
+- [ ] `ACTION_TOOL_FLOATING_TOOLBOX`
+- [ ] `ACTION_TOOL_LASER_POINTER_PEN`
+- [ ] `ACTION_TOOL_LASER_POINTER_HIGHLIGHTER`
+- [ ] `ACTION_ARRANGE_BRING_TO_FRONT`
+- [ ] `ACTION_ARRANGE_BRING_FORWARD`
+- [ ] `ACTION_ARRANGE_SEND_BACKWARD`
+
+## Drawing / Shape Mode
+
+Shape creation and geometry tools.
+
+- [ ] `ACTION_SETSQUARE`
+- [ ] `ACTION_COMPASS`
+- [ ] `ACTION_TOOL_DRAW_RECT`
+- [ ] `ACTION_TOOL_DRAW_ELLIPSE`
+- [ ] `ACTION_TOOL_DRAW_ARROW`
+- [ ] `ACTION_TOOL_DRAW_DOUBLE_ARROW`
+- [ ] `ACTION_TOOL_DRAW_COORDINATE_SYSTEM` --> test
+- [ ] `ACTION_RULER` (line tool)
+- [ ] `ACTION_TOOL_DRAW_SPLINE`
+- [ ] `ACTION_SHAPE_RECOGNIZER`
+- [ ] `ACTION_TOOL_FILL`
+- [ ] `ACTION_TOOL_PEN_FILL`
+- [ ] `ACTION_TOOL_PEN_FILL_OPACITY`
+- [ ] `ACTION_TOOL_HIGHLIGHTER_FILL_OPACITY`
+- [ ] `ACTION_TOOL_HIGHLIGHTER_FILL`
+- [ ] `ACTION_TOOL_VERTICAL_SPACE`
+
+## Tool Size Mode
+
+Tool and eraser size presets.
+
+- Generic sizes:  
+  `ACTION_SIZE_VERY_FINE`, `ACTION_SIZE_FINE`, `ACTION_SIZE_MEDIUM`, `ACTION_SIZE_THICK`, `ACTION_SIZE_VERY_THICK`
+- Eraser sizes:  --> do not implement generic works for all
+  `ACTION_TOOL_ERASER_SIZE_VERY_FINE`, `ACTION_TOOL_ERASER_SIZE_FINE`, `ACTION_TOOL_ERASER_SIZE_MEDIUM`, `ACTION_TOOL_ERASER_SIZE_THICK`, `ACTION_TOOL_ERASER_SIZE_VERY_THICK`
+- Pen sizes:  --> do not implement generic works for all
+  `ACTION_TOOL_PEN_SIZE_VERY_FINE`, `ACTION_TOOL_PEN_SIZE_FINE`, `ACTION_TOOL_PEN_SIZE_MEDIUM`, `ACTION_TOOL_PEN_SIZE_THICK`, `ACTION_TOOL_PEN_SIZE_VERY_THICK`
+- Highlighter sizes:  --> do not implement generic works for all  
+  `ACTION_TOOL_HIGHLIGHTER_SIZE_VERY_FINE`, `ACTION_TOOL_HIGHLIGHTER_SIZE_FINE`, `ACTION_TOOL_HIGHLIGHTER_SIZE_MEDIUM`, `ACTION_TOOL_HIGHLIGHTER_SIZE_THICK`, `ACTION_TOOL_HIGHLIGHTER_SIZE_VERY_THICK`
+
+## Layer Mode
+
+Layer creation, navigation, and ordering.
+
+- [ ] `ACTION_NEW_LAYER`
+- [ ] `ACTION_NEW_LAYER_BELOW_CURRENT`
+- [ ] `ACTION_DELETE_LAYER`
+- [ ] `ACTION_MERGE_LAYER_DOWN`
+- [ ] `ACTION_GOTO_NEXT_LAYER`
+- [ ] `ACTION_GOTO_PREVIOUS_LAYER`
+- [ ] `ACTION_GOTO_TOP_LAYER`
+- [ ] `ACTION_RENAME_LAYER`
+- [ ] `ACTION_MOVE_SELECTION_LAYER_UP`
+- [ ] `ACTION_MOVE_SELECTION_LAYER_DOWN`
+
+## Layout / Page Setup Mode
+
+Page and layout configuration.
+
+- [ ] `ACTION_PAPER_FORMAT`
+- [ ] `ACTION_CONFIGURE_PAGE_TEMPLATE`
+- [ ] `ACTION_PAPER_BACKGROUND_COLOR`
+- Columns:  up and down
+  `ACTION_SET_COLUMNS_1` … `ACTION_SET_COLUMNS_8`
+- Rows:  
+  `ACTION_SET_ROWS_1` … `ACTION_SET_ROWS_8`
+- Layouts:  
+  `ACTION_SET_LAYOUT_HORIZONTAL`, `ACTION_SET_LAYOUT_VERTICAL`,  
+  `ACTION_SET_LAYOUT_L2R`, `ACTION_SET_LAYOUT_R2L`,  
+  `ACTION_SET_LAYOUT_T2B`, `ACTION_SET_LAYOUT_B2T`
+
+## Boolean / Toggle Mode
+
+Feature toggles (on/off).
+
+- [ ] `ACTION_ZOOM_FIT`
+- [ ] `ACTION_VIEW_PAIRED_PAGES`
+- [ ] `ACTION_VIEW_PRESENTATION_MODE`
+- [ ] `ACTION_FULLSCREEN`
+- [ ] `ACTION_SHOW_SIDEBAR`
+- [ ] `ACTION_GRID_SNAPPING`
+- [ ] `ACTION_ROTATION_SNAPPING`
+- [ ] `ACTION_HIGHLIGHT_POSITION`
+
+## Line Style Mode
+
+Stroke styles for drawing tools.
+
+- [ ] `ACTION_TOOL_LINE_STYLE_PLAIN`
+- [ ] `ACTION_TOOL_LINE_STYLE_DASH`
+- [ ] `ACTION_TOOL_LINE_STYLE_DASH_DOT`
+- [ ] `ACTION_TOOL_LINE_STYLE_DOT`
+
+## Eraser Mode
+
+Eraser type selection.
+
+- [ ] `ACTION_TOOL_ERASER_STANDARD`
+- [ ] `ACTION_TOOL_ERASER_DELETE_STROKE`
+- [ ] `ACTION_TOOL_ERASER_WHITEOUT`
+
+## Audio / Media Mode
+
+Embedded audio and playback controls.
+
+- [ ] `ACTION_AUDIO_SEEK_FORWARDS`
+- [ ] `ACTION_AUDIO_SEEK_BACKWARDS`
+- [ ] `ACTION_AUDIO_STOP_PLAYBACK`
+- [ ] `ACTION_AUDIO_PAUSE_PLAYBACK`
+- [ ] `ACTION_AUDIO_RECORD`
+- [ ] `ACTION_TOOL_PLAY_OBJECT`
+- [ ] `ACTION_AUDIO_PAUSE_PLAYBACK`
+- [ ] `ACTION_AUDIO_RECORD`
+
+## Toolbar / Plugin / Help Mode
+
+UI, extensions, and help.
+
+- [ ] `ACTION_TEX`
+- [ ] `ACTION_MANAGE_TOOLBAR`
+- [ ] `ACTION_CUSTOMIZE_TOOLBAR`
+- [ ] `ACTION_PLUGIN_MANAGER`
+- [ ] `ACTION_HELP`
+- [ ] `ACTION_ABOUT`
+- [ ] `ACTION_SETTINGS` (Preferences)
+- [ ] `ACTION_SELECT_FONT`
+
+## Misc / Utilities Mode
+
+Unsorted or less common utilities.
+
+- [ ] `ACTION_TEX`
+- [ ] `ACTION_SELECT_FONT`
+
+## forgotten
+
+- `ACTION_TOGGLE_PAIRS_PARITY`

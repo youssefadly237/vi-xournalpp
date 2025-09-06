@@ -6,6 +6,8 @@
 
 ## color mode
 
+*Note: This shows the static color palette. In newer versions, colors are loaded dynamically from Xournal++'s current palette.*
+
 * Black: `x`
 * Blue: `b`
 * Cyan: `c`
@@ -49,7 +51,7 @@
 * Sticky Resize Mode: `<Shift>r`
 * Sticky Shape Mode: `<Shift>s`
 * Sticky Visual Mode: `<Shift>v`
-* Tool Mode (Always Sticky): `t`
+* Tool Mode: `t`
 * Visual Mode: `v`
 
 ## navigation mode
@@ -91,21 +93,21 @@
 
 * Delete: `d`
 * Eraser: `e`
-* Fine: `a`
+* Fine: `t`
 * Hand (Scroll): `s`
 * Highlighter: `f`
 * Lasso Selection: `v`
-* LaTeX: `r`
-* Medium: `z`
+* LaTeX: `n`
+* Medium: `g`
 * New Page After (Quick Access): `o`
 * Pen: `w`
-* Rectangle Selection: `b`
+* Rectangle Selection: `i`
 * Redo: `<Ctrl>r`
 * Text: `x`
-* Thick: `<Shift>q`
-* Undo: `u`
-* Very Fine: `q`
-* Very Thick: `<Shift>a`
+* Thick: `b`
+* Undo: `z`
+* Very Fine: `<Shift>t`
+* Very Thick: `<Shift>b`
 
 ## visual mode
 
