@@ -7,23 +7,15 @@ return {
     buttons = { "l" },
     modes = { "visual" },
     call = function()
-      api.clickSelectRegion()
+      api.ClickSelectRegion()
     end,
   },
   selectRectangle = {
     description = "Rectangle Selection",
-    buttons = { "r" },
+    buttons = { "e" },
     modes = { "visual" },
     call = function()
-      api.clickSelectRectangle()
-    end,
-  },
-  selectObject = {
-    description = "Object Selection",
-    buttons = { "o" },
-    modes = { "visual" },
-    call = function()
-      api.clickSelectObject()
+      api.ClickSelectRectangle()
     end,
   },
 }

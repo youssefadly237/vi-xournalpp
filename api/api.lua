@@ -113,6 +113,43 @@ function ClickTriangle()
   app.uiAction({ ["action"] = "ACTION_SETSQUARE" })
 end
 
+-- files
+function ClickNew()
+  app.uiAction({ ["action"] = "ACTION_NEW" })
+end
+
+function ClickOpen()
+  app.uiAction({ ["action"] = "ACTION_OPEN" })
+end
+
+function ClickAnnotatePDF()
+  app.uiAction({ ["action"] = "ACTION_ANNOTATE_PDF" })
+end
+
+function ClickSave()
+  app.uiAction({ ["action"] = "ACTION_SAVE" })
+end
+
+function ClickSaveAs()
+  app.uiAction({ ["action"] = "ACTION_SAVE_AS" })
+end
+
+function ClickExportAsPDF()
+  app.uiAction({ ["action"] = "ACTION_EXPORT_AS_PDF" })
+end
+
+function ClickExportAs()
+  app.uiAction({ ["action"] = "ACTION_EXPORT_AS" })
+end
+
+function ClickPrint()
+  app.uiAction({ ["action"] = "ACTION_PRINT" })
+end
+
+function ClickQuit()
+  app.uiAction({ ["action"] = "ACTION_QUIT" })
+end
+
 ---------------------------------------------------------------------
 ---------------------------------------------------------------------
 ---------------------------------------------------------------------
@@ -270,27 +307,6 @@ end
 
 function ClickLayerUp()
   app.uiAction({ ["action"] = "ACTION_GOTO_NEXT_LAYER" })
-end
-
--- files
-function ClickAnnotatePDF()
-  app.uiAction({ ["action"] = "ACTION_ANNOTATE_PDF" })
-end
-
-function ClickExportAsPDF()
-  app.uiAction({ ["action"] = "ACTION_EXPORT_AS_PDF" })
-end
-
-function ClickSave()
-  app.uiAction({ ["action"] = "ACTION_SAVE" })
-end
-
-function ClickSaveAs()
-  app.uiAction({ ["action"] = "ACTION_SAVE_AS" })
-end
-
-function ClickOpen()
-  app.uiAction({ ["action"] = "ACTION_OPEN" })
 end
 
 -- background

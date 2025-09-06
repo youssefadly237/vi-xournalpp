@@ -42,6 +42,7 @@
   - [ ] `ACTION_TOOL_SELECT_REGION`
   - [ ] `ACTION_TOOL_SELECT_MULTILAYER_RECT`
   - [ ] `ACTION_TOOL_SELECT_MULTILAYER_REGION`
+  - [ ] `ACTION_SELECT_ALL`
 
 - Text
   - [x] `ACTION_TOOL_SELECT_PDF_TEXT_LINEAR`
@@ -57,21 +58,20 @@
 - [x] `ACTION_DELETE`
 
 - [ ] `ACTION_SEARCH`
-- [ ] `ACTION_SELECT_ALL`
 
 ## File / Project Mode
 
 File-level commands for managing documents.
 
-- [ ] `ACTION_NEW`
-- [ ] `ACTION_OPEN`
-- [ ] `ACTION_ANNOTATE_PDF`
-- [ ] `ACTION_SAVE`
-- [ ] `ACTION_SAVE_AS`
-- [ ] `ACTION_EXPORT_AS_PDF`
-- [ ] `ACTION_EXPORT_AS`
+- [x] `ACTION_NEW`
+- [x] `ACTION_OPEN`
+- [x] `ACTION_ANNOTATE_PDF`
+- [x] `ACTION_SAVE`
+- [x] `ACTION_SAVE_AS`
+- [e] `ACTION_EXPORT_AS_PDF`
+- [x] `ACTION_EXPORT_AS`
 - [ ] `ACTION_PRINT`
-- [ ] `ACTION_QUIT`
+- [x] `ACTION_QUIT`
 
 ## Navigation / Page / View Mode
 
@@ -121,6 +121,9 @@ Shape creation and geometry tools.
 - [ ] `ACTION_TOOL_VERTICAL_SPACE`
 - [ ] `ACTION_TOOL_TEXT`
 - [ ] `ACTION_TOOL_IMAGE`
+- [ ] `ACTION_GRID_SNAPPING`
+- [ ] `ACTION_ROTATION_SNAPPING`
+- [ ] `ACTION_HIGHLIGHT_POSITION`
 
 ## Layer Mode
 
@@ -140,7 +143,7 @@ Layer creation, navigation, and ordering.
 - [ ] `ACTION_ARRANGE_BRING_FORWARD`
 - [ ] `ACTION_ARRANGE_SEND_BACKWARD`
 
-## Layout / Page Setup Mode
+## Layout Mode
 
 Page and layout configuration.
 
@@ -166,9 +169,6 @@ Feature toggles (on/off).
 - [ ] `ACTION_VIEW_PRESENTATION_MODE`
 - [ ] `ACTION_FULLSCREEN`
 - [ ] `ACTION_SHOW_SIDEBAR`
-- [ ] `ACTION_GRID_SNAPPING`
-- [ ] `ACTION_ROTATION_SNAPPING`
-- [ ] `ACTION_HIGHLIGHT_POSITION`
 
 ## Eraser Mode
 
@@ -178,7 +178,7 @@ Eraser type selection.
 - [ ] `ACTION_TOOL_ERASER_DELETE_STROKE`
 - [ ] `ACTION_TOOL_ERASER_WHITEOUT`
 
-## Audio / Media Mode
+## Audio Mode --> I don't really know what audio mode is, so I am not going to implement it unless I got some Issue for it
 
 Embedded audio and playback controls.
 

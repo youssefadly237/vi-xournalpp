@@ -22,27 +22,31 @@
 
 ## file mode
 
+* Quit: `q`
+* New: `w`
 * Export as PDF: `e`
+* Open: `r`
 * Annotate PDF: `a`
 * Save: `s`
+* Print: `d`
+* Export as: `<Shift>e`
 * Save As: `<Shift>s`
-* Open: `o`
 
 ## mode mode
 
 * Resize Mode: `r`
 * Shape Mode: `s`
+* File Mode: `f`
 * Color Mode: `c`
 * Visual Mode: `v`
 * Tool Mode: `t`
 * Sticky Resize Mode: `<Shift>r`
 * Sticky Shape Mode: `<Shift>s`
+* Sticky File Mode: `<Shift>f`
 * Sticky Color Mode: `<Shift>c`
 * Sticky Visual Mode: `<Shift>v`
 * Line Style Mode: `h`
 * Sticky Line Style Mode: `<Shift>h`
-* File Mode: `i`
-* Sticky File Mode: `<Shift>i`
 * Navigation Mode: `n`
 * Sticky Navigation Mode: `<Shift>n`
 * Page Mode: `p`
@@ -113,6 +117,5 @@
 
 ## visual mode
 
-* Rectangle Selection: `r`
+* Rectangle Selection: `e`
 * Lasso Selection: `l`
-* Object Selection: `o`
