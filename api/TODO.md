@@ -9,7 +9,7 @@
 - [x] `ACTION_TOOL_HIGHLIGHTER`
 - [x] `ACTION_TOOL_LASER_POINTER_PEN`
 - [x] `ACTION_TOOL_LASER_POINTER_HIGHLIGHTER`
-- [ ] `ACTION_TOOL_HAND`
+- [x] `ACTION_TOOL_HAND`
 - [ ] `ACTION_TOOL_DEFAULT` --> useless
 - [ ] `ACTION_TOOL_FLOATING_TOOLBOX` --> do not implement for now
 
@@ -30,10 +30,10 @@
 
 ### Line Style Mode
 
-- [ ] `ACTION_TOOL_LINE_STYLE_PLAIN`
-- [ ] `ACTION_TOOL_LINE_STYLE_DASH`
-- [ ] `ACTION_TOOL_LINE_STYLE_DASH_DOT`
-- [ ] `ACTION_TOOL_LINE_STYLE_DOT`
+- [x] `ACTION_TOOL_LINE_STYLE_PLAIN`
+- [x] `ACTION_TOOL_LINE_STYLE_DASH`
+- [x] `ACTION_TOOL_LINE_STYLE_DASH_DOT`
+- [x] `ACTION_TOOL_LINE_STYLE_DOT`
 
 ### Selection
 
@@ -44,8 +44,20 @@
   - [ ] `ACTION_TOOL_SELECT_MULTILAYER_REGION`
 
 - Text
-  - [ ] `ACTION_TOOL_SELECT_PDF_TEXT_LINEAR`
+  - [x] `ACTION_TOOL_SELECT_PDF_TEXT_LINEAR`
   - [ ] `ACTION_TOOL_SELECT_PDF_TEXT_RECT`
+
+### Edit
+
+- [x] `ACTION_UNDO`
+- [x] `ACTION_REDO`
+- [x] `ACTION_CUT`
+- [x] `ACTION_COPY`
+- [x] `ACTION_PASTE`
+- [x] `ACTION_DELETE`
+
+- [ ] `ACTION_SEARCH`
+- [ ] `ACTION_SELECT_ALL`
 
 ## File / Project Mode
 
@@ -61,20 +73,7 @@ File-level commands for managing documents.
 - [ ] `ACTION_PRINT`
 - [ ] `ACTION_QUIT`
 
-## Edit Mode
-
-Classic edit operations.
-
-- [ ] `ACTION_UNDO`
-- [ ] `ACTION_REDO`
-- [ ] `ACTION_CUT`
-- [ ] `ACTION_COPY`
-- [ ] `ACTION_PASTE`
-- [ ] `ACTION_SEARCH`
-- [ ] `ACTION_SELECT_ALL`
-- [ ] `ACTION_DELETE`
-
-## Navigation / Page Mode
+## Navigation / Page / View Mode
 
 Page navigation and manipulation.
 
@@ -91,11 +90,6 @@ Page navigation and manipulation.
 - [ ] `ACTION_APPEND_NEW_PDF_PAGES`
 - [ ] `ACTION_NEW_PAGE_AT_END`
 - [ ] `ACTION_DELETE_PAGE`
-
-## View Mode
-
-Controls how the document is displayed.
-
 - [ ] `ACTION_ZOOM_IN`
 - [ ] `ACTION_ZOOM_OUT`
 - [ ] `ACTION_ZOOM_100`

@@ -3,7 +3,6 @@ local utils = require("core.utils")
 local colors = require("config.colors")
 local static_colors = colors.static_colors
 
--- Color button grid layout (QWERTY left hand)
 local color_buttons = {
   "q",
   "w",
@@ -23,14 +22,10 @@ local color_keybindings = {}
 
 local function setupColorKeybindings()
   color_keybindings = {}
-
-  -- Generate shift keys
   local shift_color_buttons = utils.generateShiftKeys(color_buttons)
-
   local palette = utils.getColorPalette()
 
   if palette and #palette > 0 then
-    -- Dynamic color palette
     for i = 1, math.min(#palette, #color_buttons + #shift_color_buttons) do
       local btn = i <= #color_buttons and color_buttons[i]
         or shift_color_buttons[i - #color_buttons]
@@ -43,7 +38,6 @@ local function setupColorKeybindings()
       }
     end
 
-    -- Refresh keybindings
     color_keybindings.refreshColors = {
       description = "Refresh color keybindings",
       buttons = { "<Ctrl>r" },
@@ -60,7 +54,6 @@ local function setupColorKeybindings()
       end,
     }
   else
-    -- Static color fallback
     if app then
       print("Using static color palette (dynamic palette unavailable)")
     end
@@ -77,7 +70,5 @@ local function setupColorKeybindings()
   end
 end
 
--- Initialize color keybindings
 setupColorKeybindings()
-
 return color_keybindings
