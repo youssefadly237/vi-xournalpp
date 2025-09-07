@@ -11,12 +11,11 @@ modes.ALL_MODES = {
   "mode",
   "color",
   "shape",
-  "linestyle",
+  "edit",
   "page",
   "file",
   "navigation",
-  "visual",
-  "resize",
+  "layer",
 }
 
 function modes.changeMode(mode, stickyValue)

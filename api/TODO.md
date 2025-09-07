@@ -35,18 +35,14 @@
 - [x] `ACTION_TOOL_LINE_STYLE_DASH_DOT`
 - [x] `ACTION_TOOL_LINE_STYLE_DOT`
 
-### Selection
+### Basic selection
 
 - Objects
-  - [ ] `ACTION_TOOL_SELECT_RECT`
-  - [ ] `ACTION_TOOL_SELECT_REGION`
-  - [ ] `ACTION_TOOL_SELECT_MULTILAYER_RECT`
-  - [ ] `ACTION_TOOL_SELECT_MULTILAYER_REGION`
-  - [ ] `ACTION_SELECT_ALL`
+  - [x] `ACTION_TOOL_SELECT_RECT`
+  - [x] `ACTION_TOOL_SELECT_REGION`
 
 - Text
   - [x] `ACTION_TOOL_SELECT_PDF_TEXT_LINEAR`
-  - [ ] `ACTION_TOOL_SELECT_PDF_TEXT_RECT`
 
 ### Edit
 
@@ -57,11 +53,72 @@
 - [x] `ACTION_PASTE`
 - [x] `ACTION_DELETE`
 
+### Eraser Mode (not practical I think)
+
+- [ ] `ACTION_TOOL_ERASER_STANDARD`
+- [ ] `ACTION_TOOL_ERASER_DELETE_STROKE`
+- [ ] `ACTION_TOOL_ERASER_WHITEOUT`
+
+### Lost
+
 - [ ] `ACTION_SEARCH`
 
-## File / Project Mode
+## Shape Mode
 
-File-level commands for managing documents.
+### Geometric tools
+
+- [x] `ACTION_SETSQUARE`
+- [x] `ACTION_COMPASS`
+
+### Shapes
+
+- [x] `ACTION_RULER` (line tool)
+- [x] `ACTION_TOOL_DRAW_RECT`
+- [x] `ACTION_TOOL_DRAW_ELLIPSE`
+- [x] `ACTION_TOOL_DRAW_ARROW`
+- [x] `ACTION_TOOL_DRAW_DOUBLE_ARROW`
+- [x] `ACTION_TOOL_DRAW_COORDINATE_SYSTEM`
+- [x] `ACTION_TOOL_DRAW_SPLINE`
+- [x] `ACTION_SHAPE_RECOGNIZER`
+
+### Fillings
+
+- [x] `ACTION_TOOL_FILL`
+- [ ] `ACTION_TOOL_PEN_FILL` --> first one covers
+- [ ] `ACTION_TOOL_HIGHLIGHTER_FILL` --> first one covers
+- [x] `ACTION_TOOL_PEN_FILL_OPACITY`
+- [x] `ACTION_TOOL_HIGHLIGHTER_FILL_OPACITY`
+
+### other stuff
+
+- [x] `ACTION_TOOL_VERTICAL_SPACE`
+- [x] `ACTION_GRID_SNAPPING`
+- [x] `ACTION_ROTATION_SNAPPING`
+- [ ] `ACTION_HIGHLIGHT_POSITION` --> what is this ?
+
+## Edit Mode
+
+### Selection
+
+- Objects
+  - [x] `ACTION_TOOL_SELECT_RECT`
+  - [x] `ACTION_TOOL_SELECT_REGION`
+  - [ ] `ACTION_TOOL_SELECT_MULTILAYER_RECT`
+  - [ ] `ACTION_TOOL_SELECT_MULTILAYER_REGION`
+  - [ ] `ACTION_SELECT_ALL`
+
+- Text
+  - [x] `ACTION_TOOL_SELECT_PDF_TEXT_LINEAR`
+  - [ ] `ACTION_TOOL_SELECT_PDF_TEXT_RECT`
+
+### idk
+
+- [ ] `ACTION_SELECT_FONT`
+- [ ] `ACTION_TEX`
+- [ ] `ACTION_TOOL_TEXT`
+- [ ] `ACTION_TOOL_IMAGE`
+
+## File Mode
 
 - [x] `ACTION_NEW`
 - [x] `ACTION_OPEN`
@@ -70,10 +127,10 @@ File-level commands for managing documents.
 - [x] `ACTION_SAVE_AS`
 - [e] `ACTION_EXPORT_AS_PDF`
 - [x] `ACTION_EXPORT_AS`
-- [ ] `ACTION_PRINT`
+- [x] `ACTION_PRINT`
 - [x] `ACTION_QUIT`
 
-## Navigation / Page / View Mode
+## Navigation Mode
 
 Page navigation and manipulation.
 
@@ -99,35 +156,7 @@ Page navigation and manipulation.
 - [ ] `ACTION_FULLSCREEN`
 - [ ] `ACTION_SHOW_SIDEBAR`
 
-## Drawing / Shape Mode
-
-Shape creation and geometry tools.
-
-- [ ] `ACTION_SETSQUARE`
-- [ ] `ACTION_COMPASS`
-- [ ] `ACTION_TOOL_DRAW_RECT`
-- [ ] `ACTION_TOOL_DRAW_ELLIPSE`
-- [ ] `ACTION_TOOL_DRAW_ARROW`
-- [ ] `ACTION_TOOL_DRAW_DOUBLE_ARROW`
-- [ ] `ACTION_TOOL_DRAW_COORDINATE_SYSTEM` --> test
-- [ ] `ACTION_RULER` (line tool)
-- [ ] `ACTION_TOOL_DRAW_SPLINE`
-- [ ] `ACTION_SHAPE_RECOGNIZER`
-- [ ] `ACTION_TOOL_FILL`
-- [ ] `ACTION_TOOL_PEN_FILL`
-- [ ] `ACTION_TOOL_PEN_FILL_OPACITY`
-- [ ] `ACTION_TOOL_HIGHLIGHTER_FILL_OPACITY`
-- [ ] `ACTION_TOOL_HIGHLIGHTER_FILL`
-- [ ] `ACTION_TOOL_VERTICAL_SPACE`
-- [ ] `ACTION_TOOL_TEXT`
-- [ ] `ACTION_TOOL_IMAGE`
-- [ ] `ACTION_GRID_SNAPPING`
-- [ ] `ACTION_ROTATION_SNAPPING`
-- [ ] `ACTION_HIGHLIGHT_POSITION`
-
 ## Layer Mode
-
-Layer creation, navigation, and ordering.
 
 - [ ] `ACTION_NEW_LAYER`
 - [ ] `ACTION_NEW_LAYER_BELOW_CURRENT`
@@ -143,9 +172,7 @@ Layer creation, navigation, and ordering.
 - [ ] `ACTION_ARRANGE_BRING_FORWARD`
 - [ ] `ACTION_ARRANGE_SEND_BACKWARD`
 
-## Layout Mode
-
-Page and layout configuration.
+## Page Mode
 
 - [ ] `ACTION_PAPER_FORMAT`
 - [ ] `ACTION_CONFIGURE_PAGE_TEMPLATE`
@@ -160,27 +187,7 @@ Page and layout configuration.
   `ACTION_SET_LAYOUT_T2B`, `ACTION_SET_LAYOUT_B2T`
 - `ACTION_TOGGLE_PAIRS_PARITY`
 
-## Boolean / Toggle Mode
-
-Feature toggles (on/off).
-
-- [ ] `ACTION_ZOOM_FIT`
-- [ ] `ACTION_VIEW_PAIRED_PAGES`
-- [ ] `ACTION_VIEW_PRESENTATION_MODE`
-- [ ] `ACTION_FULLSCREEN`
-- [ ] `ACTION_SHOW_SIDEBAR`
-
-## Eraser Mode
-
-Eraser type selection.
-
-- [ ] `ACTION_TOOL_ERASER_STANDARD`
-- [ ] `ACTION_TOOL_ERASER_DELETE_STROKE`
-- [ ] `ACTION_TOOL_ERASER_WHITEOUT`
-
 ## Audio Mode --> I don't really know what audio mode is, so I am not going to implement it unless I got some Issue for it
-
-Embedded audio and playback controls.
 
 - [ ] `ACTION_AUDIO_SEEK_FORWARDS`
 - [ ] `ACTION_AUDIO_SEEK_BACKWARDS`
@@ -191,18 +198,14 @@ Embedded audio and playback controls.
 - [ ] `ACTION_AUDIO_PAUSE_PLAYBACK`
 - [ ] `ACTION_AUDIO_RECORD`
 
-## Toolbar / Plugin / Help Mode
+## Settings Mode
 
-UI, extensions, and help.
-
-- [ ] `ACTION_TEX`
 - [ ] `ACTION_MANAGE_TOOLBAR`
 - [ ] `ACTION_CUSTOMIZE_TOOLBAR`
 - [ ] `ACTION_PLUGIN_MANAGER`
 - [ ] `ACTION_HELP`
 - [ ] `ACTION_ABOUT`
 - [ ] `ACTION_SETTINGS` (Preferences)
-- [ ] `ACTION_SELECT_FONT`
 
 ## Not sure what does this do
 
