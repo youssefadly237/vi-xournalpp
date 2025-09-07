@@ -22,8 +22,12 @@
 
 ## edit mode
 
+* Font: `w`
 * Lasso Selection: `e`
 * Rectangle Selection: `r`
+* LaTeX: `s`
+* Image: `d`
+* Text: `f`
 
 ## file mode
 
