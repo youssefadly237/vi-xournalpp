@@ -1,7 +1,6 @@
 -- src/core/plugin/ActionBackwardCompatibilityLayer.cpp --> xournalpp/xournalpp
 
 -- primary tools
-
 function ClickPen()
   app.uiAction({ ["action"] = "ACTION_TOOL_PEN" })
 end
@@ -90,7 +89,6 @@ function ClickPaste()
 end
 
 -- Selection
-
 function ClickSelectRectangle()
   app.uiAction({ ["action"] = "ACTION_TOOL_SELECT_RECT" })
 end
@@ -103,14 +101,71 @@ function ClickSelectTextLinear()
   app.uiAction({ ["action"] = "ACTION_TOOL_SELECT_PDF_TEXT_LINEAR" })
 end
 
--- Shapes
-
-function ClickCompass()
+-- shapes
+function ClickProtractor()
   app.uiAction({ ["action"] = "ACTION_COMPASS" })
 end
 
-function ClickTriangle()
+function ClickSetsquare()
   app.uiAction({ ["action"] = "ACTION_SETSQUARE" })
+end
+
+function ClickVerticalSpace()
+  app.uiAction({ ["action"] = "ACTION_TOOL_VERTICAL_SPACE" })
+end
+
+function ClickGridSnapping(enabled)
+  app.uiAction({ ["action"] = "ACTION_GRID_SNAPPING", ["enabled"] = enabled })
+end
+
+function ClickRotationSnapping(enabled)
+  app.uiAction({ ["action"] = "ACTION_ROTATION_SNAPPING", ["enabled"] = enabled })
+end
+
+function ClickRuler(enabled)
+  app.uiAction({ ["action"] = "ACTION_RULER", ["enabled"] = enabled })
+end
+
+function ClickArrow(enabled)
+  app.uiAction({ ["action"] = "ACTION_TOOL_DRAW_ARROW", ["enabled"] = enabled })
+end
+
+function ClickDoubleArrow(enabled)
+  app.uiAction({ ["action"] = "ACTION_TOOL_DRAW_DOUBLE_ARROW", ["enabled"] = enabled })
+end
+
+function ClickEllipse(enabled)
+  app.uiAction({ ["action"] = "ACTION_TOOL_DRAW_ELLIPSE", ["enabled"] = enabled })
+end
+
+function ClickRectangle(enabled)
+  app.uiAction({ ["action"] = "ACTION_TOOL_DRAW_RECT", ["enabled"] = enabled })
+end
+
+function ClickSpline(enabled)
+  app.uiAction({ ["action"] = "ACTION_TOOL_DRAW_SPLINE", ["enabled"] = enabled })
+end
+
+function ClickCoordinateSystem(enabled)
+  app.uiAction({ ["action"] = "ACTION_TOOL_DRAW_COORDINATE_SYSTEM", ["enabled"] = enabled })
+end
+
+function ClickShapeRecognizer(enabled)
+  app.uiAction({ ["action"] = "ACTION_SHAPE_RECOGNIZER", ["enabled"] = enabled })
+end
+
+-- fills
+
+function ClickFill(enabled)
+  app.uiAction({ ["action"] = "ACTION_TOOL_PEN_FILL", ["enabled"] = enabled })
+end
+
+function ClickPenFillOpacity()
+  app.uiAction({ ["action"] = "ACTION_TOOL_PEN_FILL_OPACITY" })
+end
+
+function ClickHighlighterFillOpacity()
+  app.uiAction({ ["action"] = "ACTION_TOOL_HIGHLIGHTER_FILL_OPACITY" })
 end
 
 -- files
@@ -168,31 +223,6 @@ end
 
 function GetToolInfo(tool)
   return app.getToolInfo(tool)
-end
-
--- shapes
-function ClickRuler(enabled)
-  app.uiAction({ ["action"] = "ACTION_RULER", ["enabled"] = enabled })
-end
-
-function ClickArrow(enabled)
-  app.uiAction({ ["action"] = "ACTION_TOOL_DRAW_ARROW", ["enabled"] = enabled })
-end
-
-function ClickEllipse(enabled)
-  app.uiAction({ ["action"] = "ACTION_TOOL_DRAW_ELLIPSE", ["enabled"] = enabled })
-end
-
-function ClickRectangle(enabled)
-  app.uiAction({ ["action"] = "ACTION_TOOL_DRAW_RECT", ["enabled"] = enabled })
-end
-
-function ClickSpline(enabled)
-  app.uiAction({ ["action"] = "ACTION_TOOL_DRAW_SPLINE", ["enabled"] = enabled })
-end
-
-function ClickFill(enabled)
-  app.uiAction({ ["action"] = "ACTION_TOOL_FILL", ["selection"] = true, ["enabled"] = enabled })
 end
 
 -- color

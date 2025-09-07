@@ -7,14 +7,13 @@ return {
     buttons = { "<Ctrl>space" },
     modes = {
       "tool",
+      "edit",
       "color",
       "shape",
-      "linestyle",
+      "layer",
       "page",
       "file",
       "navigation",
-      "visual",
-      "resize",
     },
     call = function()
       modes.changeMode("mode", false)
@@ -46,17 +45,9 @@ return {
       modes.changeMode("shape", false)
     end,
   },
-  linestyle = {
-    description = "Line Style Mode",
-    buttons = { "h" },
-    modes = { "mode" },
-    call = function()
-      modes.changeMode("linestyle", false)
-    end,
-  },
   page = {
     description = "Page Mode",
-    buttons = { "p" },
+    buttons = { "q" },
     modes = { "mode" },
     call = function()
       modes.changeMode("page", false)
@@ -64,7 +55,7 @@ return {
   },
   navigation = {
     description = "Navigation Mode",
-    buttons = { "n" },
+    buttons = { "v" },
     modes = { "mode" },
     call = function()
       modes.changeMode("navigation", false)
@@ -78,23 +69,22 @@ return {
       modes.changeMode("file", false)
     end,
   },
-  visual = {
-    description = "Visual Mode",
-    buttons = { "v" },
+  edit = {
+    description = "Edit Mode",
+    buttons = { "e" },
     modes = { "mode" },
     call = function()
-      modes.changeMode("visual", false)
+      modes.changeMode("edit", false)
     end,
   },
-  resize = {
-    description = "Resize Mode",
-    buttons = { "r" },
+  layer = {
+    description = "Layer Mode",
+    buttons = { "w" },
     modes = { "mode" },
     call = function()
-      modes.changeMode("resize", false)
+      modes.changeMode("layer", false)
     end,
   },
-
   -- Sticky Mode Selection (Shift + key from mode menu)
   -- Note: Tool mode is always sticky, so no separate sticky tool option needed
   stickyColor = {
@@ -113,17 +103,9 @@ return {
       modes.changeMode("shape", true)
     end,
   },
-  stickyLinestyle = {
-    description = "Sticky Line Style Mode",
-    buttons = { "<Shift>h" },
-    modes = { "mode" },
-    call = function()
-      modes.changeMode("linestyle", true)
-    end,
-  },
   stickyPage = {
     description = "Sticky Page Mode",
-    buttons = { "<Shift>p" },
+    buttons = { "<Shift>q" },
     modes = { "mode" },
     call = function()
       modes.changeMode("page", true)
@@ -131,7 +113,7 @@ return {
   },
   stickyNavigation = {
     description = "Sticky Navigation Mode",
-    buttons = { "<Shift>n" },
+    buttons = { "<Shift>v" },
     modes = { "mode" },
     call = function()
       modes.changeMode("navigation", true)
@@ -145,20 +127,20 @@ return {
       modes.changeMode("file", true)
     end,
   },
-  stickyVisual = {
-    description = "Sticky Visual Mode",
-    buttons = { "<Shift>v" },
+  stickyEdit = {
+    description = "Sticky Edit Mode",
+    buttons = { "<Shift>e" },
     modes = { "mode" },
     call = function()
-      modes.changeMode("visual", true)
+      modes.changeMode("edit", true)
     end,
   },
-  stickyResize = {
-    description = "Sticky Resize Mode",
-    buttons = { "<Shift>r" },
+  stickyLayer = {
+    description = "Sticky Layer Mode",
+    buttons = { "<Shift>w" },
     modes = { "mode" },
     call = function()
-      modes.changeMode("resize", true)
+      modes.changeMode("layer", true)
     end,
   },
 }

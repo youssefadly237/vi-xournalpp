@@ -1,3 +1,5 @@
+local api = require("api.api")
+
 local utils = {}
 
 local current_color_index = 1
@@ -13,14 +15,26 @@ local linestyles = {
   { name = "Dotted", api_call = "ClickDotted" },
 }
 
+local fill_enabled = false
+local last_known_fill = nil
+
 function utils.cleanShape()
-  local api = require("api.api")
   api.ClickRuler(false)
+  api.ClickCoordinateSystem(false)
   api.ClickArrow(false)
+  api.ClickDoubleArrow(false)
   api.ClickRectangle(false)
   api.ClickEllipse(false)
+  api.ClickShapeRecognizer(false)
   api.ClickSpline(false)
   api.ClickFill(false)
+  -- this may look a bit confusing, Protractor and Setsquare can not be active at the same time,
+  -- it is called "Mutual Exclusivity" (just googled its name)
+  -- so by calling on of them we have ensure that the other is not active, then on off the other
+  -- so we guarantee both are turned off, it is not clean but can not think of something better rn
+  api.ClickProtractor()
+  api.ClickSetsquare()
+  api.ClickSetsquare()
 end
 
 function utils.refreshColorPalette()
@@ -29,7 +43,6 @@ end
 
 function utils.getColorPalette()
   if not color_palette then
-    local api = require("api.api")
     local ok = pcall(function()
       color_palette = api.GetColorPalette()
     end)
@@ -42,7 +55,6 @@ function utils.getColorPalette()
 end
 
 local function applyColor(index, color_entry)
-  local api = require("api.api")
   local color, name
   if color_entry.color then
     color = color_entry.color
@@ -87,7 +99,6 @@ function utils.previousColor()
 end
 
 local function applyLinestyle(index)
-  local api = require("api.api")
   local linestyle = linestyles[index]
   if linestyle and api[linestyle.api_call] then
     api[linestyle.api_call]()
@@ -107,6 +118,29 @@ end
 function utils.setPlainLinestyle()
   current_linestyle_index = 1
   applyLinestyle(1)
+end
+
+function utils.toggleFill()
+  utils.syncFillWithApp()
+  fill_enabled = not fill_enabled
+  local api = require("api.api")
+  api.ClickFill(fill_enabled)
+end
+
+function utils.syncFillWithApp()
+  if not app then
+    return
+  end
+  local ok, toolInfo = pcall(function()
+    return app.getToolInfo("active")
+  end)
+  if ok and toolInfo and toolInfo.fill ~= nil then
+    local app_fill = toolInfo.fill
+    if last_known_fill ~= app_fill then
+      last_known_fill = app_fill
+      fill_enabled = app_fill
+    end
+  end
 end
 
 function utils.syncColorWithApp()
@@ -165,6 +199,7 @@ end
 function utils.syncWithApp()
   utils.syncColorWithApp()
   utils.syncLinestyleWithApp()
+  utils.syncFillWithApp()
 end
 
 function utils.mergeTables(...)

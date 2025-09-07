@@ -20,6 +20,11 @@
 * Purple: `p`, `a`
 * Yellow: `y`
 
+## edit mode
+
+* Lasso Selection: `e`
+* Rectangle Selection: `r`
+
 ## file mode
 
 * Quit: `q`
@@ -34,23 +39,21 @@
 
 ## mode mode
 
-* Resize Mode: `r`
+* Page Mode: `q`
+* Layer Mode: `w`
+* Edit Mode: `e`
 * Shape Mode: `s`
 * File Mode: `f`
 * Color Mode: `c`
-* Visual Mode: `v`
+* Navigation Mode: `v`
 * Tool Mode: `t`
-* Sticky Resize Mode: `<Shift>r`
+* Sticky Page Mode: `<Shift>q`
+* Sticky Layer Mode: `<Shift>w`
+* Sticky Edit Mode: `<Shift>e`
 * Sticky Shape Mode: `<Shift>s`
 * Sticky File Mode: `<Shift>f`
 * Sticky Color Mode: `<Shift>c`
-* Sticky Visual Mode: `<Shift>v`
-* Line Style Mode: `h`
-* Sticky Line Style Mode: `<Shift>h`
-* Navigation Mode: `n`
-* Sticky Navigation Mode: `<Shift>n`
-* Page Mode: `p`
-* Sticky Page Mode: `<Shift>p`
+* Sticky Navigation Mode: `<Shift>v`
 
 ## navigation mode
 
@@ -81,12 +84,25 @@
 
 ## shape mode
 
+* Ruler: `q`
+* Coordinate system: `w`
 * Ellipse: `e`
-* Ruler: `r`
+* Rectangle: `r`
 * Arrow: `a`
-* Rectangle: `s`
+* Spline: `s`
+* Shape Detector: `d`
 * Fill: `f`
-* Spline: `v`
+* Protractor: `z`
+* Set square (triangle): `x`
+* Deselect all shape tools: `c`
+* Pen fill opacity: `v`
+* Vertical Space: `t`
+* Grid snipping: `g`
+* Rotation snipping: `b`
+* Double Arrow: `<Shift>a`
+* Highlighter fill opacity: `<Shift>v`
+* Grid snipping off: `<Shift>g`
+* Rotation snipping off: `<Shift>b`
 
 ## tool mode
 
@@ -114,8 +130,3 @@
 * Delete: `<Shift>x`
 * Very Fine: `<Shift>t`
 * Very Thick: `<Shift>b`
-
-## visual mode
-
-* Rectangle Selection: `e`
-* Lasso Selection: `l`
