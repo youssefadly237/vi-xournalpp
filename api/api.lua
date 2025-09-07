@@ -46,6 +46,23 @@ function ClickVeryThick()
   app.uiAction({ ["action"] = "ACTION_SIZE_VERY_THICK" })
 end
 
+-- secondary tools
+function ClickTex()
+  app.uiAction({ ["action"] = "ACTION_TEX" })
+end
+
+function ClickText()
+  app.uiAction({ ["action"] = "ACTION_TOOL_TEXT" })
+end
+
+function ClickImage()
+  app.uiAction({ ["action"] = "ACTION_TOOL_IMAGE" })
+end
+
+function ClickSelectFont()
+  app.uiAction({ ["action"] = "ACTION_SELECT_FONT" })
+end
+
 -- linestyle
 function ClickPlain()
   app.uiAction({ ["action"] = "ACTION_TOOL_LINE_STYLE_PLAIN" })
@@ -89,16 +106,32 @@ function ClickPaste()
 end
 
 -- Selection
+function ClickSelectAll()
+  app.uiAction({ ["action"] = "ACTION_SELECT_ALL" })
+end
+
 function ClickSelectRectangle()
   app.uiAction({ ["action"] = "ACTION_TOOL_SELECT_RECT" })
+end
+
+function ClickSelectMultilayerRectangle()
+  app.uiAction({ ["action"] = "ACTION_TOOL_SELECT_MULTILAYER_RECT" })
 end
 
 function ClickSelectRegion()
   app.uiAction({ ["action"] = "ACTION_TOOL_SELECT_REGION" })
 end
 
+function ClickSelectMultilayerRegion()
+  app.uiAction({ ["action"] = "ACTION_TOOL_SELECT_MULTILAYER_REGION" })
+end
+
 function ClickSelectTextLinear()
   app.uiAction({ ["action"] = "ACTION_TOOL_SELECT_PDF_TEXT_LINEAR" })
+end
+
+function ClickSelectTextRectangular()
+  app.uiAction({ ["action"] = "ACTION_TOOL_SELECT_PDF_TEXT_RECT" })
 end
 
 -- shapes
@@ -155,7 +188,6 @@ function ClickShapeRecognizer(enabled)
 end
 
 -- fills
-
 function ClickFill(enabled)
   app.uiAction({ ["action"] = "ACTION_TOOL_PEN_FILL", ["enabled"] = enabled })
 end
@@ -205,26 +237,6 @@ function ClickQuit()
   app.uiAction({ ["action"] = "ACTION_QUIT" })
 end
 
----------------------------------------------------------------------
----------------------------------------------------------------------
----------------------------------------------------------------------
-
-function ClickSelectObject()
-  app.uiAction({ ["action"] = "ACTION_TOOL_SELECT_OBJECT" })
-end
-
-function ClickTex()
-  app.uiAction({ ["action"] = "ACTION_TEX" })
-end
-
-function ClickText()
-  app.uiAction({ ["action"] = "ACTION_TOOL_TEXT" })
-end
-
-function GetToolInfo(tool)
-  return app.getToolInfo(tool)
-end
-
 -- color
 function GetColorPalette()
   local palette = app.getColorPalette()
@@ -247,6 +259,10 @@ function ChangeToolColor(color, colorName)
     print(toolName .. " does not support color")
   end
 end
+
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+---------------------------------------------------------------------
 
 -- zooming
 function ClickZoomIn()
@@ -364,11 +380,16 @@ function ClickPlainBG()
   app.changeCurrentPageBackground("plain")
 end
 
+-- other
 function SetPlaceholderValue(placeholder, val)
   -- Only if setPlaceholderValue is available (Xournal++ >= 1.2.8 (or 1.2.7+dev))
   if app.setPlaceholderValue then
     app.setPlaceholderValue(placeholder, val)
   end
+end
+
+function GetToolInfo(tool)
+  return app.getToolInfo(tool)
 end
 
 -- Export all

@@ -9,7 +9,6 @@ return {
     modes = { "tool" },
     call = function()
       api.ClickPen()
-      utils.cleanShape()
     end,
   },
   eraser = {
@@ -18,7 +17,6 @@ return {
     modes = { "tool" },
     call = function()
       api.ClickEraser()
-      utils.cleanShape()
     end,
   },
   highlighter = {
@@ -27,7 +25,6 @@ return {
     modes = { "tool" },
     call = function()
       api.ClickHighlighter()
-      utils.cleanShape()
     end,
   },
   laserPen = {
@@ -36,7 +33,6 @@ return {
     modes = { "tool" },
     call = function()
       ClickLaserPen()
-      utils.cleanShape()
     end,
   },
   laserHighlighter = {
@@ -45,7 +41,6 @@ return {
     modes = { "tool" },
     call = function()
       api.ClickLaserHighlighter()
-      utils.cleanShape()
     end,
   },
   hand = {
@@ -54,7 +49,6 @@ return {
     modes = { "tool" },
     call = function()
       api.ClickHand()
-      utils.cleanShape()
     end,
   },
 
@@ -83,7 +77,6 @@ return {
     modes = { "tool" },
     call = function()
       api.ClickSelectRectangle()
-      utils.cleanShape()
     end,
   },
   selection = {
@@ -92,7 +85,6 @@ return {
     modes = { "tool" },
     call = function()
       api.ClickSelectRegion()
-      utils.cleanShape()
     end,
   },
   selectTextLinear = {
@@ -101,7 +93,6 @@ return {
     modes = { "tool" },
     call = function()
       api.ClickSelectTextLinear()
-      utils.cleanShape()
     end,
   },
 
