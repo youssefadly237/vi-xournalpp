@@ -2,180 +2,134 @@
 
 A Vi-like modal editing plugin for [Xournal++](https://github.com/xournalpp/xournalpp), version 1.1.x and 1.2.x.
 
-## Branch Status
+## Branch Status - `my-nightly`
 
-This branch is actively maintained for personal use and is not an official release, but it is very stable in my experience.
+This is an actively maintained fork with enhanced features and modernized codebase. It's stable and production-ready for daily use, I have [lryffel/vi-xournalpp/issues/38](https://github.com/lryffel/vi-xournalpp/issues/38) opened to verify if I will be able to merge my code to the original plugin or not
 
-- Contains personal enhancements and a restructured codebase.
-- Planning to discuss these changes with the original author to see if they are interested in merging some or all improvements upstream.
+**Key improvements over upstream:**
 
-**Notable differences from upstream:**
+- **Modular architecture**: Clean separation into `api/`, `core/`, `keybindings/`, `config/` directories
+- **CI/CD pipeline**: GitHub Actions with linting, formatting, and validation
+- **New features**: Example is auto-loading Xournal++'s current palette with helper functions (`nextColor()`, `previousColor()`)
+- **Enhanced ergonomics**: Mapping is targeting left hand for easier reach (opinionated)
+- **Validation system**: Automatic keybinding conflict detection and validation
+- **Better maintainability**: Split large files into focused modules
 
-- Reorganized module structure for maintainability (see `core/`, `api/`, `keybindings/`).
-- Personal default keybindings and configuration tweaks.
-- Dynamic color support and other enhancements documented in the repository.
+### Development Status
 
----
+**Fully implemented modes:**
 
-**Note:** Parts of this README may be outdated and will be updated in upcoming commits.
+- **Tool Mode**: Complete tool switching, sizes, colors, and basic operations (designed that you don't need other modes)
+- **Color Mode**: Dynamic palette loading, with grid like mapping
+- **Shape Mode**: All shapes, rulers, and drawing tools
+- **Edit Mode**: Selection tools, text, LaTeX, images
+- **File Mode**: File operations, PDF handling, export functionality
 
-### Planned updates
+**Partially implemented:** (original implementation or non yet)
 
-- Complete the rest of the [API](api/TODO.md).
-- Refine keybindings to a grid-like layout for improved ergonomics and memorization, especially for users holding a stylus in the right hand and using the keyboard with the left.
+- **Layer Mode**: Basic structure exists, core layer operations pending (see [API TODO](api/TODO.md))
+- **Page Mode**: Page operations and background types  
+- **Navigation Mode**: Scrolling, zooming, etc ...
 
 ## Installation
 
-To set the plugin up
+### From this fork (my-nightly branch)
 
-- on Linux
+**Linux:**
+
+```bash
+cd ~/.config/xournalpp/plugins
+git clone -b my-nightly https://github.com/youssefadly237/vi-xournalpp
+```
+
+**Windows (PowerShell):**
+
+```bash
+cd $env:LOCALAPPDATA\xournalpp\plugins
+git clone -b my-nightly https://github.com/youssefadly237/vi-xournalpp
+```
+
+### From original repository
+
+**Linux:**
 
 ```bash
 cd ~/.config/xournalpp/plugins
 git clone https://github.com/lryffel/vi-xournalpp
 ```
 
-- on Windows (PowerShell)
+**Windows (PowerShell):**
 
 ```bash
 cd $env:LOCALAPPDATA\xournalpp\plugins
 git clone https://github.com/lryffel/vi-xournalpp
 ```
 
-In Xournal++, activate the plugin using the _Plugin Manager_
-in the menu bar under _Plugin_.
+**Activation:** In Xournal++, activate the plugin using the _Plugin Manager_ in the menu bar under _Plugin_.
 
 vi-xournalpp is inspired by the modal editing popularized
 by the text editor vi.
 The two basic principles of the default keybindings of vi-xournalpp are
 
-- They should be easy to remember mnemonically,
-- They should be accessible by the left hand on a QWERTY/QWERTZ/AZERTY keyboard.
+- They should be easy to remember mnemonically, although practically beats purity,
+- They should be accessible by the left hand on a QWERTY keyboard.
 
-The second principle is broken for certain colors (e.g. `o`range).
+The second principle is gold you may not break.
 
 ## Usage
 
-vi-xournalpp is centered around so-called modes. They give access to different
-sets of keybindings. This makes it possible for way more commands to be easily
-accessible from a limited region on the keyboard.
-Keybindings sorted by modes can be found in [keybinginds.md](keybindings.md).
+vi-xournalpp centers around **modal editing** inspired by Vi/Vim. Different modes provide access to specialized keybindings, making many commands easily accessible from the left side of a QWERTY keyboard (ideal for stylus users).
 
-You can modify keybindings by editing [keybindings.lua](keybindings.lua) in your plugin
-folder. If you want, you can then regenerate the markdown file by running
-[documentation.lua](documentation.lua) using your local lua interpreter.
+**Quick start:**
 
-### Tool Mode
+- Press `Ctrl+Space` to open the mode menu
+- Select a mode (e.g., `c` for color, `s` for shape, `q` for page)
+- Use mode-specific keybindings
+- Press any key in tool mode to return, or `Shift+[mode]` for sticky mode
 
-The default mode is **tool** mode.
-Tool mode is used for switching between the different tools, tool thicknesses,
-modes, and history operations. Available tools are _pen_, _eraser_,
-_selection_, _highlighter_, _hand_, _tex_, _text_, _delete_, _file_.
-Available modes are **color**, **shape**, **linestyle**, **page**, **navigation**.
-Pressing any key in any mode other than _tool_ automatically
-returns the user to tool mode, unless the mode was made "sticky"
-by pressing `<Shift>`. E.g., to enter _sticky color mode_, press
-`<Shift>c`.
-Available history operations are _undo_, _redo_.
-
-### Color Mode
-
-The **color** mode is used to switch between the different colors,
-_black_, _white_, _pink_, _red_, _orange_, _yellow_, _green_,
-_cyan_, _blue_, _purple_.
-
-### Shape mode
-
-The **shape** mode is used to select the different shapes, _ruler_,
-_arrow_, _rectangle_, and _ellipse_.
-
-### Linestyle mode
-
-The **linestyle** mode switches between the different kinds of linestyles,
-namely _plain_, _dashed_, _dotted_, _dashDotted_.
-
-### Page mode
-
-The **page** mode can manipulate pages and the canvas position.
-Available actions are _copy_, _delete_, _moveUp_, _moveDown_.
-The somewhat ambiguously named _moveUp_ and _moveDown_
-actually move the page around in the document
-and are not to be confused with the scrolling commands.
-
-### Navigation mode
-
-The **navigation** mode is responsible for scrolling.
-Available actions are
-_goToFirstPage_, _goToLastPage_, _goToTop_, _goToBottom_,
-_scrollPageDown_, _scrollPageUp_.
-
-### File mode
-
-The **file** mode can open and write files.
-Available actions are _annotatePDF_, _exportAsPDF_.
-
-### Resize mode
-
-The **resize** mode can be used to change thicknesses.
-Available thicknesses are
-_very fine_, _fine_, _medium_, _thick_, _very thick_,
-accessed by `a`, `s`, `d`, `f`, `g`, respectively.
+For complete keybinding reference, see [keybindings.md](keybindings.md).
 
 ## Configuration
 
-### Keybindings
+### Modular Structure
 
-Keybindings are defined in the file `keybindings.lua`.
-One keybinding looks something like this:
+The plugin is organized into focused modules for better maintainability:
 
-```lua
-selection = {
-  description = "Selection",
-  buttons     = {"s", "v"},
-  modes       = {"tool"},
-  call        = clickSelectRegion
-}
-```
+- **`api/`**: Xournal++ API wrappers and integration
+- **`core/`**: Core functionality (modes, handlers, utilities)
+- **`keybindings/`**: Mode-specific keybinding definitions
+- **`config/`**: Configuration files (colors, settings)
 
-The `description` field is the menu
-entry, and also what is logged into the terminal
-if Xournal++ is started using the command `xournalpp`.
-The characters in the `buttons` list are
-the accelerators of the keybinding.
-Modes present in the `modes` list listen
-for the accelerators.
-The function assigned `call` gets executed
-when a valid accelerator is pressed
-in a valid mode. In this case,
-`clickSelectRegion` is a function
-defined in `api.lua`.
+### Color Configuration
 
-### Colors
+Color configuration is in `config/colors.lua`:
 
-The colors can be changed in `colors.lua`.
-
-- For versions **≤ 1.2.2**, you must define colors manually here.  
-- For newer versions, it defaults to Xournal++’s current palette (this method does not work).  
+**For Xournal++ ≤ 1.2.2:** Define colors manually:
 
 ```lua
-{ name = "Yellow",   color = 0xf1fa8c, buttons = { "y" } }
+{ name = "Yellow", color = 0xf1fa8c, buttons = { "y" } }
 ```
 
-## Extension
+**For newer versions:** Colors load dynamically from Xournal++'s palette with fallback to static definitions.
 
-### New Modes
+Use `Ctrl+R` in color mode to refresh the dynamic palette.
 
-A mode `newMode` needs the following
+## Contributing
 
-1. An entry `"newMode"` in the `ALL_MODES` list in `keybindings.lua`,
-2. A `newMode` keybinding in the `keybindings` list.
+Interested in contributing? See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines on:
 
-### New Keybindings
+- Development setup and project structure
+- Code style and testing procedures
+- Adding new features, modes, and keybindings
+- Contribution workflow and review process
 
-vi-xournalpp currently does not cover the full API. To add another entry,
-follow the following steps.
+**Quick start for contributors:**
 
-1. Make a function in `api.lua` wrapping the API call.
-2. Create a new keybinding for it in `keybindings.lua`.
+- Fork and create feature branches
+- Follow the modular structure
+- Test with the validation system
+- Keep PRs focused and well-documented
 
-If the entry is a color, also update `colors.lua` accordingly.
+## License
+
+MIT
