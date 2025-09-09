@@ -2,7 +2,7 @@
 
 ## Global bindings
 
-* Mode Menu: `<Ctrl>space`
+* Mode Menu: `Tab`
 
 ## color mode
 

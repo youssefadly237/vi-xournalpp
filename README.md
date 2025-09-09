@@ -82,7 +82,7 @@ vi-xournalpp centers around **modal editing** inspired by Vi/Vim. Different mode
 
 **Quick start:**
 
-- Press `Ctrl+Space` to open the mode menu
+- Press `Tab` to open the mode menu
 - Select a mode (e.g., `c` for color, `s` for shape, `q` for page)
 - Use mode-specific keybindings
 - Press any key in tool mode to return, or `Shift+[mode]` for sticky mode

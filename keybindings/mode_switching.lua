@@ -1,10 +1,10 @@
 local modes = require("core.modes")
 
 return {
-  -- Mode Selection Menu - Ctrl+Space
+  -- Mode Selection Menu - Tab
   modeMenu = {
     description = "Mode Menu",
-    buttons = { "<Ctrl>space" },
+    buttons = { "Tab" },
     modes = {
       "tool",
       "edit",
