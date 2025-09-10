@@ -10,7 +10,7 @@ repos:
     hooks:
       - id: check-docs
         name: Verify documentation is up to date
-        entry: lua documentation.lua
+        entry: bash -c 'python3 -c "import keyboardviz" 2>/dev/null || python3 -m pip install --user keyboardviz > /dev/null 2>&1; lua documentation.lua'
         language: system
         files: ^(keybindings/.*\.lua|api/.*\.lua|config/.*\.lua|core/.*\.lua|main\.lua)$
         pass_filenames: false

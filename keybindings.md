@@ -2,9 +2,13 @@
 
 ## Global bindings
 
+![Global Mode Keyboard](docs/keyboards/global_keyboard.svg)
+
 * Mode Menu: `Tab`
 
 ## color mode
+
+![Color Mode Keyboard](docs/keyboards/color_keyboard.svg)
 
 *Note: This shows the static color palette. In newer versions, colors are loaded dynamically from Xournal++'s current palette.*
 
@@ -22,6 +26,8 @@
 
 ## edit mode
 
+![Edit Mode Keyboard](docs/keyboards/edit_keyboard.svg)
+
 * Font: `w`
 * Lasso Selection: `e`
 * Rectangle Selection: `r`
@@ -30,6 +36,8 @@
 * Text: `f`
 
 ## file mode
+
+![File Mode Keyboard](docs/keyboards/file_keyboard.svg)
 
 * Quit: `q`
 * New: `w`
@@ -42,6 +50,8 @@
 * Save As: `<Shift>s`
 
 ## mode mode
+
+![Mode Mode Keyboard](docs/keyboards/mode_keyboard.svg)
 
 * Page Mode: `q`
 * Layer Mode: `w`
@@ -61,6 +71,8 @@
 
 ## navigation mode
 
+![Navigation Mode Keyboard](docs/keyboards/navigation_keyboard.svg)
+
 * Go to Top: `g`
 * Go to Bottom: `<Shift>g`
 * Scroll Page Down: `<Ctrl>d`
@@ -72,21 +84,25 @@
 
 ## page mode
 
+![Page Mode Keyboard](docs/keyboards/page_keyboard.svg)
+
 * Ruled Background: `r`
 * Dotted Graph Background: `d`
 * Copy Page: `c`
 * Graph Background: `g`
-* Isometric Dotted Graph Background: `<Shift>i`
 * Isometric Graph Background: `i`
 * Move Page Down: `j`
 * Move Page Up: `k`
 * New Layer: `l`
 * New Page After (Quick Access): `m`
 * New Page After: `o`
-* New Page Before: `<Shift>o`
 * Plain Background: `p`
+* Isometric Dotted Graph Background: `<Shift>i`
+* New Page Before: `<Shift>o`
 
 ## shape mode
+
+![Shape Mode Keyboard](docs/keyboards/shape_keyboard.svg)
 
 * Ruler: `q`
 * Coordinate system: `w`
@@ -109,6 +125,8 @@
 * Rotation snipping off: `<Shift>b`
 
 ## tool mode
+
+![Tool Mode Keyboard](docs/keyboards/tool_keyboard.svg)
 
 * Previous Color: `q`
 * Pen: `w`
