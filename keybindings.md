@@ -50,7 +50,7 @@
 * File Mode: `f`
 * Color Mode: `c`
 * Navigation Mode: `v`
-* Tool Mode: `t`
+* Tool Mode: `t`, `Tab`
 * Sticky Page Mode: `<Shift>q`
 * Sticky Layer Mode: `<Shift>w`
 * Sticky Edit Mode: `<Shift>e`

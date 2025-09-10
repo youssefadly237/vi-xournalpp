@@ -23,7 +23,7 @@ return {
   -- From mode menu, select actual modes
   tool = {
     description = "Tool Mode",
-    buttons = { "t" },
+    buttons = { "t", "Tab" },
     modes = { "mode" },
     call = function()
       modes.changeMode("tool", true)
