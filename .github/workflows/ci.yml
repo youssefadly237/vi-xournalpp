@@ -26,6 +26,11 @@ jobs:
         chmod +x stylua
         sudo mv stylua /usr/local/bin/
 
+    - name: Setup Python virtual environment and install KeyboardViz
+      run: |
+        python3 -m venv .venv
+        .venv/bin/pip install keyboardviz
+
     - name: Check Lua formatting
       run: |
         stylua --check --indent-type=Spaces --indent-width=2 --column-width=100 .
@@ -36,6 +41,9 @@ jobs:
 
     - name: Verify documentation is up to date
       run: |
+        # Set up PATH to use virtual environment
+        export PATH=.venv/bin:$PATH
+        
         # Generate new documentation
         lua documentation.lua
         
