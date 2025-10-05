@@ -34,8 +34,9 @@ jobs:
     - name: Check Lua formatting
       run: |
         # Exclude luapi.def.lua (copied from upstream Xournal++)
+        # Only check .lua files to avoid parsing non-Lua files like LICENSE
         stylua --check --indent-type=Spaces --indent-width=2 --column-width=100 \
-          --glob '!luapi.def.lua' .
+          --glob '**/*.lua' --glob '!luapi.def.lua' .
 
     - name: Validate keybindings
       run: |
