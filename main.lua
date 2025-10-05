@@ -43,8 +43,6 @@ function initUi()
     app.registerPlaceholder("vi-mode", "Vi Mode Indicator")
   end
 
-  app.registerUi({ menu = "Font Test", callback = "testSetFont" })
-
   local display = modes.getCurrentMode()
   if modes.isSticky() and modes.getCurrentMode() ~= "tool" then
     display = display .. " (sticky)"

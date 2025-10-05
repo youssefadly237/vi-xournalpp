@@ -1,238 +1,255 @@
 -- primary tools
 function ClickPen()
-  app.uiAction({ ["action"] = "ACTION_TOOL_PEN" })
+  app.activateAction("select-tool", app.C.Tool_pen)
 end
 
 function ClickEraser()
-  app.uiAction({ ["action"] = "ACTION_TOOL_ERASER" })
+  app.activateAction("select-tool", app.C.Tool_eraser)
 end
 
 function ClickHighlighter()
-  app.uiAction({ ["action"] = "ACTION_TOOL_HIGHLIGHTER" })
+  app.activateAction("select-tool", app.C.Tool_highlighter)
 end
 
 function ClickLaserPen()
-  app.uiAction({ ["action"] = "ACTION_TOOL_LASER_POINTER_PEN" })
+  app.activateAction("select-tool", app.C.Tool_laserPointerPen)
 end
 
 function ClickLaserHighlighter()
-  app.uiAction({ ["action"] = "ACTION_TOOL_LASER_POINTER_HIGHLIGHTER" })
+  app.activateAction("select-tool", app.C.Tool_laserPointerHighlighter)
 end
 
 function ClickHand()
-  app.uiAction({ ["action"] = "ACTION_TOOL_HAND" })
+  app.activateAction("select-tool", app.C.Tool_hand)
 end
 
 -- line width
 function ClickVeryFine()
-  app.uiAction({ ["action"] = "ACTION_SIZE_VERY_FINE" })
+  app.activateAction("tool-size", app.C.ToolSize_veryThin)
 end
 
 function ClickFine()
-  app.uiAction({ ["action"] = "ACTION_SIZE_FINE" })
+  app.activateAction("tool-size", app.C.ToolSize_thin)
 end
 
 function ClickMedium()
-  app.uiAction({ ["action"] = "ACTION_SIZE_MEDIUM" })
+  app.activateAction("tool-size", app.C.ToolSize_medium)
 end
 
 function ClickThick()
-  app.uiAction({ ["action"] = "ACTION_SIZE_THICK" })
+  app.activateAction("tool-size", app.C.ToolSize_thick)
 end
 
 function ClickVeryThick()
-  app.uiAction({ ["action"] = "ACTION_SIZE_VERY_THICK" })
+  app.activateAction("tool-size", app.C.ToolSize_veryThick)
 end
 
 -- secondary tools
 function ClickTex()
-  app.uiAction({ ["action"] = "ACTION_TEX" })
+  app.activateAction("tex")
 end
 
 function ClickText()
-  app.uiAction({ ["action"] = "ACTION_TOOL_TEXT" })
+  app.activateAction("select-tool", app.C.Tool_text)
 end
 
 function ClickImage()
-  app.uiAction({ ["action"] = "ACTION_TOOL_IMAGE" })
+  app.activateAction("select-tool", app.C.Tool_image)
 end
 
 function ClickSelectFont()
-  app.uiAction({ ["action"] = "ACTION_SELECT_FONT" })
+  app.activateAction("select-font")
 end
 
 -- linestyle
 function ClickPlain()
-  app.uiAction({ ["action"] = "ACTION_TOOL_LINE_STYLE_PLAIN" })
+  app.changeActionState("tool-pen-line-style", "plain")
 end
 
 function ClickDotted()
-  app.uiAction({ ["action"] = "ACTION_TOOL_LINE_STYLE_DOT" })
+  app.changeActionState("tool-pen-line-style", "dot")
 end
 
 function ClickDashed()
-  app.uiAction({ ["action"] = "ACTION_TOOL_LINE_STYLE_DASH" })
+  app.changeActionState("tool-pen-line-style", "dash")
 end
 
 function ClickDashDotted()
-  app.uiAction({ ["action"] = "ACTION_TOOL_LINE_STYLE_DASH_DOT" })
+  app.changeActionState("tool-pen-line-style", "dashdot")
 end
 
 -- Edit
 function ClickUndo()
-  app.uiAction({ ["action"] = "ACTION_UNDO" })
+  app.activateAction("undo")
 end
 
 function ClickRedo()
-  app.uiAction({ ["action"] = "ACTION_REDO" })
+  app.activateAction("redo")
 end
 
 function ClickDelete()
-  app.uiAction({ ["action"] = "ACTION_DELETE" })
+  app.activateAction("delete")
 end
 
 function ClickCopy()
-  app.uiAction({ ["action"] = "ACTION_COPY" })
+  app.activateAction("copy")
 end
 
 function ClickCut()
-  app.uiAction({ ["action"] = "ACTION_CUT" })
+  app.activateAction("cut")
 end
 
 function ClickPaste()
-  app.uiAction({ ["action"] = "ACTION_PASTE" })
+  app.activateAction("paste")
 end
 
 -- Selection
 function ClickSelectAll()
-  app.uiAction({ ["action"] = "ACTION_SELECT_ALL" })
+  app.activateAction("select-all")
 end
 
 function ClickSelectRectangle()
-  app.uiAction({ ["action"] = "ACTION_TOOL_SELECT_RECT" })
+  app.activateAction("select-tool", app.C.Tool_selectRect)
 end
 
 function ClickSelectMultilayerRectangle()
-  app.uiAction({ ["action"] = "ACTION_TOOL_SELECT_MULTILAYER_RECT" })
+  app.activateAction("select-tool", app.C.Tool_selectMultiLayerRect)
 end
 
 function ClickSelectRegion()
-  app.uiAction({ ["action"] = "ACTION_TOOL_SELECT_REGION" })
+  app.activateAction("select-tool", app.C.Tool_selectRegion)
 end
 
 function ClickSelectMultilayerRegion()
-  app.uiAction({ ["action"] = "ACTION_TOOL_SELECT_MULTILAYER_REGION" })
+  app.activateAction("select-tool", app.C.Tool_selectMultiLayerRegion)
 end
 
 function ClickSelectTextLinear()
-  app.uiAction({ ["action"] = "ACTION_TOOL_SELECT_PDF_TEXT_LINEAR" })
+  app.activateAction("select-tool", app.C.Tool_selectPdfTextLinear)
 end
 
 function ClickSelectTextRectangular()
-  app.uiAction({ ["action"] = "ACTION_TOOL_SELECT_PDF_TEXT_RECT" })
+  app.activateAction("select-tool", app.C.Tool_selectPdfTextRect)
 end
 
 -- shapes
 function ClickProtractor()
-  app.uiAction({ ["action"] = "ACTION_COMPASS" })
+  app.activateAction("compass")
 end
 
 function ClickSetsquare()
-  app.uiAction({ ["action"] = "ACTION_SETSQUARE" })
+  app.activateAction("setsquare")
 end
 
 function ClickVerticalSpace()
-  app.uiAction({ ["action"] = "ACTION_TOOL_VERTICAL_SPACE" })
+  app.activateAction("select-tool", app.C.Tool_verticalSpace)
 end
 
 function ClickGridSnapping(enabled)
-  app.uiAction({ ["action"] = "ACTION_GRID_SNAPPING", ["enabled"] = enabled })
+  app.changeActionState("grid-snapping", enabled)
 end
 
 function ClickRotationSnapping(enabled)
-  app.uiAction({ ["action"] = "ACTION_ROTATION_SNAPPING", ["enabled"] = enabled })
+  app.changeActionState("rotation-snapping", enabled)
 end
 
 function ClickRuler(enabled)
-  app.uiAction({ ["action"] = "ACTION_RULER", ["enabled"] = enabled })
+  -- Ruler is managed via compass/setsquare in new API
+  if enabled then
+    app.activateAction("compass")
+  end
 end
 
 function ClickArrow(enabled)
-  app.uiAction({ ["action"] = "ACTION_TOOL_DRAW_ARROW", ["enabled"] = enabled })
+  if enabled then
+    app.activateAction("tool-draw-arrow")
+  end
 end
 
 function ClickDoubleArrow(enabled)
-  app.uiAction({ ["action"] = "ACTION_TOOL_DRAW_DOUBLE_ARROW", ["enabled"] = enabled })
+  if enabled then
+    app.activateAction("tool-draw-double-arrow")
+  end
 end
 
 function ClickEllipse(enabled)
-  app.uiAction({ ["action"] = "ACTION_TOOL_DRAW_ELLIPSE", ["enabled"] = enabled })
+  if enabled then
+    app.activateAction("tool-draw-ellipse")
+  end
 end
 
 function ClickRectangle(enabled)
-  app.uiAction({ ["action"] = "ACTION_TOOL_DRAW_RECT", ["enabled"] = enabled })
+  if enabled then
+    app.activateAction("tool-draw-rectangle")
+  end
 end
 
 function ClickSpline(enabled)
-  app.uiAction({ ["action"] = "ACTION_TOOL_DRAW_SPLINE", ["enabled"] = enabled })
+  if enabled then
+    app.activateAction("tool-draw-spline")
+  end
 end
 
 function ClickCoordinateSystem(enabled)
-  app.uiAction({ ["action"] = "ACTION_TOOL_DRAW_COORDINATE_SYSTEM", ["enabled"] = enabled })
+  if enabled then
+    app.activateAction("tool-draw-coordinate-system")
+  end
 end
 
 function ClickShapeRecognizer(enabled)
-  app.uiAction({ ["action"] = "ACTION_SHAPE_RECOGNIZER", ["enabled"] = enabled })
+  if enabled then
+    app.activateAction("tool-draw-shape-recognizer")
+  end
 end
 
 -- fills
 function ClickFill(enabled)
-  app.uiAction({ ["action"] = "ACTION_TOOL_PEN_FILL", ["enabled"] = enabled })
+  app.changeActionState("tool-fill", enabled)
 end
 
 function ClickPenFillOpacity()
-  app.uiAction({ ["action"] = "ACTION_TOOL_PEN_FILL_OPACITY" })
+  app.activateAction("tool-pen-fill-opacity")
 end
 
 function ClickHighlighterFillOpacity()
-  app.uiAction({ ["action"] = "ACTION_TOOL_HIGHLIGHTER_FILL_OPACITY" })
+  app.activateAction("tool-highlighter-fill-opacity")
 end
 
 -- files
 function ClickNew()
-  app.uiAction({ ["action"] = "ACTION_NEW" })
+  app.activateAction("new-file")
 end
 
 function ClickOpen()
-  app.uiAction({ ["action"] = "ACTION_OPEN" })
+  app.activateAction("open")
 end
 
 function ClickAnnotatePDF()
-  app.uiAction({ ["action"] = "ACTION_ANNOTATE_PDF" })
+  app.activateAction("annotate-pdf")
 end
 
 function ClickSave()
-  app.uiAction({ ["action"] = "ACTION_SAVE" })
+  app.activateAction("save")
 end
 
 function ClickSaveAs()
-  app.uiAction({ ["action"] = "ACTION_SAVE_AS" })
+  app.activateAction("save-as")
 end
 
 function ClickExportAsPDF()
-  app.uiAction({ ["action"] = "ACTION_EXPORT_AS_PDF" })
+  app.activateAction("export-as-pdf")
 end
 
 function ClickExportAs()
-  app.uiAction({ ["action"] = "ACTION_EXPORT_AS" })
+  app.activateAction("export-as")
 end
 
 function ClickPrint()
-  app.uiAction({ ["action"] = "ACTION_PRINT" })
+  app.activateAction("print")
 end
 
 function ClickQuit()
-  app.uiAction({ ["action"] = "ACTION_QUIT" })
+  app.activateAction("quit")
 end
 
 -- color
@@ -264,49 +281,49 @@ end
 
 -- zooming
 function ClickZoomIn()
-  app.uiAction({ ["action"] = "ACTION_ZOOM_IN" })
+  app.activateAction("zoom-in")
 end
 
 function ClickZoomOut()
-  app.uiAction({ ["action"] = "ACTION_ZOOM_OUT" })
+  app.activateAction("zoom-out")
 end
 
 -- page
 function ClickCopyPage()
-  app.sidebarAction("COPY")
+  app.activateAction("duplicate-page")
 end
 
 function ClickDeletePage()
-  app.uiAction({ ["action"] = "ACTION_DELETE_PAGE" })
+  app.activateAction("delete-page")
 end
 
 function ClickMoveUp()
-  app.sidebarAction("MOVE_UP")
+  app.activateAction("move-page-towards-beginning")
 end
 
 function ClickMoveDown()
-  app.sidebarAction("MOVE_DOWN")
+  app.activateAction("move-page-towards-end")
 end
 
 function ClickNewBefore()
-  app.sidebarAction("NEW_BEFORE")
+  app.activateAction("new-page-before")
 end
 
 function ClickNewAfter()
-  app.sidebarAction("NEW_AFTER")
+  app.activateAction("new-page-after")
 end
 
 function ClickNewLayer()
-  app.uiAction({ ["action"] = "ACTION_NEW_LAYER" })
+  app.activateAction("layer-new-above-current")
 end
 
 function ClickDeleteLayer()
-  app.uiAction({ ["action"] = "ACTION_DELETE_LAYER" })
+  app.activateAction("layer-delete")
 end
 
 -- navigation
 function ClickGoToFirstPage()
-  app.scrollToPage(1)
+  app.activateAction("goto-first")
 end
 
 function ClickGoToTop()
@@ -314,19 +331,19 @@ function ClickGoToTop()
 end
 
 function GoToPage(page)
-  app.scrollToPage(page)
+  app.changeActionState("goto-page", page)
 end
 
 function GoToPos(x, y)
-  app.scrollToPos(x, y)
+  app.scrollToPos(x, y, true)
 end
 
 function ClickScrollPageDown()
-  app.scrollToPage(1, true)
+  app.activateAction("goto-next")
 end
 
 function ClickScrollPageUp()
-  app.scrollToPage(-1, true)
+  app.activateAction("goto-previous")
 end
 
 function ClickGoToBottom()
@@ -337,8 +354,7 @@ function ClickGoToBottom()
 end
 
 function ClickGoToLastPage()
-  -- it gets clamped in applib_scrollToPage anyway.
-  app.scrollToPage(1000000000)
+  app.activateAction("goto-last")
 end
 
 function CurrentPage()
@@ -346,11 +362,11 @@ function CurrentPage()
 end
 
 function ClickLayerDown()
-  app.uiAction({ ["action"] = "ACTION_GOTO_PREVIOUS_LAYER" })
+  app.activateAction("layer-goto-previous")
 end
 
 function ClickLayerUp()
-  app.uiAction({ ["action"] = "ACTION_GOTO_NEXT_LAYER" })
+  app.activateAction("layer-goto-next")
 end
 
 -- background
