@@ -1,5 +1,3 @@
--- src/core/plugin/ActionBackwardCompatibilityLayer.cpp --> xournalpp/xournalpp
-
 -- primary tools
 function ClickPen()
   app.uiAction({ ["action"] = "ACTION_TOOL_PEN" })

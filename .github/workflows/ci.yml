@@ -33,7 +33,9 @@ jobs:
 
     - name: Check Lua formatting
       run: |
-        stylua --check --indent-type=Spaces --indent-width=2 --column-width=100 .
+        # Exclude luapi.def.lua (copied from upstream Xournal++)
+        stylua --check --indent-type=Spaces --indent-width=2 --column-width=100 \
+          --glob '!luapi.def.lua' .
 
     - name: Validate keybindings
       run: |

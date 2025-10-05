@@ -1,9 +1,3 @@
----@diagnostic disable-next-line: lowercase-global
-app = rawget(_G, "app")
-if not app then
-  error("host 'app' not found: run inside Xournal++")
-end
-
 -- Load modular components
 local keybindings = require("keybindings.init")
 local modes = require("core.modes")
@@ -48,6 +42,8 @@ function initUi()
   if app.registerPlaceholder then
     app.registerPlaceholder("vi-mode", "Vi Mode Indicator")
   end
+
+  app.registerUi({ menu = "Font Test", callback = "testSetFont" })
 
   local display = modes.getCurrentMode()
   if modes.isSticky() and modes.getCurrentMode() ~= "tool" then

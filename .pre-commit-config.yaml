@@ -5,6 +5,7 @@ repos:
       - id: stylua
         args: [--indent-type=Spaces, --indent-width=2, --column-width=100]
         files: \.lua$
+        exclude: ^luapi\.def\.lua$
 
   - repo: local
     hooks:
