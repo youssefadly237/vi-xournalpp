@@ -1,135 +1,117 @@
 # vi-xournalpp
 
-A Vi-like modal editing plugin for [Xournal++](https://github.com/xournalpp/xournalpp), version 1.1.x and 1.2.x.
+Vi-inspired modal editing for [Xournal++](https://github.com/xournalpp/xournalpp).
 
-## Branch Status - `my-nightly`
+## Overview
 
-This is an actively maintained fork with enhanced features and modernized codebase. It's stable and production-ready for daily use, I have [lryffel/vi-xournalpp/issues/38](https://github.com/lryffel/vi-xournalpp/issues/38) opened to verify if I will be able to merge my code to the original plugin or not
+This is a modernized fork of the original vi-xournalpp plugin,
+refactored for Xournal++'s **nightly builds** using the new plugin API.
+The original plugin targets stable releases and relies on deprecated APIs
+that still function in nightly but will be removed in future versions.
 
-**Key improvements over upstream:**
+**Why this fork exists:**
 
-- **Modular architecture**: Clean separation into `api/`, `core/`, `keybindings/`, `config/` directories
-- **CI/CD pipeline**: GitHub Actions with linting, formatting, and validation
-- **New features**: Example is auto-loading Xournal++'s current palette with helper functions (`nextColor()`, `previousColor()`)
-- **Enhanced ergonomics**: Mapping is targeting left hand for easier reach (opinionated)
-- **Validation system**: Automatic keybinding conflict detection and validation
-- **Better maintainability**: Split large files into focused modules
+- Built against the **modern plugin API** (nightly builds only)
+- Architectural improvements for maintainability and extensibility
+- Enhanced features and ergonomics
+- Active development and CI/CD integration
 
-### Development Status
+> **Note:** This fork is not compatible with stable Xournal++ releases. Use the
+[original plugin](https://github.com/lryffel/vi-xournalpp) for stable versions.
 
-**Fully implemented modes:**
+## Features
 
-- **Tool Mode**: Complete tool switching, sizes, colors, and basic operations (designed that you don't need other modes)
-- **Color Mode**: Dynamic palette loading, with grid like mapping
-- **Shape Mode**: All shapes, rulers, and drawing tools
-- **Edit Mode**: Selection tools, text, LaTeX, images
-- **File Mode**: File operations, PDF handling, export functionality
+### Core Improvements
 
-**Partially implemented:** (original implementation or non yet)
+- **Modern API foundation**: Written for Xournal++'s current plugin architecture
+- **Modular codebase**: Clean separation (`api/`, `core/`, `keybindings/`, `config/`)
+- **Automated validation**: Conflict detection and keybinding validation
+- **CI/CD pipeline**: Linting, formatting, and automated checks
+- **Dynamic palette integration**: Auto-loads colors from Xournal++'s current palette
 
-- **Layer Mode**: Basic structure exists, core layer operations pending (see [API TODO](api/TODO.md))
-- **Page Mode**: Page operations and background types  
-- **Navigation Mode**: Scrolling, zooming, etc ...
+### Modal System
+
+**Production-ready modes:**
+
+- **Tool Mode** — Primary interface for tool switching, sizes, colors, basic operations
+- **Color Mode** — Grid-based palette navigation with dynamic loading
+- **Shape Mode** — Geometric shapes, rulers, drawing tools
+- **Edit Mode** — Selection, text, LaTeX, image insertion
+- **File Mode** — Document operations, PDF handling, export
+
+**In development:**
+
+- **Layer Mode** — Layer management (API implementation pending, see [api/TODO.md](api/TODO.md))
+- **Page Mode** — Page operations and backgrounds
+- **Navigation Mode** — Viewport control and zoom
 
 ## Installation
 
-### From this fork (my-nightly branch)
+### Requirements
 
-**Linux:**
+- Xournal++ **nightly build** (this plugin is incompatible with stable releases)
+- Git
 
-```bash
-cd ~/.config/xournalpp/plugins
-git clone -b my-nightly https://github.com/youssefadly237/vi-xournalpp
-```
-
-**Windows (PowerShell):**
-
-```bash
-cd $env:LOCALAPPDATA\xournalpp\plugins
-git clone -b my-nightly https://github.com/youssefadly237/vi-xournalpp
-```
-
-### From original repository
-
-**Linux:**
+### Linux
 
 ```bash
 cd ~/.config/xournalpp/plugins
-git clone https://github.com/lryffel/vi-xournalpp
+git clone https://github.com/youssefadly237/vi-xournalpp
 ```
 
-**Windows (PowerShell):**
+### Windows
 
-```bash
+```powershell
 cd $env:LOCALAPPDATA\xournalpp\plugins
-git clone https://github.com/lryffel/vi-xournalpp
+git clone https://github.com/youssefadly237/vi-xournalpp
 ```
 
-**Activation:** In Xournal++, activate the plugin using the _Plugin Manager_ in the menu bar under _Plugin_.
+### Activation
 
-vi-xournalpp is inspired by the modal editing popularized
-by the text editor vi.
-The two basic principles of the default keybindings of vi-xournalpp are
-
-- They should be easy to remember mnemonically, although practically beats purity,
-- They should be accessible by the left hand on a QWERTY keyboard.
-
-The second principle is gold you may not break.
+1. Launch Xournal++
+2. Navigate to **Plugin** → **Plugin Manager**
+3. Enable `vi-xournalpp`
 
 ## Usage
 
-vi-xournalpp centers around **modal editing** inspired by Vi/Vim. Different modes provide access to specialized keybindings, making many commands easily accessible from the left side of a QWERTY keyboard (ideal for stylus users).
+vi-xournalpp implements modal editing principles inspired by Vi/Vim:
 
-**Quick start:**
+- **Mnemonic keybindings** — Commands are easy to remember
+- **Left-hand optimization** — Primary bindings accessible on QWERTY left side
+(ideal for stylus use)
 
-- Press `Tab` to open the mode menu
-- Select a mode (e.g., `c` for color, `s` for shape, `q` for page)
-- Use mode-specific keybindings
-- Press any key in tool mode to return, or `Shift+[mode]` for sticky mode
+### Quick Start
 
-For complete keybinding reference, see [keybindings.md](keybindings.md).
+1. Press `Tab` to open the mode menu
+2. Select a mode (`c` = color, `s` = shape, `q` = page, etc.)
+3. Execute mode-specific commands
+4. Return to tool mode by pressing any tool key,
+or use `Shift+[mode key]` for sticky mode
 
-## Configuration
-
-### Modular Structure
-
-The plugin is organized into focused modules for better maintainability:
-
-- **`api/`**: Xournal++ API wrappers and integration
-- **`core/`**: Core functionality (modes, handlers, utilities)
-- **`keybindings/`**: Mode-specific keybinding definitions
-- **`config/`**: Configuration files (colors, settings)
-
-### Color Configuration
-
-Color configuration is in `config/colors.lua`:
-
-**For Xournal++ ≤ 1.2.2:** Define colors manually:
-
-```lua
-{ name = "Yellow", color = 0xf1fa8c, buttons = { "y" } }
-```
-
-**For newer versions:** Colors load dynamically from Xournal++'s palette with fallback to static definitions.
-
-Use `Ctrl+R` in color mode to refresh the dynamic palette.
+**Complete keybinding reference:** [keybindings.md](keybindings.md)
 
 ## Contributing
 
-Interested in contributing? See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines on:
+See [CONTRIBUTING.md](CONTRIBUTING.md) for:
 
-- Development setup and project structure
-- Code style and testing procedures
-- Adding new features, modes, and keybindings
-- Contribution workflow and review process
+- Development environment setup
+- Architecture and coding standards
+- Testing and validation procedures
+- Pull request guidelines
 
-**Quick start for contributors:**
+**Contribution workflow:**
 
-- Fork and create feature branches
-- Follow the modular structure
-- Test with the validation system
-- Keep PRs focused and well-documented
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/your-feature`)
+3. Follow the modular architecture
+4. Run validation tests
+5. Submit a focused, well-documented PR
 
 ## License
 
-MIT
+MIT License — see [LICENSE](LICENSE) for details.
+
+## Acknowledgments
+
+Based on the original [vi-xournalpp](https://github.com/lryffel/vi-xournalpp)
+by lryffel.

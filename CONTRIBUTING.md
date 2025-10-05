@@ -1,36 +1,28 @@
 # Contributing to vi-xournalpp
 
-Thank you for your interest in contributing to vi-xournalpp! This document provides guidelines for contributing to this fork (`my-nightly` branch).
+Thank you for your interest in contributing to vi-xournalpp!
 
-## Project Overview
+## Prerequisites
 
-### Areas for Contribution
-
-Nothing urgent the plugin is somehow fine, but if you want to add something to enhance the workflow that would be great
-
-## Getting Started
-
-### Prerequisites
-
-- Xournal++ (version 1.1.x or 1.2.x)
+- Xournal++ nightly build
 - Lua 5.4+ (for local testing)
 - Git
 
-### Development Setup
+## Development Setup
 
-1. **Install for testing:**
+1. **Clone for development:**
 
    ```bash
-   # Linux - install directly to plugins directory
+   # Linux
    cd ~/.config/xournalpp/plugins
-   git clone -b my-nightly https://github.com/youssefadly237/vi-xournalpp
-   
+   git clone https://github.com/youssefadly237/vi-xournalpp
+
    # Windows (PowerShell)
    cd $env:LOCALAPPDATA\xournalpp\plugins
-   git clone -b my-nightly https://github.com/youssefadly237/vi-xournalpp
+   git clone https://github.com/youssefadly237/vi-xournalpp
    ```
 
-2. **Install pre-commit**
+2. **Install pre-commit hooks:**
 
    ```bash
    pip install pre-commit
@@ -41,44 +33,26 @@ Nothing urgent the plugin is somehow fine, but if you want to add something to e
 
 ```text
 vi-xournalpp/
-├── main.lua              # Plugin entry point and initialization
+├── main.lua              # Plugin entry point
 ├── plugin.ini            # Plugin metadata
 ├── api/                  # Xournal++ API wrappers
-│   ├── api.lua          # Main API functions
-│   └── TODO.md          # Planned API implementations
-├── core/                # Core functionality
-│   ├── modes.lua        # Mode management
-│   ├── handler.lua      # Event handling
-│   └── utils.lua        # Helper functions
-├── keybindings/         # Mode-specific keybindings
-│   ├── init.lua         # Keybinding loader
-│   ├── tools.lua        # Tool mode bindings
-│   ├── colors.lua       # Color mode bindings
-│   ├── shapes.lua       # Shape mode bindings
-│   ├── edit.lua         # Edit mode bindings
-│   ├── pages.lua        # Page mode bindings
-│   ├── files.lua        # File mode bindings
-│   ├── navigation.lua   # Navigation mode bindings
-│   ├── layer.lua        # Layer mode bindings
-│   └── mode_switching.lua # Mode transitions
-├── config/              # Configuration
-│   └── colors.lua       # Color definitions
-├── .github/             # CI/CD and templates
-│   └── workflows/ci.yml # GitHub Actions
+├── core/                 # Mode management and handlers
+├── keybindings/          # Mode-specific bindings
+├── config/               # Configuration files
 └── validate_keybindings.lua # Validation system
 ```
 
-## Development Guidelines
+## Code Standards
 
-### Code Style
+- **Formatting**: Automated via pre-commit hooks
+- **Modularity**: Keep files focused and cohesive
+- **Documentation**: Comment complex logic and API usage
 
-- **Formatting**: Use pre-commit hooks for consistent formatting
-- **Comments**: Document complex logic and API interactions
-- **Modules**: Keep modules focused and cohesive
+## Adding Features
 
-### Keybinding Structure
+### New Keybindings
 
-Each keybinding follows this pattern:
+Each keybinding follows this structure:
 
 ```lua
 keybindingName = {
@@ -89,39 +63,18 @@ keybindingName = {
 }
 ```
 
-**Fields:**
+**To add a keybinding:**
 
-- `description`: Menu entry and terminal logging text
-- `buttons`: Key combinations that trigger the action  
-- `modes`: Which modes listen for these keys
-- `call`: Function executed when triggered
-
-### Adding New Features
-
-#### New Modes
-
-To add a new mode `newMode`:
-
-1. Add `"newMode"` to `ALL_MODES` in `core/modes.lua`
-2. Create `keybindings/newmode.lua` with keybinding definitions
-3. Add mode switching keybinding in `keybindings/mode_switching.lua`
-4. Import the new module in `keybindings/init.lua`
-
-#### New Keybindings
-
-To add a new keybinding:
-
-1. Add API wrapper function in `api/api.lua` if needed
-2. Define keybinding in appropriate `keybindings/*.lua` file
+1. Add wrapper in `api/api.lua` if needed
+2. Define binding in appropriate `keybindings/*.lua` file
 3. Run validation to check for conflicts
 
-#### New API Functions
+### New Modes
 
-The plugin covers most of the Xournal++ API. To add new functionality:
-
-1. Check [api/TODO.md](api/TODO.md) for planned implementations
-2. Add wrapper function in `api/api.lua`
-3. Create keybinding in appropriate mode file
+1. Add mode name to `ALL_MODES` in `core/modes.lua`
+2. Create `keybindings/newmode.lua`
+3. Add mode switch binding in `keybindings/mode_switching.lua`
+4. Import module in `keybindings/init.lua`
 
 ## Testing
 
@@ -131,50 +84,46 @@ Run validation locally:
 lua validate_keybindings.lua
 ```
 
-Pre-commit hooks and CI automatically handle formatting and validation.
+CI automatically validates all commits.
 
 ## Contribution Workflow
 
-### 1. Plan Your Contribution
+1. **Fork and branch:**
 
-- **Check existing issues**: Look for related work or discussions
-- **Small focused changes**: Keep PRs manageable and focused
-- **Discuss major changes**: Open an issue for significant modifications
+   ```bash
+   git checkout -b feature/your-feature
+   ```
 
-### 2. Development Process
+2. **Develop and test:**
 
-```bash
-# Create feature branch
-git checkout -b feature/your-feature-name
+   ```bash
+   lua validate_keybindings.lua
+   ```
 
-# Make changes and test
-lua validate_keybindings.lua
+3. **Commit:**
 
-# Commit (pre-commit handles formatting)
-git commit -m "feat: add new navigation shortcuts"
-```
+   ```bash
+   git commit -m "feat: description"
+   ```
 
-### 3. Submission
+   (Pre-commit handles formatting automatically)
 
-- **Clear PR description**: Explain what and why
-- **Small scope**: Focus on single feature/fix
+4. **Submit PR:**
+   - Clear description of changes
+   - Focused scope (single feature/fix)
+   - Passing CI checks
 
-### 4. Review Process
+## Guidelines
 
-- **Automated checks**: CI must pass
-- **Code review**: Address feedback promptly
-
-## Code of Conduct
-
-- **Be respectful**: Treat all contributors with respect
-- **Be constructive**: Provide helpful feedback and suggestions
-- **Be patient**: Allow time for review and iteration
-- **Be collaborative**: Work together towards common goals
+- **Check existing issues** before starting work
+- **Keep PRs small** and focused
+- **Discuss major changes** in an issue first
+- **Be respectful** and constructive
 
 ## License
 
-By contributing, you agree that your contributions will be licensed under the same license as the project.
+Contributions are licensed under the project's MIT license.
 
 ---
 
-Thank you for contributing to vi-xournalpp! Your efforts help make this plugin better for everyone.
+Questions? Open an issue for discussion.
