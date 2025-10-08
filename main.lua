@@ -1,8 +1,8 @@
--- Load modular components
 local keybindings = require("keybindings.init")
 local modes = require("core.modes")
 local handler = require("core.handler")
 local validator = require("validate_keybindings")
+local runtime_check = require("runtime_check")
 
 CurrentMode = modes.currentMode
 LastPage = modes.lastPage
@@ -13,6 +13,15 @@ HandlerModule = handler
 
 ---@diagnostic disable-next-line: lowercase-global
 function initUi()
+  -- Check Xournal++ version compatibility
+  local runtime_results = runtime_check.checkRuntime()
+  local is_compatible = runtime_check.printReport(runtime_results)
+
+  if not is_compatible then
+    print("⚠️  Plugin initialization ABORTED due to incompatible Xournal++ version")
+    return
+  end
+
   local conflicts, invalid_modes = validator.validateKeybindings()
 
   if #conflicts > 0 or (invalid_modes and #invalid_modes > 0) then
