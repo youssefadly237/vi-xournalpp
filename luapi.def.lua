@@ -6,6 +6,7 @@
 -- Xournal++ provides the actual 'app' object when the plugin runs.
 --
 -- Source: https://github.com/xournalpp/xournalpp/blob/master/plugins/luapi_application.def.lua
+-- Action properties: https://github.com/xournalpp/xournalpp/blob/master/src/core/control/actions/ActionProperties.h
 -- Based on commit: b027965 (2025-10-03)
 -- Permalink: https://github.com/xournalpp/xournalpp/blob/b02796592a54dd34602d56587ff9417821d2b607/plugins/luapi_application.def.lua
 --

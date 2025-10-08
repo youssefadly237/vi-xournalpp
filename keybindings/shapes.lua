@@ -8,7 +8,7 @@ return {
     buttons = { "q" },
     modes = { "shape" },
     call = function()
-      api.ClickRuler(true)
+      api.ClickLine(true)
     end,
   },
   coordinateSystem = {

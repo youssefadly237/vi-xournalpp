@@ -76,8 +76,6 @@
 * Scroll Page Down: `<Ctrl>d`
 * Go to Top: `g`
 * Go to Bottom: `<Shift>g`
-* Layer Down: `j`
-* Layer Up: `k`
 * Zoom Out: `<Ctrl>minus`
 * Zoom In: `<Ctrl>plus`
 * Scroll Page Up: `<Ctrl>u`

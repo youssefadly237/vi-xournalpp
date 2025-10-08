@@ -1,47 +1,47 @@
 -- primary tools
 function ClickPen()
-  app.activateAction("select-tool", app.C.Tool_pen)
+  app.changeActionState("select-tool", app.C.Tool_pen)
 end
 
 function ClickEraser()
-  app.activateAction("select-tool", app.C.Tool_eraser)
+  app.changeActionState("select-tool", app.C.Tool_eraser)
 end
 
 function ClickHighlighter()
-  app.activateAction("select-tool", app.C.Tool_highlighter)
+  app.changeActionState("select-tool", app.C.Tool_highlighter)
 end
 
 function ClickLaserPen()
-  app.activateAction("select-tool", app.C.Tool_laserPointerPen)
+  app.changeActionState("select-tool", app.C.Tool_laserPointerPen)
 end
 
 function ClickLaserHighlighter()
-  app.activateAction("select-tool", app.C.Tool_laserPointerHighlighter)
+  app.changeActionState("select-tool", app.C.Tool_laserPointerHighlighter)
 end
 
 function ClickHand()
-  app.activateAction("select-tool", app.C.Tool_hand)
+  app.changeActionState("select-tool", app.C.Tool_hand)
 end
 
 -- line width
 function ClickVeryFine()
-  app.activateAction("tool-size", app.C.ToolSize_veryThin)
+  app.changeActionState("tool-size", app.C.ToolSize_veryThin)
 end
 
 function ClickFine()
-  app.activateAction("tool-size", app.C.ToolSize_thin)
+  app.changeActionState("tool-size", app.C.ToolSize_thin)
 end
 
 function ClickMedium()
-  app.activateAction("tool-size", app.C.ToolSize_medium)
+  app.changeActionState("tool-size", app.C.ToolSize_medium)
 end
 
 function ClickThick()
-  app.activateAction("tool-size", app.C.ToolSize_thick)
+  app.changeActionState("tool-size", app.C.ToolSize_thick)
 end
 
 function ClickVeryThick()
-  app.activateAction("tool-size", app.C.ToolSize_veryThick)
+  app.changeActionState("tool-size", app.C.ToolSize_veryThick)
 end
 
 -- secondary tools
@@ -50,11 +50,11 @@ function ClickTex()
 end
 
 function ClickText()
-  app.activateAction("select-tool", app.C.Tool_text)
+  app.changeActionState("select-tool", app.C.Tool_text)
 end
 
 function ClickImage()
-  app.activateAction("select-tool", app.C.Tool_image)
+  app.changeActionState("select-tool", app.C.Tool_image)
 end
 
 function ClickSelectFont()
@@ -109,27 +109,27 @@ function ClickSelectAll()
 end
 
 function ClickSelectRectangle()
-  app.activateAction("select-tool", app.C.Tool_selectRect)
+  app.changeActionState("select-tool", app.C.Tool_selectRect)
 end
 
 function ClickSelectMultilayerRectangle()
-  app.activateAction("select-tool", app.C.Tool_selectMultiLayerRect)
+  app.changeActionState("select-tool", app.C.Tool_selectMultiLayerRect)
 end
 
 function ClickSelectRegion()
-  app.activateAction("select-tool", app.C.Tool_selectRegion)
+  app.changeActionState("select-tool", app.C.Tool_selectRegion)
 end
 
 function ClickSelectMultilayerRegion()
-  app.activateAction("select-tool", app.C.Tool_selectMultiLayerRegion)
+  app.changeActionState("select-tool", app.C.Tool_selectMultiLayerRegion)
 end
 
 function ClickSelectTextLinear()
-  app.activateAction("select-tool", app.C.Tool_selectPdfTextLinear)
+  app.changeActionState("select-tool", app.C.Tool_selectPdfTextLinear)
 end
 
 function ClickSelectTextRectangular()
-  app.activateAction("select-tool", app.C.Tool_selectPdfTextRect)
+  app.changeActionState("select-tool", app.C.Tool_selectPdfTextRect)
 end
 
 -- shapes
@@ -142,7 +142,7 @@ function ClickSetsquare()
 end
 
 function ClickVerticalSpace()
-  app.activateAction("select-tool", app.C.Tool_verticalSpace)
+  app.changeActionState("select-tool", app.C.Tool_verticalSpace)
 end
 
 function ClickGridSnapping(enabled)
@@ -153,53 +153,36 @@ function ClickRotationSnapping(enabled)
   app.changeActionState("rotation-snapping", enabled)
 end
 
-function ClickRuler(enabled)
-  -- Ruler is managed via compass/setsquare in new API
-  if enabled then
-    app.activateAction("compass")
-  end
+function ClickLine(enabled)
+  app.changeActionState("tool-draw-line", enabled)
 end
 
 function ClickArrow(enabled)
-  if enabled then
-    app.activateAction("tool-draw-arrow")
-  end
+  app.changeActionState("tool-draw-arrow", enabled)
 end
 
 function ClickDoubleArrow(enabled)
-  if enabled then
-    app.activateAction("tool-draw-double-arrow")
-  end
+  app.changeActionState("tool-draw-double-arrow", enabled)
 end
 
 function ClickEllipse(enabled)
-  if enabled then
-    app.activateAction("tool-draw-ellipse")
-  end
+  app.changeActionState("tool-draw-ellipse", enabled)
 end
 
 function ClickRectangle(enabled)
-  if enabled then
-    app.activateAction("tool-draw-rectangle")
-  end
+  app.changeActionState("tool-draw-rectangle", enabled)
 end
 
 function ClickSpline(enabled)
-  if enabled then
-    app.activateAction("tool-draw-spline")
-  end
+  app.changeActionState("tool-draw-spline", enabled)
 end
 
 function ClickCoordinateSystem(enabled)
-  if enabled then
-    app.activateAction("tool-draw-coordinate-system")
-  end
+  app.changeActionState("tool-draw-coordinate-system", enabled)
 end
 
 function ClickShapeRecognizer(enabled)
-  if enabled then
-    app.activateAction("tool-draw-shape-recognizer")
-  end
+  app.changeActionState("tool-draw-shape-recognizer", enabled)
 end
 
 -- fills
@@ -313,8 +296,14 @@ function ClickNewAfter()
   app.activateAction("new-page-after")
 end
 
-function ClickNewLayer()
-  app.activateAction("layer-new-above-current")
+function ClickNewLayer(pos)
+  if pos == "top" then
+    app.activateAction("layer-new-above-current")
+  elseif pos == "bottom" then
+    app.activateAction("layer-new-below-current")
+  else
+    app.activateAction("layer-new-above-current")
+  end
 end
 
 function ClickDeleteLayer()
@@ -326,12 +315,8 @@ function ClickGoToFirstPage()
   app.activateAction("goto-first")
 end
 
-function ClickGoToTop()
-  app.scrollToPos(0, 0, false)
-end
-
 function GoToPage(page)
-  app.changeActionState("goto-page", page)
+  app.scrollToPage(page - 1, false)
 end
 
 function GoToPos(x, y)
@@ -344,13 +329,6 @@ end
 
 function ClickScrollPageUp()
   app.activateAction("goto-previous")
-end
-
-function ClickGoToBottom()
-  local docStructure = app.getDocumentStructure()
-  local currentPage = docStructure["currentPage"]
-  local pageHeight = app.getDocumentStructure()["pages"][currentPage]["pageHeight"]
-  app.scrollToPos(0, pageHeight, false)
 end
 
 function ClickGoToLastPage()
@@ -396,7 +374,6 @@ end
 
 -- other
 function SetPlaceholderValue(placeholder, val)
-  -- Only if setPlaceholderValue is available (Xournal++ >= 1.2.8 (or 1.2.7+dev))
   if app.setPlaceholderValue then
     app.setPlaceholderValue(placeholder, val)
   end

@@ -4,6 +4,8 @@ Vi-inspired modal editing for [Xournal++](https://github.com/xournalpp/xournalpp
 
 ## Overview
 
+🚧 **Under active development, some features may not work as expected.**
+
 This is a modernized fork of the original vi-xournalpp plugin,
 refactored for Xournal++'s **nightly builds** using the new plugin API.
 The original plugin targets stable releases and relies on deprecated APIs

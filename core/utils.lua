@@ -19,7 +19,7 @@ local fill_enabled = false
 local last_known_fill = nil
 
 function utils.cleanShape()
-  api.ClickRuler(false)
+  api.ClickLine(false)
   api.ClickCoordinateSystem(false)
   api.ClickArrow(false)
   api.ClickDoubleArrow(false)
@@ -28,10 +28,8 @@ function utils.cleanShape()
   api.ClickShapeRecognizer(false)
   api.ClickSpline(false)
   api.ClickFill(false)
-  -- this may look a bit confusing, Protractor and Setsquare can not be active at the same time,
-  -- it is called "Mutual Exclusivity" (just googled its name)
-  -- so by calling on of them we have ensure that the other is not active, then on off the other
-  -- so we guarantee both are turned off, it is not clean but can not think of something better rn
+  -- Protractor and Setsquare can not be active at the same time (mutual exclusivity)
+  -- By toggling them, we ensure both are turned off
   api.ClickProtractor()
   api.ClickSetsquare()
   api.ClickSetsquare()
@@ -123,7 +121,6 @@ end
 function utils.toggleFill()
   utils.syncFillWithApp()
   fill_enabled = not fill_enabled
-  local api = require("api.api")
   api.ClickFill(fill_enabled)
 end
 
