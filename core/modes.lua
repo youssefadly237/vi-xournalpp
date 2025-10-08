@@ -1,14 +1,13 @@
 local modes = {}
 
--- Global state
 modes.currentMode = "tool"
 modes.lastPage = 1
 modes.sticky = false
 
--- All available modes
 modes.ALL_MODES = {
   "tool",
   "mode",
+  "sticky_select",
   "color",
   "shape",
   "edit",
@@ -24,9 +23,15 @@ function modes.changeMode(mode, stickyValue)
     modes.sticky = stickyValue
   end
 
-  local display = modes.currentMode
-  if modes.sticky and modes.currentMode ~= "tool" then
-    display = display .. " (sticky)"
+  local display
+  if mode == "mode" then
+    display = "Mode Menu"
+  elseif mode == "sticky_select" then
+    display = "Sticky Menu"
+  elseif modes.sticky and mode ~= "tool" then
+    display = mode .. " (sticky)"
+  else
+    display = mode
   end
 
   if app and app.setPlaceholderValue then

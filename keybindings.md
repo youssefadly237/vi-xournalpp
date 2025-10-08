@@ -54,20 +54,14 @@
 ![Mode Mode Keyboard](docs/keyboards/mode_keyboard.svg)
 
 * Page Mode: `q`
-* Sticky Page Mode: `<Shift>q`
 * Layer Mode: `w`
-* Sticky Layer Mode: `<Shift>w`
 * Edit Mode: `e`
-* Sticky Edit Mode: `<Shift>e`
 * Shape Mode: `s`
-* Sticky Shape Mode: `<Shift>s`
 * File Mode: `f`
-* Sticky File Mode: `<Shift>f`
 * Color Mode: `c`
-* Sticky Color Mode: `<Shift>c`
 * Navigation Mode: `v`
-* Sticky Navigation Mode: `<Shift>v`
-* Tool Mode: `t`, `Tab`
+* Tool Mode: `t`
+* Sticky Mode Menu: `Tab`
 
 ## navigation mode
 
@@ -121,6 +115,20 @@
 * Grid snipping off: `<Shift>g`
 * Rotation snipping: `b`
 * Rotation snipping off: `<Shift>b`
+
+## sticky_select mode
+
+![Sticky_select Mode Keyboard](docs/keyboards/sticky_select_keyboard.svg)
+
+* Sticky Page Mode: `q`
+* Sticky Layer Mode: `w`
+* Sticky Edit Mode: `e`
+* Sticky Shape Mode: `s`
+* Sticky File Mode: `f`
+* Sticky Color Mode: `c`
+* Sticky Navigation Mode: `v`
+* Tool Mode: `t`
+* Tool Mode: `Tab`
 
 ## tool mode
 

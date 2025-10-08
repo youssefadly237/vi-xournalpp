@@ -1,30 +1,34 @@
 local modes = require("core.modes")
 
 return {
-  -- Mode Selection Menu - Tab
   modeMenu = {
     description = "Mode Menu",
     buttons = { "Tab" },
-    modes = {
-      "tool",
-      "edit",
-      "color",
-      "shape",
-      "layer",
-      "page",
-      "file",
-      "navigation",
-    },
+    modes = { "tool", "edit", "color", "shape", "layer", "page", "file", "navigation" },
     call = function()
       modes.changeMode("mode", false)
     end,
   },
-
-  -- From mode menu, select actual modes
+  stickyMenu = {
+    description = "Sticky Mode Menu",
+    buttons = { "Tab" },
+    modes = { "mode" },
+    call = function()
+      modes.changeMode("sticky_select", false)
+    end,
+  },
+  toolMode = {
+    description = "Tool Mode",
+    buttons = { "Tab" },
+    modes = { "sticky_select" },
+    call = function()
+      modes.changeMode("tool", true)
+    end,
+  },
   tool = {
     description = "Tool Mode",
-    buttons = { "t", "Tab" },
-    modes = { "mode" },
+    buttons = { "t" },
+    modes = { "mode", "sticky_select" },
     call = function()
       modes.changeMode("tool", true)
     end,
@@ -85,60 +89,58 @@ return {
       modes.changeMode("layer", false)
     end,
   },
-  -- Sticky Mode Selection (Shift + key from mode menu)
-  -- Note: Tool mode is always sticky, so no separate sticky tool option needed
-  stickyColor = {
+  stickyColorSelect = {
     description = "Sticky Color Mode",
-    buttons = { "<Shift>c" },
-    modes = { "mode" },
+    buttons = { "c" },
+    modes = { "sticky_select" },
     call = function()
       modes.changeMode("color", true)
     end,
   },
-  stickyShape = {
+  stickyShapeSelect = {
     description = "Sticky Shape Mode",
-    buttons = { "<Shift>s" },
-    modes = { "mode" },
+    buttons = { "s" },
+    modes = { "sticky_select" },
     call = function()
       modes.changeMode("shape", true)
     end,
   },
-  stickyPage = {
+  stickyPageSelect = {
     description = "Sticky Page Mode",
-    buttons = { "<Shift>q" },
-    modes = { "mode" },
+    buttons = { "q" },
+    modes = { "sticky_select" },
     call = function()
       modes.changeMode("page", true)
     end,
   },
-  stickyNavigation = {
+  stickyNavigationSelect = {
     description = "Sticky Navigation Mode",
-    buttons = { "<Shift>v" },
-    modes = { "mode" },
+    buttons = { "v" },
+    modes = { "sticky_select" },
     call = function()
       modes.changeMode("navigation", true)
     end,
   },
-  stickyFile = {
+  stickyFileSelect = {
     description = "Sticky File Mode",
-    buttons = { "<Shift>f" },
-    modes = { "mode" },
+    buttons = { "f" },
+    modes = { "sticky_select" },
     call = function()
       modes.changeMode("file", true)
     end,
   },
-  stickyEdit = {
+  stickyEditSelect = {
     description = "Sticky Edit Mode",
-    buttons = { "<Shift>e" },
-    modes = { "mode" },
+    buttons = { "e" },
+    modes = { "sticky_select" },
     call = function()
       modes.changeMode("edit", true)
     end,
   },
-  stickyLayer = {
+  stickyLayerSelect = {
     description = "Sticky Layer Mode",
-    buttons = { "<Shift>w" },
-    modes = { "mode" },
+    buttons = { "w" },
+    modes = { "sticky_select" },
     call = function()
       modes.changeMode("layer", true)
     end,

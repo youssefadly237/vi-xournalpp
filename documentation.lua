@@ -118,7 +118,7 @@ local function generateKeybindingsDocs()
   -- Categorize bindings
   for binding_name, binding in pairs(keybindings) do
     local is_global = #binding.modes > 3
-      or (binding.description and binding.description:find("Mode Menu"))
+      or (binding.description and binding.description == "Mode Menu")
     local entry = {
       name = binding_name,
       description = binding.description or binding_name,
@@ -225,7 +225,7 @@ local function generateKeyboardVisualizations()
   -- Categorize bindings
   for binding_name, binding in pairs(keybindings) do
     local is_global = #binding.modes > 3
-      or (binding.description and binding.description:find("Mode Menu"))
+      or (binding.description and binding.description == "Mode Menu")
     local entry = {
       name = binding_name,
       description = binding.description or binding_name,
