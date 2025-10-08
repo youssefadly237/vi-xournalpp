@@ -43,9 +43,9 @@ print("Generated keyboard for %s mode")
 
   file:close()
 
-  local result = os.execute("python " .. temp_file .. " 2>/dev/null")
+  local success, exit_type, code = os.execute("python " .. temp_file .. " 2>/dev/null")
   os.remove(temp_file)
-  return result == 0
+  return success and (code == 0 or exit_type == "exit")
 end
 
 -- QWERTY keyboard layout order (primary sort key)
@@ -243,8 +243,13 @@ local function generateKeyboardVisualizations()
   end
 
   -- Generate keyboards
+  local failed = {}
+
   if #global_bindings > 0 then
-    generateKeyboardForMode("global", global_bindings, output_dir)
+    local success = generateKeyboardForMode("global", global_bindings, output_dir)
+    if not success then
+      table.insert(failed, "global")
+    end
   end
 
   for mode, bindings in pairs(modes_map) do
@@ -265,7 +270,15 @@ local function generateKeyboardVisualizations()
       end
       bindings = color_bindings
     end
-    generateKeyboardForMode(mode, bindings, output_dir)
+
+    local success = generateKeyboardForMode(mode, bindings, output_dir)
+    if not success then
+      table.insert(failed, mode)
+    end
+  end
+
+  if #failed > 0 then
+    error("Failed to generate keyboard visualizations for: " .. table.concat(failed, ", "))
   end
 end
 
