@@ -153,41 +153,46 @@ function ClickRotationSnapping(enabled)
   app.changeActionState("rotation-snapping", enabled)
 end
 
+-- Shape
 function ClickLine(enabled)
-  app.changeActionState("tool-draw-line", enabled)
+  app.activateAction("tool-draw-line", enabled)
 end
 
 function ClickArrow(enabled)
-  app.changeActionState("tool-draw-arrow", enabled)
+  app.activateAction("tool-draw-arrow", enabled)
 end
 
 function ClickDoubleArrow(enabled)
-  app.changeActionState("tool-draw-double-arrow", enabled)
+  app.activateAction("tool-draw-double-arrow", enabled)
 end
 
 function ClickEllipse(enabled)
-  app.changeActionState("tool-draw-ellipse", enabled)
+  app.activateAction("tool-draw-ellipse", enabled)
 end
 
 function ClickRectangle(enabled)
-  app.changeActionState("tool-draw-rectangle", enabled)
+  app.activateAction("tool-draw-rectangle", enabled)
 end
 
 function ClickSpline(enabled)
-  app.changeActionState("tool-draw-spline", enabled)
+  app.activateAction("tool-draw-spline", enabled)
 end
 
 function ClickCoordinateSystem(enabled)
-  app.changeActionState("tool-draw-coordinate-system", enabled)
+  app.activateAction("tool-draw-coordinate-system", enabled)
 end
 
 function ClickShapeRecognizer(enabled)
-  app.changeActionState("tool-draw-shape-recognizer", enabled)
+  app.activateAction("tool-draw-shape-recognizer", enabled)
 end
 
 -- fills
 function ClickFill(enabled)
-  app.changeActionState("tool-fill", enabled)
+  if enabled ~= nil then
+    app.activateAction("tool-fill", enabled)
+  else
+    app.activateAction("tool-fill")
+  end
 end
 
 function ClickPenFillOpacity()

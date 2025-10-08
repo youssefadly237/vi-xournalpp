@@ -72,7 +72,7 @@ return {
     buttons = { "f" },
     modes = { "shape" },
     call = function()
-      utils.toggleFill()
+      api.ClickFill()
     end,
   },
   penFillOpacity = {

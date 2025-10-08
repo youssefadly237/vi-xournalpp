@@ -15,24 +15,37 @@ local linestyles = {
   { name = "Dotted", api_call = "ClickDotted" },
 }
 
-local fill_enabled = false
-local last_known_fill = nil
-
 function utils.cleanShape()
-  api.ClickLine(false)
-  api.ClickCoordinateSystem(false)
-  api.ClickArrow(false)
-  api.ClickDoubleArrow(false)
-  api.ClickRectangle(false)
-  api.ClickEllipse(false)
-  api.ClickShapeRecognizer(false)
-  api.ClickSpline(false)
-  api.ClickFill(false)
-  -- Protractor and Setsquare can not be active at the same time (mutual exclusivity)
-  -- By toggling them, we ensure both are turned off
-  api.ClickProtractor()
-  api.ClickSetsquare()
-  api.ClickSetsquare()
+  local drawingTypeToAction = {
+    ["drawLine"] = "tool-draw-line",
+    ["drawArrow"] = "tool-draw-arrow",
+    ["drawDoubleArrow"] = "tool-draw-double-arrow",
+    ["drawRectangle"] = "tool-draw-rectangle",
+    ["drawCircle"] = "tool-draw-ellipse",
+    ["drawCoordinateSystem"] = "tool-draw-coordinate-system",
+    ["drawSpline"] = "tool-draw-spline",
+    ["shapeRecognizer"] = "tool-draw-shape-recognizer",
+  }
+
+  local success, toolInfo = pcall(app.getToolInfo, "active")
+  if success and toolInfo and toolInfo.drawingType and toolInfo.drawingType ~= "default" then
+    local actionName = drawingTypeToAction[toolInfo.drawingType]
+    if actionName then
+      pcall(app.activateAction, actionName, false)
+    end
+  end
+
+  pcall(app.activateAction, "tool-fill", false)
+
+  local success, compassState = pcall(app.getActionState, "compass")
+  if success and compassState == true then
+    pcall(app.activateAction, "compass")
+  end
+
+  local success2, setsquareState = pcall(app.getActionState, "setsquare")
+  if success2 and setsquareState == true then
+    pcall(app.activateAction, "setsquare")
+  end
 end
 
 function utils.refreshColorPalette()
@@ -118,28 +131,6 @@ function utils.setPlainLinestyle()
   applyLinestyle(1)
 end
 
-function utils.toggleFill()
-  utils.syncFillWithApp()
-  fill_enabled = not fill_enabled
-  api.ClickFill(fill_enabled)
-end
-
-function utils.syncFillWithApp()
-  if not app then
-    return
-  end
-  local ok, toolInfo = pcall(function()
-    return app.getToolInfo("active")
-  end)
-  if ok and toolInfo and toolInfo.fill ~= nil then
-    local app_fill = toolInfo.fill
-    if last_known_fill ~= app_fill then
-      last_known_fill = app_fill
-      fill_enabled = app_fill
-    end
-  end
-end
-
 function utils.syncColorWithApp()
   if not app then
     return
@@ -196,7 +187,6 @@ end
 function utils.syncWithApp()
   utils.syncColorWithApp()
   utils.syncLinestyleWithApp()
-  utils.syncFillWithApp()
 end
 
 function utils.mergeTables(...)
