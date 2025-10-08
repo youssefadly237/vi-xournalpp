@@ -48,8 +48,8 @@ print("Generated keyboard for %s mode")
   return result == 0
 end
 
--- Keyboard layout order for sorting
-local layout_order = {
+-- QWERTY keyboard layout order (primary sort key)
+local LAYOUT_ORDER = {
   q = 1,
   w = 2,
   e = 3,
@@ -67,25 +67,42 @@ local layout_order = {
   b = 15,
 }
 
+-- Modifier priority (secondary sort - keeps modifiers near base key)
+local MODIFIER_OFFSET = {
+  none = 0.0, -- Plain key (e.g., "r")
+  ctrl = 0.1, -- Ctrl modifier (e.g., "<Ctrl>r")
+  shift = 0.2, -- Shift modifier (e.g., "<Shift>r")
+  other = 0.3, -- Other modifiers
+}
+
 local function getKeyboardOrder(button)
   local base_key = button:lower():gsub("<[^>]*>", "")
-  local order = layout_order[base_key] or (1000 + string.byte(base_key:sub(1, 1) or "z"))
+  local base_order = LAYOUT_ORDER[base_key] or (1000 + string.byte(base_key:sub(1, 1) or "z"))
 
-  if button:find("<[Ss]hift>") then
-    return order + 100
-  elseif button:find("<[Cc]trl>") then
-    return order + 200
+  local modifier_offset
+  if button:find("<[Cc]trl>") then
+    modifier_offset = MODIFIER_OFFSET.ctrl
+  elseif button:find("<[Ss]hift>") then
+    modifier_offset = MODIFIER_OFFSET.shift
   elseif button:find("<[^>]*>") then
-    return order + 300
+    modifier_offset = MODIFIER_OFFSET.other
   else
-    return order
+    modifier_offset = MODIFIER_OFFSET.none
   end
+
+  return base_order + modifier_offset
 end
 
 local function sortByKeyboardLayout(a, b)
-  local order_a, order_b =
-    getKeyboardOrder(a.buttons[1] or ""), getKeyboardOrder(b.buttons[1] or "")
-  return order_a == order_b and a.description:lower() < b.description:lower() or order_a < order_b
+  local order_a = getKeyboardOrder(a.buttons[1] or "")
+  local order_b = getKeyboardOrder(b.buttons[1] or "")
+
+  if order_a ~= order_b then
+    return order_a < order_b
+  end
+
+  -- Same keyboard order, sort alphabetically by description
+  return a.description:lower() < b.description:lower()
 end
 
 local function generateKeybindingsDocs()

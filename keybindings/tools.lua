@@ -32,7 +32,7 @@ return {
     buttons = { "<Shift>w" },
     modes = { "tool" },
     call = function()
-      ClickLaserPen()
+      api.ClickLaserPen()
     end,
   },
   laserHighlighter = {

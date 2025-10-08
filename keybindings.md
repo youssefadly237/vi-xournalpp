@@ -15,11 +15,11 @@
 * Pink: `q`
 * White: `w`
 * Red: `r`
+* Refresh color keybindings: `<Ctrl>r`
 * Black: `x`
 * Cyan: `c`
 * Green: `g`
 * Blue: `b`
-* Refresh color keybindings: `<Ctrl>r`
 * Orange: `o`
 * Purple: `p`, `a`
 * Yellow: `y`
@@ -42,45 +42,45 @@
 * Quit: `q`
 * New: `w`
 * Export as PDF: `e`
+* Export as: `<Shift>e`
 * Open: `r`
 * Annotate PDF: `a`
 * Save: `s`
-* Print: `d`
-* Export as: `<Shift>e`
 * Save As: `<Shift>s`
+* Print: `d`
 
 ## mode mode
 
 ![Mode Mode Keyboard](docs/keyboards/mode_keyboard.svg)
 
 * Page Mode: `q`
-* Layer Mode: `w`
-* Edit Mode: `e`
-* Shape Mode: `s`
-* File Mode: `f`
-* Color Mode: `c`
-* Navigation Mode: `v`
-* Tool Mode: `t`, `Tab`
 * Sticky Page Mode: `<Shift>q`
+* Layer Mode: `w`
 * Sticky Layer Mode: `<Shift>w`
+* Edit Mode: `e`
 * Sticky Edit Mode: `<Shift>e`
+* Shape Mode: `s`
 * Sticky Shape Mode: `<Shift>s`
+* File Mode: `f`
 * Sticky File Mode: `<Shift>f`
+* Color Mode: `c`
 * Sticky Color Mode: `<Shift>c`
+* Navigation Mode: `v`
 * Sticky Navigation Mode: `<Shift>v`
+* Tool Mode: `t`, `Tab`
 
 ## navigation mode
 
 ![Navigation Mode Keyboard](docs/keyboards/navigation_keyboard.svg)
 
+* Scroll Page Down: `<Ctrl>d`
 * Go to Top: `g`
 * Go to Bottom: `<Shift>g`
-* Scroll Page Down: `<Ctrl>d`
 * Layer Down: `j`
 * Layer Up: `k`
+* Scroll Page Up: `<Ctrl>u`
 * Zoom Out: `<Ctrl>minus`
 * Zoom In: `<Ctrl>plus`
-* Scroll Page Up: `<Ctrl>u`
 
 ## page mode
 
@@ -91,14 +91,14 @@
 * Copy Page: `c`
 * Graph Background: `g`
 * Isometric Graph Background: `i`
+* Isometric Dotted Graph Background: `<Shift>i`
 * Move Page Down: `j`
 * Move Page Up: `k`
 * New Layer: `l`
 * New Page After (Quick Access): `m`
 * New Page After: `o`
-* Plain Background: `p`
-* Isometric Dotted Graph Background: `<Shift>i`
 * New Page Before: `<Shift>o`
+* Plain Background: `p`
 
 ## shape mode
 
@@ -109,6 +109,7 @@
 * Ellipse: `e`
 * Rectangle: `r`
 * Arrow: `a`
+* Double Arrow: `<Shift>a`
 * Spline: `s`
 * Shape Detector: `d`
 * Fill: `f`
@@ -116,12 +117,11 @@
 * Set square (triangle): `x`
 * Deselect all shape tools: `c`
 * Pen fill opacity: `v`
+* Highlighter fill opacity: `<Shift>v`
 * Vertical Space: `t`
 * Grid snipping: `g`
-* Rotation snipping: `b`
-* Double Arrow: `<Shift>a`
-* Highlighter fill opacity: `<Shift>v`
 * Grid snipping off: `<Shift>g`
+* Rotation snipping: `b`
 * Rotation snipping off: `<Shift>b`
 
 ## tool mode
@@ -130,25 +130,25 @@
 
 * Previous Color: `q`
 * Pen: `w`
+* Laser Pen: `<Shift>w`
 * Eraser: `e`
 * Next Color: `r`
 * Cycle Linestyle: `a`
+* Set Plain Linestyle: `<Shift>a`
 * Rectangle Selection: `s`
+* Lasso Selection: `<Shift>s`
 * Select Linear Text: `d`
+* Hand (Scroll): `<Shift>d`
 * Highlighter: `f`
+* Laser Highlighter: `<Shift>f`
 * Undo: `z`
+* Redo: `<shift>z`
 * Cut: `x`
+* Delete: `<Shift>x`
 * Copy: `c`
 * Paste: `v`
 * Fine: `t`
+* Very Fine: `<Shift>t`
 * Medium: `g`
 * Thick: `b`
-* Laser Pen: `<Shift>w`
-* Set Plain Linestyle: `<Shift>a`
-* Lasso Selection: `<Shift>s`
-* Hand (Scroll): `<Shift>d`
-* Laser Highlighter: `<Shift>f`
-* Redo: `<shift>z`
-* Delete: `<Shift>x`
-* Very Fine: `<Shift>t`
 * Very Thick: `<Shift>b`
