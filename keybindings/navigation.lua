@@ -6,49 +6,37 @@ return {
     description = "Go to Top",
     buttons = { "g" },
     modes = { "navigation" },
-    call = function()
-      api.ClickGoToFirstPage()
-    end,
+    call = api.ClickGoToFirstPage,
   },
   goToBottom = {
     description = "Go to Bottom",
     buttons = { "<Shift>g" },
     modes = { "navigation" },
-    call = function()
-      api.ClickGoToLastPage()
-    end,
+    call = api.ClickGoToLastPage,
   },
   scrollPageDown = {
     description = "Scroll Page Down",
     buttons = { "<Ctrl>d" },
     modes = { "navigation" },
-    call = function()
-      api.ClickScrollPageDown()
-    end,
+    call = api.ClickScrollPageDown,
   },
   scrollPageUp = {
     description = "Scroll Page Up",
     buttons = { "<Ctrl>u" },
     modes = { "navigation" },
-    call = function()
-      api.ClickScrollPageUp()
-    end,
+    call = api.ClickScrollPageUp,
   },
   -- Zoom functions
   zoomIn = {
     description = "Zoom In",
     buttons = { "<Ctrl>plus" },
     modes = { "navigation" },
-    call = function()
-      api.ClickZoomIn()
-    end,
+    call = api.ClickZoomIn,
   },
   zoomOut = {
     description = "Zoom Out",
     buttons = { "<Ctrl>minus" },
     modes = { "navigation" },
-    call = function()
-      api.ClickZoomOut()
-    end,
+    call = api.ClickZoomOut,
   },
 }

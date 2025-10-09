@@ -6,49 +6,37 @@ return {
     description = "Copy Page",
     buttons = { "c" },
     modes = { "page" },
-    call = function()
-      api.ClickCopyPage()
-    end,
+    call = api.ClickCopyPage,
   },
   moveUp = {
     description = "Move Page Up",
     buttons = { "k" },
     modes = { "page" },
-    call = function()
-      api.ClickMoveUp()
-    end,
+    call = api.ClickMoveUp,
   },
   moveDown = {
     description = "Move Page Down",
     buttons = { "j" },
     modes = { "page" },
-    call = function()
-      api.ClickMoveDown()
-    end,
+    call = api.ClickMoveDown,
   },
   newBefore = {
     description = "New Page Before",
     buttons = { "<Shift>o" },
     modes = { "page" },
-    call = function()
-      api.ClickNewBefore()
-    end,
+    call = api.ClickNewBefore,
   },
   newAfter = {
     description = "New Page After",
     buttons = { "o" },
     modes = { "page" },
-    call = function()
-      api.ClickNewAfter()
-    end,
+    call = api.ClickNewAfter,
   },
   newLayer = {
     description = "New Layer",
     buttons = { "l" },
     modes = { "page" },
-    call = function()
-      api.ClickNewLayer()
-    end,
+    call = api.ClickNewLayer,
   },
 
   -- Background types
@@ -56,49 +44,37 @@ return {
     description = "Ruled Background",
     buttons = { "r" },
     modes = { "page" },
-    call = function()
-      api.ClickRuledBG()
-    end,
+    call = api.ClickRuledBG,
   },
   graphBG = {
     description = "Graph Background",
     buttons = { "g" },
     modes = { "page" },
-    call = function()
-      api.ClickGraphBG()
-    end,
+    call = api.ClickGraphBG,
   },
   isoGraphBG = {
     description = "Isometric Graph Background",
     buttons = { "i" },
     modes = { "page" },
-    call = function()
-      api.ClickIsometricGraphBG()
-    end,
+    call = api.ClickIsometricGraphBG,
   },
   dottedGraphBG = {
     description = "Dotted Graph Background",
     buttons = { "d" },
     modes = { "page" },
-    call = function()
-      api.ClickDottedGraphBG()
-    end,
+    call = api.ClickDottedGraphBG,
   },
   isodottedGraphBG = {
     description = "Isometric Dotted Graph Background",
     buttons = { "<Shift>i" },
     modes = { "page" },
-    call = function()
-      api.ClickIsometricDottedGraphBG()
-    end,
+    call = api.ClickIsometricDottedGraphBG,
   },
   plainBG = {
     description = "Plain Background",
     buttons = { "p" },
     modes = { "page" },
-    call = function()
-      api.ClickPlainBG()
-    end,
+    call = api.ClickPlainBG,
   },
 
   -- Quick access from tool mode
@@ -106,8 +82,6 @@ return {
     description = "New Page After (Quick Access)",
     buttons = { "m" },
     modes = { "page" },
-    call = function()
-      api.ClickNewAfter()
-    end,
+    call = api.ClickNewAfter,
   },
 }

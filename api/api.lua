@@ -145,54 +145,50 @@ function ClickVerticalSpace()
   app.changeActionState("select-tool", app.C.Tool_verticalSpace)
 end
 
-function ClickGridSnapping(enabled)
-  app.changeActionState("grid-snapping", enabled)
+function ClickGridSnapping()
+  app.activateAction("grid-snapping")
 end
 
-function ClickRotationSnapping(enabled)
-  app.changeActionState("rotation-snapping", enabled)
+function ClickRotationSnapping()
+  app.activateAction("rotation-snapping")
 end
 
 -- Shape
-function ClickLine(enabled)
-  app.activateAction("tool-draw-line", enabled)
+function ClickLine()
+  app.activateAction("tool-draw-line")
 end
 
-function ClickArrow(enabled)
-  app.activateAction("tool-draw-arrow", enabled)
+function ClickArrow()
+  app.activateAction("tool-draw-arrow")
 end
 
-function ClickDoubleArrow(enabled)
-  app.activateAction("tool-draw-double-arrow", enabled)
+function ClickDoubleArrow()
+  app.activateAction("tool-draw-double-arrow")
 end
 
-function ClickEllipse(enabled)
-  app.activateAction("tool-draw-ellipse", enabled)
+function ClickEllipse()
+  app.activateAction("tool-draw-ellipse")
 end
 
-function ClickRectangle(enabled)
-  app.activateAction("tool-draw-rectangle", enabled)
+function ClickRectangle()
+  app.activateAction("tool-draw-rectangle")
 end
 
-function ClickSpline(enabled)
-  app.activateAction("tool-draw-spline", enabled)
+function ClickSpline()
+  app.activateAction("tool-draw-spline")
 end
 
-function ClickCoordinateSystem(enabled)
-  app.activateAction("tool-draw-coordinate-system", enabled)
+function ClickCoordinateSystem()
+  app.activateAction("tool-draw-coordinate-system")
 end
 
-function ClickShapeRecognizer(enabled)
-  app.activateAction("tool-draw-shape-recognizer", enabled)
+function ClickShapeRecognizer()
+  app.activateAction("tool-draw-shape-recognizer")
 end
 
 -- fills
-function ClickFill(enabled)
-  if enabled ~= nil then
-    app.activateAction("tool-fill", enabled)
-  else
-    app.activateAction("tool-fill")
-  end
+function ClickFill()
+  app.activateAction("tool-fill")
 end
 
 function ClickPenFillOpacity()

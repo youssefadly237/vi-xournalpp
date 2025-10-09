@@ -49,6 +49,13 @@
 * Save As: `<Shift>s`
 * Print: `d`
 
+## layer mode
+
+![Layer Mode Keyboard](docs/keyboards/layer_keyboard.svg)
+
+* Layer Up: `w`
+* Layer Down: `s`
+
 ## mode mode
 
 ![Mode Mode Keyboard](docs/keyboards/mode_keyboard.svg)
@@ -112,9 +119,7 @@
 * Highlighter fill opacity: `<Shift>v`
 * Vertical Space: `t`
 * Grid snipping: `g`
-* Grid snipping off: `<Shift>g`
 * Rotation snipping: `b`
-* Rotation snipping off: `<Shift>b`
 
 ## sticky_select mode
 

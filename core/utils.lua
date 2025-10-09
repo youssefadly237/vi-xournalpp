@@ -16,34 +16,36 @@ local linestyles = {
 }
 
 function utils.cleanShape()
-  local drawingTypeToAction = {
-    ["drawLine"] = "tool-draw-line",
-    ["drawArrow"] = "tool-draw-arrow",
-    ["drawDoubleArrow"] = "tool-draw-double-arrow",
-    ["drawRectangle"] = "tool-draw-rectangle",
-    ["drawCircle"] = "tool-draw-ellipse",
-    ["drawCoordinateSystem"] = "tool-draw-coordinate-system",
-    ["drawSpline"] = "tool-draw-spline",
-    ["shapeRecognizer"] = "tool-draw-shape-recognizer",
+  local drawingTypeActions = {
+    "tool-draw-line",
+    "tool-draw-arrow",
+    "tool-draw-double-arrow",
+    "tool-draw-rectangle",
+    "tool-draw-ellipse",
+    "tool-draw-coordinate-system",
+    "tool-draw-spline",
+    "tool-draw-shape-recognizer",
   }
 
-  local success, toolInfo = pcall(app.getToolInfo, "active")
-  if success and toolInfo and toolInfo.drawingType and toolInfo.drawingType ~= "default" then
-    local actionName = drawingTypeToAction[toolInfo.drawingType]
-    if actionName then
-      pcall(app.activateAction, actionName, false)
+  for _, actionName in ipairs(drawingTypeActions) do
+    local stateSuccess, currentState = pcall(app.getActionState, actionName)
+    if stateSuccess and currentState == true then
+      pcall(app.activateAction, actionName)
     end
   end
 
-  pcall(app.activateAction, "tool-fill", false)
+  local fillSuccess, fillState = pcall(app.getActionState, "tool-fill")
+  if fillSuccess and fillState == true then
+    pcall(app.activateAction, "tool-fill")
+  end
 
-  local success, compassState = pcall(app.getActionState, "compass")
-  if success and compassState == true then
+  local successCompass, compassState = pcall(app.getActionState, "compass")
+  if successCompass and compassState == true then
     pcall(app.activateAction, "compass")
   end
 
-  local success2, setsquareState = pcall(app.getActionState, "setsquare")
-  if success2 and setsquareState == true then
+  local successSetsquare, setsquareState = pcall(app.getActionState, "setsquare")
+  if successSetsquare and setsquareState == true then
     pcall(app.activateAction, "setsquare")
   end
 end

@@ -62,7 +62,6 @@ end
 
 function runtime.printReport(results)
   print("[vi-xournalpp] Runtime Compatibility Check")
-  print()
 
   if results.is_compatible then
     print("[vi-xournalpp] Compatible Xournal++ version detected")

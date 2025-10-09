@@ -7,152 +7,102 @@ return {
     description = "Ruler",
     buttons = { "q" },
     modes = { "shape" },
-    call = function()
-      api.ClickLine(true)
-    end,
+    call = api.ClickLine,
   },
   coordinateSystem = {
     description = "Coordinate system",
     buttons = { "w" },
     modes = { "shape" },
-    call = function()
-      api.ClickCoordinateSystem(true)
-    end,
+    call = api.ClickCoordinateSystem,
   },
   arrow = {
     description = "Arrow",
     buttons = { "a" },
     modes = { "shape" },
-    call = function()
-      api.ClickArrow(true)
-    end,
+    call = api.ClickArrow,
   },
   doubleArrow = {
     description = "Double Arrow",
     buttons = { "<Shift>a" },
     modes = { "shape" },
-    call = function()
-      api.ClickDoubleArrow(true)
-    end,
+    call = api.ClickDoubleArrow,
   },
   rectangle = {
     description = "Rectangle",
     buttons = { "r" },
     modes = { "shape" },
-    call = function()
-      api.ClickRectangle(true)
-    end,
+    call = api.ClickRectangle,
   },
   ellipse = {
     description = "Ellipse",
     buttons = { "e" },
     modes = { "shape" },
-    call = function()
-      api.ClickEllipse(true)
-    end,
+    call = api.ClickEllipse,
   },
   spline = {
     description = "Spline",
     buttons = { "s" },
     modes = { "shape" },
-    call = function()
-      api.ClickSpline(true)
-    end,
+    call = api.ClickSpline,
   },
   ShapeRecognizer = {
     description = "Shape Detector",
     buttons = { "d" },
     modes = { "shape" },
-    call = function()
-      api.ClickShapeRecognizer(true)
-    end,
+    call = api.ClickShapeRecognizer,
   },
   fill = {
     description = "Fill",
     buttons = { "f" },
     modes = { "shape" },
-    call = function()
-      api.ClickFill()
-    end,
+    call = api.ClickFill,
   },
   penFillOpacity = {
     description = "Pen fill opacity",
     buttons = { "v" },
     modes = { "shape" },
-    call = function()
-      api.ClickPenFillOpacity()
-    end,
+    call = api.ClickPenFillOpacity,
   },
   highlighterFillOpacity = {
     description = "Highlighter fill opacity",
     buttons = { "<Shift>v" },
     modes = { "shape" },
-    call = function()
-      api.ClickHighlighterFillOpacity()
-    end,
+    call = api.ClickHighlighterFillOpacity,
   },
   cleanShape = {
     description = "Deselect all shape tools",
     buttons = { "c" },
     modes = { "shape" },
-    call = function()
-      utils.cleanShape()
-    end,
+    call = utils.cleanShape,
   },
   protractor = {
     description = "Protractor",
     buttons = { "z" },
     modes = { "shape" },
-    call = function()
-      api.ClickProtractor()
-    end,
+    call = api.ClickProtractor,
   },
   setsquare = {
     description = "Set square (triangle)",
     buttons = { "x" },
     modes = { "shape" },
-    call = function()
-      api.ClickSetsquare()
-    end,
+    call = api.ClickSetsquare,
   },
   verticalSpace = {
     description = "Vertical Space",
     buttons = { "t" },
     modes = { "shape" },
-    call = function()
-      api.ClickVerticalSpace()
-    end,
+    call = api.ClickVerticalSpace,
   },
   gridSnip = {
     description = "Grid snipping",
     buttons = { "g" },
     modes = { "shape" },
-    call = function()
-      api.ClickGridSnapping(true)
-    end,
+    call = api.ClickGridSnapping,
   },
   rotateSnip = {
     description = "Rotation snipping",
     buttons = { "b" },
     modes = { "shape" },
-    call = function()
-      api.ClickRotationSnapping(true)
-    end,
-  },
-  gridSnipOff = {
-    description = "Grid snipping off",
-    buttons = { "<Shift>g" },
-    modes = { "shape" },
-    call = function()
-      api.ClickGridSnapping(false)
-    end,
-  },
-  rotateSnipoff = {
-    description = "Rotation snipping off",
-    buttons = { "<Shift>b" },
-    modes = { "shape" },
-    call = function()
-      api.ClickRotationSnapping(false)
-    end,
+    call = api.ClickRotationSnapping,
   },
 }

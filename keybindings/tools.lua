@@ -7,49 +7,37 @@ return {
     description = "Pen",
     buttons = { "w" },
     modes = { "tool" },
-    call = function()
-      api.ClickPen()
-    end,
+    call = api.ClickPen,
   },
   eraser = {
     description = "Eraser",
     buttons = { "e" },
     modes = { "tool" },
-    call = function()
-      api.ClickEraser()
-    end,
+    call = api.ClickEraser,
   },
   highlighter = {
     description = "Highlighter",
     buttons = { "f" },
     modes = { "tool" },
-    call = function()
-      api.ClickHighlighter()
-    end,
+    call = api.ClickHighlighter,
   },
   laserPen = {
     description = "Laser Pen",
     buttons = { "<Shift>w" },
     modes = { "tool" },
-    call = function()
-      api.ClickLaserPen()
-    end,
+    call = api.ClickLaserPen,
   },
   laserHighlighter = {
     description = "Laser Highlighter",
     buttons = { "<Shift>f" },
     modes = { "tool" },
-    call = function()
-      api.ClickLaserHighlighter()
-    end,
+    call = api.ClickLaserHighlighter,
   },
   hand = {
     description = "Hand (Scroll)",
     buttons = { "<Shift>d" },
     modes = { "tool" },
-    call = function()
-      api.ClickHand()
-    end,
+    call = api.ClickHand,
   },
 
   -- Color cycling
@@ -57,17 +45,13 @@ return {
     description = "Next Color",
     buttons = { "r" },
     modes = { "tool" },
-    call = function()
-      utils.nextColor()
-    end,
+    call = utils.nextColor,
   },
   previousColor = {
     description = "Previous Color",
     buttons = { "q" },
     modes = { "tool" },
-    call = function()
-      utils.previousColor()
-    end,
+    call = utils.previousColor,
   },
 
   -- Basic Selection
@@ -75,25 +59,19 @@ return {
     description = "Rectangle Selection",
     buttons = { "s" },
     modes = { "tool" },
-    call = function()
-      api.ClickSelectRectangle()
-    end,
+    call = api.ClickSelectRectangle,
   },
   selection = {
     description = "Lasso Selection",
     buttons = { "<Shift>s" },
     modes = { "tool" },
-    call = function()
-      api.ClickSelectRegion()
-    end,
+    call = api.ClickSelectRegion,
   },
   selectTextLinear = {
     description = "Select Linear Text",
     buttons = { "d" },
     modes = { "tool" },
-    call = function()
-      api.ClickSelectTextLinear()
-    end,
+    call = api.ClickSelectTextLinear,
   },
 
   -- Edit (Bottom Row)
@@ -101,49 +79,37 @@ return {
     description = "Undo",
     buttons = { "z" },
     modes = { "tool" },
-    call = function()
-      api.ClickUndo()
-    end,
+    call = api.ClickUndo,
   },
   redo = {
     description = "Redo",
     buttons = { "<shift>z" },
     modes = { "tool" },
-    call = function()
-      api.ClickRedo()
-    end,
+    call = api.ClickRedo,
   },
   cut = {
     description = "Cut",
     buttons = { "x" },
     modes = { "tool" },
-    call = function()
-      api.ClickCut()
-    end,
+    call = api.ClickCut,
   },
   delete = {
     description = "Delete",
     buttons = { "<Shift>x" },
     modes = { "tool" },
-    call = function()
-      api.ClickDelete()
-    end,
+    call = api.ClickDelete,
   },
   copy = {
     description = "Copy",
     buttons = { "c" },
     modes = { "tool" },
-    call = function()
-      api.ClickCopy()
-    end,
+    call = api.ClickCopy,
   },
   paste = {
     description = "Paste",
     buttons = { "v" },
     modes = { "tool" },
-    call = function()
-      api.ClickPaste()
-    end,
+    call = api.ClickPaste,
   },
 
   -- Linestyle cycling
@@ -151,17 +117,13 @@ return {
     description = "Cycle Linestyle",
     buttons = { "a" },
     modes = { "tool" },
-    call = function()
-      utils.cycleLinestyle()
-    end,
+    call = utils.cycleLinestyle,
   },
   setPlainLinestyle = {
     description = "Set Plain Linestyle",
     buttons = { "<Shift>a" },
     modes = { "tool" },
-    call = function()
-      utils.setPlainLinestyle()
-    end,
+    call = utils.setPlainLinestyle,
   },
 
   -- Thickness (T t g b B)
@@ -169,40 +131,30 @@ return {
     description = "Very Fine",
     buttons = { "<Shift>t" },
     modes = { "tool" },
-    call = function()
-      api.ClickVeryFine()
-    end,
+    call = api.ClickVeryFine,
   },
   fine = {
     description = "Fine",
     buttons = { "t" },
     modes = { "tool" },
-    call = function()
-      api.ClickFine()
-    end,
+    call = api.ClickFine,
   },
   medium = {
     description = "Medium",
     buttons = { "g" },
     modes = { "tool" },
-    call = function()
-      api.ClickMedium()
-    end,
+    call = api.ClickMedium,
   },
   thick = {
     description = "Thick",
     buttons = { "b" },
     modes = { "tool" },
-    call = function()
-      api.ClickThick()
-    end,
+    call = api.ClickThick,
   },
   veryThick = {
     description = "Very Thick",
     buttons = { "<Shift>b" },
     modes = { "tool" },
-    call = function()
-      api.ClickVeryThick()
-    end,
+    call = api.ClickVeryThick,
   },
 }

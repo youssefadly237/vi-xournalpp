@@ -6,72 +6,54 @@ return {
     description = "Annotate PDF",
     buttons = { "a" },
     modes = { "file" },
-    call = function()
-      api.ClickAnnotatePDF()
-    end,
+    call = api.ClickAnnotatePDF,
   },
   exportAsPDF = {
     description = "Export as PDF",
     buttons = { "e" },
     modes = { "file" },
-    call = function()
-      api.ClickExportAsPDF()
-    end,
+    call = api.ClickExportAsPDF,
   },
   exportAs = {
     description = "Export as",
     buttons = { "<Shift>e" },
     modes = { "file" },
-    call = function()
-      api.ClickExportAsPDF()
-    end,
+    call = api.ClickExportAsPDF,
   },
   print = {
     description = "Print",
     buttons = { "d" },
     modes = { "file" },
-    call = function()
-      api.ClickExportAsPDF()
-    end,
+    call = api.ClickExportAsPDF,
   },
   save = {
     description = "Save",
     buttons = { "s" },
     modes = { "file" },
-    call = function()
-      api.ClickSave()
-    end,
+    call = api.ClickSave,
   },
   saveAs = {
     description = "Save As",
     buttons = { "<Shift>s" },
     modes = { "file" },
-    call = function()
-      api.ClickSave()
-    end,
+    call = api.ClickSave,
   },
   new = {
     description = "New",
     buttons = { "w" },
     modes = { "file" },
-    call = function()
-      api.ClickNew()
-    end,
+    call = api.ClickNew,
   },
   open = {
     description = "Open",
     buttons = { "r" },
     modes = { "file" },
-    call = function()
-      api.ClickOpen()
-    end,
+    call = api.ClickOpen,
   },
   quit = {
     description = "Quit",
     buttons = { "q" },
     modes = { "file" },
-    call = function()
-      api.ClickQuit()
-    end,
+    call = api.ClickQuit,
   },
 }
