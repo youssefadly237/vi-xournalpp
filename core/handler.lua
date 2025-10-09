@@ -62,6 +62,12 @@ function handler.modeMatches(mode_list, current_mode)
   return false
 end
 
+local all_buttons = {}
+
+function ViKey(mode)
+  handler.handle(all_buttons[mode])
+end
+
 function handler.registerKeybindings(keybindings)
   local index = 1
   local registered_keys = {}
@@ -69,15 +75,13 @@ function handler.registerKeybindings(keybindings)
   for _, binding in pairs(keybindings) do
     for _, button in pairs(binding.buttons) do
       if not registered_keys[button] then
-        local functionName = "viKey" .. index
-        _G[functionName] = function()
-          Handle(button)
-        end
+        all_buttons[index] = button
 
         app.registerUi({
           menu = "Vi-key: " .. button,
-          callback = functionName,
+          callback = "ViKey",
           accelerator = button,
+          mode = index,
         })
 
         registered_keys[button] = true
