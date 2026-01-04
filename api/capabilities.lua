@@ -1,10 +1,8 @@
 -- Capability checking system for dependency-based function resolution
 -- This module checks which APIs and constants are available at runtime
--- Results are cached once at initialization for zero runtime overhead
+-- Results are cached once at initialization
 
 local capabilities = {}
-
--- Cache for capability checks (computed once at initialization)
 local capability_cache = nil
 
 -- Helper: Check if an app.* function exists
@@ -161,7 +159,7 @@ function capabilities.printCoverageSummary()
   )
 end
 
--- Check if a specific capability is available
+-- Check if a capability is available
 -- Capability can be:
 --   - An app.* function name (e.g., 'activateAction')
 --   - An app.C.* constant (e.g., 'app.C.Tool_pen')
@@ -185,6 +183,27 @@ function capabilities.hasAllCapabilities(capability_list)
     end
   end
   return true
+end
+
+-- Validate registry dependencies and warn about unknown capabilities
+function capabilities.validateRegistry(registry)
+  local cache = capability_cache or initCapabilityCache()
+  for func_name, implementations in pairs(registry) do
+    for i, impl_spec in ipairs(implementations) do
+      for _, dep in ipairs(impl_spec.deps) do
+        if cache[dep] == nil then
+          print(
+            '[vi-xournalpp] WARNING: Unknown dependency "'
+              .. dep
+              .. '" in '
+              .. func_name
+              .. ' implementation #'
+              .. i
+          )
+        end
+      end
+    end
+  end
 end
 
 return capabilities

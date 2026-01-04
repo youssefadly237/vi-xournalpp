@@ -7,7 +7,12 @@ local legacy = require('api.legacy')
 local function unsupported(func_name)
   return function()
     print('[vi-xournalpp] ERROR: ' .. func_name .. '() is not supported on this Xournal++ version')
-    print('[vi-xournalpp] Please update to Xournal++ 1.2.8+dev or later')
+    print('[vi-xournalpp] Please update Xournal++ to use this feature.')
+    print('[vi-xournalpp] Installation guide: https://xournalpp.github.io/installation/')
+    print('[vi-xournalpp] Releases: https://github.com/xournalpp/xournalpp/releases')
+    print(
+      '[vi-xournalpp] Nightly builds: https://github.com/xournalpp/xournalpp/releases/tag/nightly'
+    )
   end
 end
 
@@ -24,6 +29,7 @@ end
 local api = {}
 
 print('[vi-xournalpp] Resolving API functions...')
+capabilities.validateRegistry(registry)
 
 for func_name, implementations in pairs(registry) do
   api[func_name] = resolveFunction(func_name, implementations)

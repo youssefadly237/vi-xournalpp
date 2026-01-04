@@ -33,6 +33,7 @@ local wrapper = require('api.wrapper')
 --   deps: array of capability names required for this implementation
 
 return {
+  -- tools
   pen = {
     {
       impl = wrapper.pen,
@@ -53,4 +54,33 @@ return {
       deps = { 'uiAction' },
     },
   },
+  -- line thickness
+  veryFine = {
+    {
+      impl = wrapper.veryFine,
+      deps = { 'changeActionState', 'app.C.ToolSize_veryThin' },
+    },
+    { impl = legacy.veryFine, deps = { 'uiAction' } },
+  },
+  fine = {
+    { impl = wrapper.fine, deps = { 'changeActionState', 'app.C.ToolSize_thin' } },
+    { impl = legacy.fine, deps = { 'uiAction' } },
+  },
+  medium = {
+    { impl = wrapper.medium, deps = { 'changeActionState', 'app.C.ToolSize_medium' } },
+    { impl = legacy.medium, deps = { 'uiAction' } },
+  },
+  thick = {
+    { impl = wrapper.thick, deps = { 'changeActionState', 'app.C.ToolSize_thick' } },
+    { impl = legacy.thick, deps = { 'uiAction' } },
+  },
+  veryThick = {
+    { impl = wrapper.veryThick, deps = { 'changeActionState', 'app.C.ToolSize_veryThick' } },
+    { impl = legacy.veryThick, deps = { 'uiAction' } },
+  },
+
+  -- name = {
+  --  { impl = function() end, deps = {} },
+  --  { impl = function() end, deps = {} },
+  -- },
 }
